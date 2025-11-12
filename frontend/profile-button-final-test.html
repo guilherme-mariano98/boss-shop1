@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Final do Botão de Perfil</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .test-section {
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .test-button {
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        
+        .test-button:hover {
+            background-color: #333333;
+        }
+        
+        .status-success {
+            color: #00aa00;
+            font-weight: bold;
+        }
+        
+        .status-error {
+            color: #ff4444;
+            font-weight: bold;
+        }
+        
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #000000;
+            font-size: 14px;
+        }
+        
+        .nav-icon i {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Teste Final do Botão de Perfil</h1>
+        
+        <div class="test-section">
+            <h2>Simulação da Barra de Navegação</h2>
+            <div class="nav-icons">
+                <a href="login.html" class="nav-icon" id="userIcon">
+                    <i class="fas fa-user"></i>
+                    <span id="userText">Entrar</span>
+                </a>
+                <a href="favorites.html" class="nav-icon">
+                    <i class="fas fa-heart"></i>
+                    <span>Favoritos</span>
+                </a>
+                <a href="purchase.html" class="nav-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Carrinho</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Controles de Teste</h2>
+            <button class="test-button" onclick="runAllTests()">Executar Todos os Testes</button>
+            <button class="test-button" onclick="simulateLogin()">Simular Login</button>
+            <button class="test-button" onclick="simulateLogout()">Simular Logout</button>
+        </div>
+        
+        <div class="test-section">
+            <h2>Resultados dos Testes</h2>
+            <div id="testResults">
+                Clique em "Executar Todos os Testes" para iniciar
+            </div>
+        </div>
+    </div>
+
+    <!-- Include auth-utils.js to test the functionality -->
+    <script src="auth-utils.js"></script>
+    
+    <script>
+        // Function to simulate login
+        function simulateLogin() {
+            const results = document.getElementById('testResults');
+            
+            // Set sample auth token
+            localStorage.setItem('authToken', 'sample-token-123');
+            
+            // Set sample user data
+            const sampleUser = {
+                id: 1,
+                username: 'joaosilva',
+                email: 'joao.silva@email.com',
+                first_name: 'João',
+                last_name: 'Silva',
+                date_joined: '2023-03-15T10:30:00Z'
+            };
+            
+            localStorage.setItem('user', JSON.stringify(sampleUser));
+            
+            // Update the user icon using auth-utils.js
+            updateUserIcon();
+            
+            results.innerHTML = `
+                <p class="status-success">Login simulado com sucesso!</p>
+                <p>O botão de perfil agora deve mostrar "João"</p>
+            `;
+        }
+        
+        // Function to simulate logout
+        function simulateLogout() {
+            const results = document.getElementById('testResults');
+            
+            // Clear auth data
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('user');
+            
+            // Update the user icon using auth-utils.js
+            updateUserIcon();
+            
+            results.innerHTML = `
+                <p class="status-success">Logout simulado com sucesso!</p>
+                <p>O botão de perfil agora deve mostrar "Entrar"</p>
+            `;
+        }
+        
+        // Function to test if auth-utils.js is properly loaded
+        function testAuthUtilsLoaded() {
+            if (typeof updateUserIcon === 'function') {
+                return { success: true, message: 'auth-utils.js carregado corretamente' };
+            } else {
+                return { success: false, message: 'auth-utils.js NÃO carregado ou função updateUserIcon não encontrada' };
+            }
+        }
+        
+        // Function to test user icon functionality
+        function testUserIconFunctionality() {
+            const userIcon = document.getElementById('userIcon');
+            const userText = document.getElementById('userText');
+            
+            if (!userIcon || !userText) {
+                return { success: false, message: 'Elementos userIcon ou userText não encontrados' };
+            }
+            
+            // Test with no auth data
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('user');
+            updateUserIcon();
+            
+            if (userText.textContent === 'Entrar') {
+                // Test with auth data
+                const sampleUser = {
+                    username: 'testuser',
+                    first_name: 'Teste'
+                };
+                
+                localStorage.setItem('authToken', 'test-token');
+                localStorage.setItem('user', JSON.stringify(sampleUser));
+                updateUserIcon();
+                
+                if (userText.textContent === 'Teste') {
+                    // Reset to original state
+                    localStorage.removeItem('authToken');
+                    localStorage.removeItem('user');
+                    updateUserIcon();
+                    
+                    return { success: true, message: 'Funcionalidade do botão de perfil funcionando corretamente' };
+                } else {
+                    // Reset to original state
+                    localStorage.removeItem('authToken');
+                    localStorage.removeItem('user');
+                    updateUserIcon();
+                    
+                    return { success: false, message: 'Botão de perfil não atualiza corretamente com dados de usuário' };
+                }
+            } else {
+                return { success: false, message: 'Botão de perfil não mostra "Entrar" quando deslogado' };
+            }
+        }
+        
+        // Function to run all tests
+        function runAllTests() {
+            const results = document.getElementById('testResults');
+            results.innerHTML = '<p>Executando testes...</p>';
+            
+            // Run tests
+            const authUtilsTest = testAuthUtilsLoaded();
+            const userIconTest = testUserIconFunctionality();
+            
+            // Display results
+            results.innerHTML = `
+                <h3>Resultados:</h3>
+                <p class="${authUtilsTest.success ? 'status-success' : 'status-error'}">
+                    ${authUtilsTest.message}
+                </p>
+                <p class="${userIconTest.success ? 'status-success' : 'status-error'}">
+                    ${userIconTest.message}
+                </p>
+                ${
+                    authUtilsTest.success && userIconTest.success 
+                    ? '<p class="status-success"><strong>Todos os testes passaram! O botão de perfil está funcionando corretamente em todas as páginas.</strong></p>' 
+                    : '<p class="status-error"><strong>Alguns testes falharam. Verifique a implementação.</strong></p>'
+                }
+            `;
+        }
+    </script>
+</body>
+</html>

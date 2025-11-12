@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roupas - BOSS SHOPP</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="header-links">
+                    <a href="#" class="header-link">Vendedor</a>
+                    <a href="#" class="header-link">Download</a>
+                    <a href="#" class="header-link">Conecte-se</a>
+                </div>
+                <div class="header-social">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="boss-shop-logo.png" alt="BOSS SHOPP" class="logo-image">
+</original_code>```
+
+```
+
+                    </a>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Busque por produtos, marcas e muito mais...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="nav-icons">
+                    <a href="login.html" class="nav-icon" id="userIcon">
+                        <i class="fas fa-user"></i>
+                        <span id="userText">Entrar</span>
+                    </a>
+                    <a href="#" class="nav-icon">
+                        <i class="fas fa-heart"></i>
+                        <span>Favoritos</span>
+                    </a>
+                    <a href="carrinho.html" class="nav-icon cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrinho</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Category Tabs -->
+    <section class="category-tabs">
+        <div class="container">
+            <div class="tabs-header">
+                <h2>Categorias em Destaque</h2>
+            </div>
+            <div class="tabs-container">
+                <button class="tab-btn" data-category="home">Início</button>
+                <button class="tab-btn" data-category="moda">Moda</button>
+                <button class="tab-btn" data-category="eletronicos">Eletrônicos</button>
+                <button class="tab-btn" data-category="casa">Casa</button>
+                <button class="tab-btn" data-category="games">Games</button>
+                <button class="tab-btn" data-category="esportes">Esportes</button>
+                <button class="tab-btn" data-category="infantil">Infantil</button>
+            </div>
+            
+            <!-- Tab Contents -->
+            <div class="tab-contents-container">
+                <div class="view-all-container">
+                    <p>Veja produtos de outras categorias clicando nas abas acima</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Home</a> > <a href="categoria-moda.html">Moda</a> > <span>Roupas</span>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="category-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Coleção de Roupas</h1>
+                    <p>Descubra nossa seleção premium de roupas para todas as ocasiões</p>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1484489330813-8c962e39245f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Coleção de Roupas" class="hero-banner">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="clothing-filters">
+        <div class="container">
+            <div class="filter-bar">
+                <div class="filter-group">
+                    <label for="categoryFilter">Categoria:</label>
+                    <select id="categoryFilter">
+                        <option value="all">Todas</option>
+                        <option value="camisetas">Camisetas</option>
+                        <option value="calcas">Calças</option>
+                        <option value="vestidos">Vestidos</option>
+                        <option value="jaquetas">Jaquetas</option>
+                        <option value="camisas">Camisas</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="sizeFilter">Tamanho:</label>
+                    <select id="sizeFilter">
+                        <option value="all">Todos</option>
+                        <option value="p">P</option>
+                        <option value="m">M</option>
+                        <option value="g">G</option>
+                        <option value="gg">GG</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="colorFilter">Cor:</label>
+                    <select id="colorFilter">
+                        <option value="all">Todas</option>
+                        <option value="preto">Preto</option>
+                        <option value="branco">Branco</option>
+                        <option value="azul">Azul</option>
+                        <option value="vermelho">Vermelho</option>
+                        <option value="cinza">Cinza</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="priceFilter">Preço:</label>
+                    <select id="priceFilter">
+                        <option value="all">Todos</option>
+                        <option value="0-50">Até R$ 50</option>
+                        <option value="50-100">R$ 50 - R$ 100</option>
+                        <option value="100-200">R$ 100 - R$ 200</option>
+                        <option value="200+">Acima de R$ 200</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="sortFilter">Ordenar por:</label>
+                    <select id="sortFilter">
+                        <option value="popular">Mais populares</option>
+                        <option value="price-low">Menor preço</option>
+                        <option value="price-high">Maior preço</option>
+                        <option value="rating">Melhor avaliados</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clothing Gallery -->
+    <section class="clothing-gallery">
+        <div class="container">
+            <div class="gallery-header">
+                <h2>Roupas em Destaque</h2>
+                <p>120 itens encontrados</p>
+            </div>
+            
+            <div class="clothing-grid">
+                <!-- Item 1 -->
+                <div class="clothing-item">
+                    <div class="item-badge">-20%</div>
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Camiseta Básica" class="clothing-img">
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="item-info">
+                        <div class="item-category">Camisetas</div>
+                        <h3>Camiseta Básica</h3>
+                        <div class="item-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(156)</span>
+                        </div>
+                        <div class="item-price">
+                            <span class="old-price">R$ 49,90</span>
+                            <span class="new-price">R$ 39,90</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Camiseta Básica', 39.90)">
+                            <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="clothing-item">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Calça Jeans Slim" class="clothing-img">
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="item-info">
+                        <div class="item-category">Calças</div>
+                        <h3>Calça Jeans Slim</h3>
+                        <div class="item-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(89)</span>
+                        </div>
+                        <div class="item-price">
+                            <span class="new-price">R$ 89,90</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Calça Jeans Slim', 89.90)">
+                            <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="clothing-item">
+                    <div class="item-badge">-15%</div>
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Camisa Social" class="clothing-img">
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="item-info">
+                        <div class="item-category">Camisas</div>
+                        <h3>Camisa Social</h3>
+                        <div class="item-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(63)</span>
+                        </div>
+                        <div class="item-price">
+                            <span class="old-price">R$ 79,90</span>
+                            <span class="new-price">R$ 67,90</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Camisa Social', 67.90)">
+                            <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="clothing-item">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Vestido Floral" class="clothing-img">
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="item-info">
+                        <div class="item-category">Vestidos</div>
+                        <h3>Vestido Floral</h3>
+                        <div class="item-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(124)</span>
+                        </div>
+                        <div class="item-price">
+                            <span class="new-price">R$ 129,90</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Vestido Floral', 129.90)">
+                            <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="clothing-item">
+                    <div class="item-badge">-25%</div>
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Jaqueta Jeans" class="clothing-img">
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="item-info">
+                        <div class="item-category">Jaquetas</div>
+                        <h3>Jaqueta Jeans</h3>
+                        <div class="item-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(78)</span>
+                        </div>
+                        <div class="item-price">
+                            <span class="old-price">R$ 149,90</span>
+                            <span class="new-price">R$ 112,40</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Jaqueta Jeans', 112.40)">
+                            <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="clothing-item">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1544441892-700560bb6719?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Calça Chino" class="clothing-img">
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="item-info">
+                        <div class="item-category">Calças</div>
+                        <h3>Calça Chino</h3>
+                        <div class="item-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(92)</span>
+                        </div>
+                        <div class="item-price">
+                            <span class="new-price">R$ 99,90</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Calça Chino', 99.90)">
+                            <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 7 -->
+                <div class="clothing-item">
+                    <div class="item-badge">-30%</div>
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1529361136673-9d7e40a3a88f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Camiseta Estampada" class="clothing-img">
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="item-info">
+                        <div class="item-category">Camisetas</div>
+                        <h3>Camiseta Estampada</h3>
+                        <div class="item-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(67)</span>
+                        </div>
+                        <div class="item-price">
+                            <span class="old-price">R$ 59,90</span>
+                            <span class="new-price">R$ 41,90</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Camiseta Estampada', 41.90)">
+                            <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 8 -->
+                <div class="clothing-item">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Vestido Longo" class="clothing-img">
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="item-info">
+                        <div class="item-category">Vestidos</div>
+                        <h3>Vestido Longo</h3>
+                        <div class="item-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(85)</span>
+                        </div>
+                        <div class="item-price">
+                            <span class="new-price">R$ 149,90</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Vestido Longo', 149.90)">
+                            <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 9 -->
+                <div class="clothing-item">
+                    <div class="item-badge">-10%</div>
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1591370874773-6702e8f12fd8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Blusa de Tricô" class="clothing-img">
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="item-info">
+                        <div class="item-category">Blusas</div>
+                        <h3>Blusa de Tricô</h3>
+                        <div class="item-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(76)</span>
+                        </div>
+                        <div class="item-price">
+                            <span class="old-price">R$ 79,90</span>
+                            <span class="new-price">R$ 71,90</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Blusa de Tricô', 71.90)">
+                            <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 10 -->
+                <div class="clothing-item">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1591047485247-50d308c02e42?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Shorts Jeans" class="clothing-img">
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="item-info">
+                        <div class="item-category">Shorts</div>
+                        <h3>Shorts Jeans</h3>
+                        <div class="item-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(112)</span>
+                        </div>
+                        <div class="item-price">
+                            <span class="new-price">R$ 69,90</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Shorts Jeans', 69.90)">
+                            <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 11 -->
+                <div class="clothing-item">
+                    <div class="item-badge">-20%</div>
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1591123120675-6f7f1aa7eb39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Suéter de Lã" class="clothing-img">
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="item-info">
+                        <div class="item-category">Suéteres</div>
+                        <h3>Suéter de Lã</h3>
+                        <div class="item-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(98)</span>
+                        </div>
+                        <div class="item-price">
+                            <span class="old-price">R$ 129,90</span>
+                            <span class="new-price">R$ 103,90</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Suéter de Lã', 103.90)">
+                            <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 12 -->
+                <div class="clothing-item">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1544441893-6366031a5593?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Macacão" class="clothing-img">
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="item-info">
+                        <div class="item-category">Conjuntos</div>
+                        <h3>Macacão</h3>
+                        <div class="item-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(87)</span>
+                        </div>
+                        <div class="item-price">
+                            <span class="new-price">R$ 139,90</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Macacão', 139.90)">
+                            <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="pagination-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <button class="pagination-btn">4</button>
+                <button class="pagination-btn">5</button>
+                <button class="pagination-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers Banner -->
+    <section class="special-offers">
+        <div class="container">
+            <div class="offer-content">
+                <h3>Especial para Você</h3>
+                <p>Descontos exclusivos em produtos de moda selecionados</p>
+                <button class="offer-btn">Ver Ofertas</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Detail Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content product-modal">
+            <span class="close" id="closeProductModal">&times;</span>
+            <div class="product-detail-content">
+                <!-- Product Images -->
+                <div class="product-images">
+                    <div class="main-image">
+                        <img id="modalProductImage" src="" alt="Product Image" class="product-detail-img">
+                    </div>
+                    <div class="thumbnail-images" id="modalThumbnails">
+                        <!-- Thumbnails will be populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info-detail">
+                    <h1 id="modalProductName"></h1>
+                    <div class="product-rating">
+                        <div class="rating-stars" id="modalProductRating">
+                            <!-- Rating stars will be populated dynamically -->
+                        </div>
+                        <div class="product-code">
+                            Código: <span id="modalProductCode"></span>
+                        </div>
+                    </div>
+
+                    <div class="product-price">
+                        <div class="price-container">
+                            <span class="old-price" id="modalOldPrice"></span>
+                            <span class="current-price" id="modalCurrentPrice"></span>
+                            <span class="discount" id="modalDiscount"></span>
+                        </div>
+                        <div class="installments" id="modalInstallments">
+                            <!-- Installments will be populated dynamically -->
+                        </div>
+                    </div>
+
+                    <div class="product-description">
+                        <h3>Descrição</h3>
+                        <p id="modalProductDescription"></p>
+                        
+                        <ul id="modalProductSpecs">
+                            <!-- Specifications will be populated dynamically -->
+                        </ul>
+                    </div>
+
+                    <div class="product-options">
+                        <div class="size-selector" id="modalSizeSelector">
+                            <h4>Tamanho</h4>
+                            <div class="size-options" id="modalSizeOptions">
+                                <!-- Size options will be populated dynamically -->
+                            </div>
+                        </div>
+
+                        <div class="quantity-selector">
+                            <h4>Quantidade</h4>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="decreaseModalQuantity()">-</button>
+                                <span class="quantity" id="modalQuantity">1</span>
+                                <button class="quantity-btn" onclick="increaseModalQuantity()">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="add-to-cart-btn" id="modalAddToCart">
+                            <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
+                        </button>
+                        <button class="buy-now-btn" id="modalBuyNow">
+                            <i class="fas fa-bolt"></i> Comprar Agora
+                        </button>
+                        <button class="wishlist-btn" id="modalWishlist">
+                            <i class="far fa-heart"></i> Adicionar aos Favoritos
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product Specifications and Reviews Tabs -->
+            <div class="product-specifications">
+                <div class="specifications-tabs">
+                    <button class="tab-btn active" onclick="showModalTab('specifications')">Especificações</button>
+                    <button class="tab-btn" onclick="showModalTab('reviews')">Avaliações (<span id="modalReviewCount">0</span>)</button>
+                    <button class="tab-btn" onclick="showModalTab('shipping')">Frete e Devolução</button>
+                </div>
+
+                <div class="tab-content active" id="modalSpecificationsTab">
+                    <table class="spec-table" id="modalSpecTable">
+                        <!-- Specifications table will be populated dynamically -->
+                    </table>
+                </div>
+
+                <div class="tab-content" id="modalReviewsTab">
+                    <div class="reviews-summary">
+                        <div class="rating-average">
+                            <div class="rating-value" id="modalAverageRating">0</div>
+                            <div class="rating-stars-large" id="modalRatingStars">
+                                <!-- Rating stars will be populated dynamically -->
+                            </div>
+                            <div class="reviews-count" id="modalTotalReviews">0 avaliações</div>
+                        </div>
+                        
+                        <div class="rating-distribution" id="modalRatingDistribution">
+                            <!-- Rating distribution will be populated dynamically -->
+                        </div>
+                    </div>
+
+                    <div class="recent-reviews">
+                        <h3>Últimas Avaliações</h3>
+                        <div id="modalRecentReviews">
+                            <!-- Reviews will be populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="modalShippingTab">
+                    <div class="shipping-content">
+                        <h3>Frete</h3>
+                        <ul>
+                            <li>Entrega em 3 a 7 dias úteis para todo o Brasil</li>
+                            <li>Frete grátis para pedidos acima de R$ 199,00</li>
+                            <li>Entrega expressa disponível em algumas regiões</li>
+                        </ul>
+
+                        <h3>Devolução</h3>
+                        <ul>
+                            <li>Prazo de 7 dias para devolução</li>
+                            <li>Produto deve estar em perfeitas condições, com etiquetas</li>
+                            <li>Reembolso em até 5 dias úteis após recebimento</li>
+                            <li>Frete de devolução por conta do cliente</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>BOSS SHOPP</h4>
+                    <p>Sua loja online com os melhores produtos e preços imperdíveis.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Atendimento</h4>
+                    <ul>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Como Comprar</a></li>
+                        <li><a href="#">Frete e Entrega</a></li>
+                        <li><a href="#">Devoluções</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Sobre</h4>
+                    <ul>
+                        <li><a href="#">Nossa História</a></li>
+                        <li><a href="#">Trabalhe Conosco</a></li>
+                        <li><a href="#">Imprensa</a></li>
+                        <li><a href="#">Investidores</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Pagamento</h4>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fas fa-money-bill"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 BOSS SHOPP. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Carrinho de Compras</h2>
+            <div id="cartItems"></div>
+            <div class="cart-total">
+                <strong>Total: R$ <span id="cartTotal">0,00</span></strong>
+            </div>
+            <button class="checkout-btn" onclick="window.location.href='purchase.html'">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Product data for clothing items
+        const productData = {
+            'Camiseta Básica': {
+                name: 'Camiseta Básica',
+                images: [
+                    'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'
+                ],
+                category: 'Camisetas',
+                rating: 4.5,
+                reviews: 156,
+                oldPrice: 49.90,
+                currentPrice: 39.90,
+                discount: 20,
+                description: 'Camiseta básica de algodão 100%, ideal para o uso diário. Modelo confortável e versátil que combina com qualquer look. Tecido de alta qualidade que não desbota com as lavagens.',
+                specs: {
+                    'Material': '100% Algodão',
+                    'Modelo': 'Básico',
+                    'Gênero': 'Unissex',
+                    'Cor': 'Branco',
+                    'Tamanhos': 'P, M, G, GG'
+                },
+                sizes: ['P', 'M', 'G', 'GG'],
+                code: 'CAM-BAS-001'
+            },
+            'Calça Jeans Slim': {
+                name: 'Calça Jeans Slim',
+                images: [
+                    'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'
+                ],
+                category: 'Calças',
+                rating: 4,
+                reviews: 89,
+                oldPrice: 0,
+                currentPrice: 89.90,
+                discount: 0,
+                description: 'Calça jeans slim com modelagem moderna e confortável. Confeccionada em tecido de algodão com elastano para maior conforto e mobilidade.',
+                specs: {
+                    'Material': '98% Algodão, 2% Elastano',
+                    'Modelo': 'Slim',
+                    'Gênero': 'Unissex',
+                    'Cor': 'Azul',
+                    'Tamanhos': '36, 38, 40, 42, 44'
+                },
+                sizes: ['36', '38', '40', '42', '44'],
+                code: 'CAL-JEAN-001'
+            },
+            'Camisa Social': {
+                name: 'Camisa Social',
+                images: [
+                    'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'
+                ],
+                category: 'Camisas',
+                rating: 4,
+                reviews: 63,
+                oldPrice: 79.90,
+                currentPrice: 67.90,
+                discount: 15,
+                description: 'Camisa social de algodão com modelagem slim. Ideal para ambientes formais e profissionais. Tecido leve e respirável com acabamento refinado.',
+                specs: {
+                    'Material': '100% Algodão',
+                    'Modelo': 'Social',
+                    'Gênero': 'Masculino',
+                    'Cor': 'Branco',
+                    'Tamanhos': 'P, M, G, GG'
+                },
+                sizes: ['P', 'M', 'G', 'GG'],
+                code: 'CAM-SOC-001'
+            },
+            'Vestido Floral': {
+                name: 'Vestido Floral',
+                images: [
+                    'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'
+                ],
+                category: 'Vestidos',
+                rating: 5,
+                reviews: 124,
+                oldPrice: 0,
+                currentPrice: 129.90,
+                discount: 0,
+                description: 'Vestido feminino com estampa floral. Modelo soltinho com mangas curtas e decote em V. Perfeito para ocasiões casuais e eventos leves.',
+                specs: {
+                    'Material': '100% Poliéster',
+                    'Modelo': 'Floral',
+                    'Gênero': 'Feminino',
+                    'Cor': 'Multicolorido',
+                    'Tamanhos': 'P, M, G, GG'
+                },
+                sizes: ['P', 'M', 'G', 'GG'],
+                code: 'VES-FLOR-001'
+            },
+            'Jaqueta Jeans': {
+                name: 'Jaqueta Jeans',
+                images: [
+                    'https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'
+                ],
+                category: 'Jaquetas',
+                rating: 4,
+                reviews: 78,
+                oldPrice: 149.90,
+                currentPrice: 112.40,
+                discount: 25,
+                description: 'Jaqueta jeans masculina com modelagem reta. Bolsos frontais e fechamento com botões. Peça versátil que combina com diversos looks.',
+                specs: {
+                    'Material': '100% Algodão',
+                    'Modelo': 'Jeans',
+                    'Gênero': 'Masculino',
+                    'Cor': 'Azul',
+                    'Tamanhos': 'M, G, GG, XG'
+                },
+                sizes: ['M', 'G', 'GG', 'XG'],
+                code: 'JAQ-JEAN-001'
+            },
+            'Calça Chino': {
+                name: 'Calça Chino',
+                images: [
+                    'https://images.unsplash.com/photo-1544441892-700560bb6719?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1544441892-700560bb6719?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1544441892-700560bb6719?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'
+                ],
+                category: 'Calças',
+                rating: 4.5,
+                reviews: 92,
+                oldPrice: 0,
+                currentPrice: 99.90,
+                discount: 0,
+                description: 'Calça chino com modelagem slim e cós médio. Confeccionada em tecido leve e confortável. Ideal para looks casuais e semi-formais.',
+                specs: {
+                    'Material': '98% Algodão, 2% Elastano',
+                    'Modelo': 'Chino',
+                    'Gênero': 'Unissex',
+                    'Cor': 'Bege',
+                    'Tamanhos': '36, 38, 40, 42, 44'
+                },
+                sizes: ['36', '38', '40', '42', '44'],
+                code: 'CAL-CHIN-001'
+            },
+            'Camiseta Estampada': {
+                name: 'Camiseta Estampada',
+                images: [
+                    'https://images.unsplash.com/photo-1529361136673-9d7e40a3a88f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1529361136673-9d7e40a3a88f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1529361136673-9d7e40a3a88f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'
+                ],
+                category: 'Camisetas',
+                rating: 4,
+                reviews: 67,
+                oldPrice: 59.90,
+                currentPrice: 41.90,
+                discount: 30,
+                description: 'Camiseta estampada com design moderno. Tecido leve e confortável para o uso diário. Disponível em várias estampas criativas.',
+                specs: {
+                    'Material': '100% Algodão',
+                    'Modelo': 'Estampada',
+                    'Gênero': 'Unissex',
+                    'Cor': 'Preto',
+                    'Tamanhos': 'P, M, G, GG'
+                },
+                sizes: ['P', 'M', 'G', 'GG'],
+                code: 'CAM-EST-001'
+            },
+            'Vestido Longo': {
+                name: 'Vestido Longo',
+                images: [
+                    'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'
+                ],
+                category: 'Vestidos',
+                rating: 4.5,
+                reviews: 85,
+                oldPrice: 0,
+                currentPrice: 149.90,
+                discount: 0,
+                description: 'Vestido longo feminino com modelagem fluida. Ideal para eventos especiais e ocasiões formais. Tecido leve com caimento perfeito.',
+                specs: {
+                    'Material': '100% Poliéster',
+                    'Modelo': 'Longo',
+                    'Gênero': 'Feminino',
+                    'Cor': 'Vermelho',
+                    'Tamanhos': 'P, M, G, GG'
+                },
+                sizes: ['P', 'M', 'G', 'GG'],
+                code: 'VES-LONG-001'
+            },
+            'Blusa de Tricô': {
+                name: 'Blusa de Tricô',
+                images: [
+                    'https://images.unsplash.com/photo-1591370874773-6702e8f12fd8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1591370874773-6702e8f12fd8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1591370874773-6702e8f12fd8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'
+                ],
+                category: 'Blusas',
+                rating: 4,
+                reviews: 76,
+                oldPrice: 79.90,
+                currentPrice: 71.90,
+                discount: 10,
+                description: 'Blusa de tricô feminina com modelagem justa. Ideal para looks sofisticados. Tecido quente e confortável para o inverno.',
+                specs: {
+                    'Material': '100% Acrílico',
+                    'Modelo': 'Tricô',
+                    'Gênero': 'Feminino',
+                    'Cor': 'Preto',
+                    'Tamanhos': 'P, M, G'
+                },
+                sizes: ['P', 'M', 'G'],
+                code: 'BLU-TRI-001'
+            },
+            'Shorts Jeans': {
+                name: 'Shorts Jeans',
+                images: [
+                    'https://images.unsplash.com/photo-1591047485247-50d308c02e42?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1591047485247-50d308c02e42?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1591047485247-50d308c02e42?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'
+                ],
+                category: 'Shorts',
+                rating: 5,
+                reviews: 112,
+                oldPrice: 0,
+                currentPrice: 69.90,
+                discount: 0,
+                description: 'Shorts jeans masculino com modelagem moderna. Cós médio e bolsos funcionais. Peça versátil para looks casuais.',
+                specs: {
+                    'Material': '100% Algodão',
+                    'Modelo': 'Jeans',
+                    'Gênero': 'Masculino',
+                    'Cor': 'Azul',
+                    'Tamanhos': '36, 38, 40, 42'
+                },
+                sizes: ['36', '38', '40', '42'],
+                code: 'SHO-JEAN-001'
+            },
+            'Suéter de Lã': {
+                name: 'Suéter de Lã',
+                images: [
+                    'https://images.unsplash.com/photo-1591123120675-6f7f1aa7eb39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1591123120675-6f7f1aa7eb39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1591123120675-6f7f1aa7eb39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'
+                ],
+                category: 'Suéteres',
+                rating: 4,
+                reviews: 98,
+                oldPrice: 129.90,
+                currentPrice: 103.90,
+                discount: 20,
+                description: 'Suéter de lã feminino com modelagem oversized. Ideal para dias frios. Tecido quentinho e confortável.',
+                specs: {
+                    'Material': '100% Lã',
+                    'Modelo': 'Oversized',
+                    'Gênero': 'Feminino',
+                    'Cor': 'Cinza',
+                    'Tamanhos': 'P, M, G, GG'
+                },
+                sizes: ['P', 'M', 'G', 'GG'],
+                code: 'SUE-LA-001'
+            },
+            'Macacão': {
+                name: 'Macacão',
+                images: [
+                    'https://images.unsplash.com/photo-1544441893-6366031a5593?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1544441893-6366031a5593?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1544441893-6366031a5593?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'
+                ],
+                category: 'Conjuntos',
+                rating: 4.5,
+                reviews: 87,
+                oldPrice: 0,
+                currentPrice: 139.90,
+                discount: 0,
+                description: 'Macacão feminino com modelagem justa e decote em V. Ideal para eventos casuais e baladas. Tecido leve e confortável.',
+                specs: {
+                    'Material': '95% Poliéster, 5% Elastano',
+                    'Modelo': 'Justo',
+                    'Gênero': 'Feminino',
+                    'Cor': 'Preto',
+                    'Tamanhos': 'P, M, G'
+                },
+                sizes: ['P', 'M', 'G'],
+                code: 'MAC-JUS-001'
+            }
+        };
+
+        // Reviews data for products
+        const productReviews = {
+            'Camiseta Básica': [
+                {
+                    reviewer: 'Ana Silva',
+                    date: '10/10/2025',
+                    rating: 5,
+                    title: 'Perfeita para o dia a dia!',
+                    content: 'Camiseta muito confortável e de ótima qualidade. O tecido é macio e respirável. Recomendo!'
+                },
+                {
+                    reviewer: 'Carlos Oliveira',
+                    date: '05/10/2025',
+                    rating: 4,
+                    title: 'Boa qualidade',
+                    content: 'Produto de boa qualidade, porém veio um tamanho menor do que o esperado.'
+                }
+            ],
+            'Calça Jeans Slim': [
+                {
+                    reviewer: 'Roberto Santos',
+                    date: '12/10/2025',
+                    rating: 4,
+                    title: 'Modelagem excelente',
+                    content: 'Calça com modelagem perfeita e tecido de boa qualidade. Recomendo para quem busca conforto e estilo.'
+                }
+            ],
+            'Camisa Social': [
+                {
+                    reviewer: 'Fernanda Costa',
+                    date: '08/10/2025',
+                    rating: 5,
+                    title: 'Perfeita para o trabalho',
+                    content: 'Camisa social de excelente qualidade. O tecido não amassa facilmente e o caimento é perfeito.'
+                }
+            ]
+        };
+
+        // Function to open product modal
+        function openProductModal(productName) {
+            const product = productData[productName];
+            if (!product) return;
+            
+            // Populate modal with product data
+            document.getElementById('modalProductName').textContent = product.name;
+            document.getElementById('modalProductImage').src = product.images[0];
+            document.getElementById('modalProductCode').textContent = product.code;
+            
+            // Set prices
+            if (product.oldPrice > 0) {
+                document.getElementById('modalOldPrice').textContent = `R$ ${product.oldPrice.toFixed(2).replace('.', ',')}`;
+                document.getElementById('modalOldPrice').style.display = 'inline';
+            } else {
+                document.getElementById('modalOldPrice').style.display = 'none';
+            }
+            
+            document.getElementById('modalCurrentPrice').textContent = `R$ ${product.currentPrice.toFixed(2).replace('.', ',')}`;
+            
+            if (product.discount > 0) {
+                document.getElementById('modalDiscount').textContent = `${product.discount}% OFF`;
+                document.getElementById('modalDiscount').style.display = 'inline';
+            } else {
+                document.getElementById('modalDiscount').style.display = 'none';
+            }
+            
+            // Set installments
+            const installments = Math.floor(product.currentPrice / 3);
+            document.getElementById('modalInstallments').textContent = `ou 3x de R$ ${installments.toFixed(2).replace('.', ',')} sem juros`;
+            
+            // Set description
+            document.getElementById('modalProductDescription').textContent = product.description;
+            
+            // Set specifications list
+            const specsList = document.getElementById('modalProductSpecs');
+            specsList.innerHTML = '';
+            for (const [key, value] of Object.entries(product.specs)) {
+                const li = document.createElement('li');
+                li.innerHTML = `<strong>${key}:</strong> ${value}`;
+                specsList.appendChild(li);
+            }
+            
+            // Set specifications table
+            const specTable = document.getElementById('modalSpecTable');
+            specTable.innerHTML = '';
+            for (const [key, value] of Object.entries(product.specs)) {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td><strong>${key}</strong></td><td>${value}</td>`;
+                specTable.appendChild(tr);
+            }
+            
+            // Set rating stars
+            const ratingStars = document.getElementById('modalProductRating');
+            ratingStars.innerHTML = '';
+            const fullStars = Math.floor(product.rating);
+            const hasHalfStar = product.rating % 1 !== 0;
+            
+            for (let i = 0; i < fullStars; i++) {
+                const star = document.createElement('i');
+                star.className = 'fas fa-star';
+                ratingStars.appendChild(star);
+            }
+            
+            if (hasHalfStar) {
+                const halfStar = document.createElement('i');
+                halfStar.className = 'fas fa-star-half-alt';
+                ratingStars.appendChild(halfStar);
+            }
+            
+            const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+            for (let i = 0; i < emptyStars; i++) {
+                const star = document.createElement('i');
+                star.className = 'far fa-star';
+                ratingStars.appendChild(star);
+            }
+            
+            const ratingSpan = document.createElement('span');
+            ratingSpan.textContent = `(${product.reviews})`;
+            ratingStars.appendChild(ratingSpan);
+            
+            // Set reviews tab
+            document.getElementById('modalReviewCount').textContent = product.reviews;
+            document.getElementById('modalAverageRating').textContent = product.rating.toFixed(1);
+            document.getElementById('modalTotalReviews').textContent = `${product.reviews} avaliações`;
+            
+            // Set rating stars for reviews section
+            const reviewStars = document.getElementById('modalRatingStars');
+            reviewStars.innerHTML = '';
+            for (let i = 0; i < fullStars; i++) {
+                const star = document.createElement('i');
+                star.className = 'fas fa-star';
+                reviewStars.appendChild(star);
+            }
+            
+            if (hasHalfStar) {
+                const halfStar = document.createElement('i');
+                halfStar.className = 'fas fa-star-half-alt';
+                reviewStars.appendChild(halfStar);
+            }
+            
+            // Set rating distribution
+            const ratingDistribution = document.getElementById('modalRatingDistribution');
+            ratingDistribution.innerHTML = '';
+            // This is a simplified version - in a real app, this would be based on actual data
+            const distributions = [
+                { stars: 5, percentage: 65, count: Math.floor(product.reviews * 0.65) },
+                { stars: 4, percentage: 20, count: Math.floor(product.reviews * 0.20) },
+                { stars: 3, percentage: 10, count: Math.floor(product.reviews * 0.10) },
+                { stars: 2, percentage: 3, count: Math.floor(product.reviews * 0.03) },
+                { stars: 1, percentage: 2, count: Math.floor(product.reviews * 0.02) }
+            ];
+            
+            distributions.forEach(dist => {
+                const ratingBar = document.createElement('div');
+                ratingBar.className = 'rating-bar';
+                const barContainer = document.createElement('div');
+                barContainer.className = 'bar-container';
+                const bar = document.createElement('div');
+                bar.className = 'bar';
+                bar.style.width = dist.percentage + '%';
+                barContainer.appendChild(bar);
+                ratingBar.innerHTML = `<span>${dist.stars} estrelas</span>`;
+                ratingBar.appendChild(barContainer);
+                ratingBar.innerHTML += `<span>${dist.count}</span>`;
+                ratingDistribution.appendChild(ratingBar);
+            });
+            
+            // Set recent reviews
+            const recentReviews = document.getElementById('modalRecentReviews');
+            recentReviews.innerHTML = '';
+            
+            const reviews = productReviews[productName] || [];
+            reviews.forEach(review => {
+                const reviewElement = document.createElement('div');
+                reviewElement.className = 'review';
+                const reviewRating = document.createElement('div');
+                reviewRating.className = 'review-rating';
+                let starsHtml = '';
+                for (let i = 0; i < review.rating; i++) {
+                    starsHtml += '<i class="fas fa-star"></i>';
+                }
+                for (let i = review.rating; i < 5; i++) {
+                    starsHtml += '<i class="far fa-star"></i>';
+                }
+                reviewElement.innerHTML = `
+                    <div class="review-header">
+                        <div class="reviewer">${review.reviewer}</div>
+                        <div class="review-date">${review.date}</div>
+                    </div>
+                    <div class="review-title">${review.title}</div>
+                    <div class="review-content">${review.content}</div>
+                `;
+                reviewRating.innerHTML = starsHtml;
+                reviewElement.insertBefore(reviewRating, reviewElement.querySelector('.review-title'));
+                recentReviews.appendChild(reviewElement);
+            });
+            
+            // Set thumbnails
+            const thumbnailContainer = document.getElementById('modalThumbnails');
+            thumbnailContainer.innerHTML = '';
+            product.images.forEach((image, index) => {
+                const thumbnail = document.createElement('div');
+                thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
+                thumbnail.innerHTML = `<img src="${image}" alt="${product.name}" class="thumbnail-img">`;
+                thumbnail.addEventListener('click', function() {
+                    document.getElementById('modalProductImage').src = image;
+                    // Remove active class from all thumbnails
+                    document.querySelectorAll('.thumbnail').forEach(thumb => {
+                        thumb.classList.remove('active');
+                    });
+                    // Add active class to clicked thumbnail
+                    this.classList.add('active');
+                });
+                thumbnailContainer.appendChild(thumbnail);
+            });
+            
+            // Set size options
+            const sizeOptions = document.getElementById('modalSizeOptions');
+            sizeOptions.innerHTML = '';
+            if (product.sizes && product.sizes.length > 0) {
+                product.sizes.forEach((size, index) => {
+                    const sizeBtn = document.createElement('button');
+                    sizeBtn.className = `size-btn ${index === 0 ? 'active' : ''}`;
+                    sizeBtn.textContent = size;
+                    sizeBtn.addEventListener('click', function() {
+                        // Remove active class from all size buttons
+                        document.querySelectorAll('.size-btn').forEach(btn => {
+                            btn.classList.remove('active');
+                        });
+                        // Add active class to clicked button
+                        this.classList.add('active');
+                    });
+                    sizeOptions.appendChild(sizeBtn);
+                });
+                document.getElementById('modalSizeSelector').style.display = 'block';
+            } else {
+                document.getElementById('modalSizeSelector').style.display = 'none';
+            }
+            
+            // Set add to cart button
+            document.getElementById('modalAddToCart').onclick = function() {
+                const quantity = parseInt(document.getElementById('modalQuantity').textContent);
+                for (let i = 0; i < quantity; i++) {
+                    addToCart(product.name, product.currentPrice);
+                }
+                closeProductModal(); // Close product modal
+                openCartModal(); // Open cart modal to show added item
+            };
+            
+            // Set buy now button
+            document.getElementById('modalBuyNow').onclick = function() {
+                const quantity = parseInt(document.getElementById('modalQuantity').textContent);
+                for (let i = 0; i < quantity; i++) {
+                    addToCart(product.name, product.currentPrice);
+                }
+                closeProductModal(); // Close product modal
+                window.location.href = 'purchase.html'; // Go to checkout
+            };
+            
+            // Show modal
+            document.getElementById('productModal').style.display = 'block';
+        }
+
+        // Function to close product modal
+        function closeProductModal() {
+            document.getElementById('productModal').style.display = 'none';
+        }
+
+        // Quantity functions for modal
+        function increaseModalQuantity() {
+            const quantityElement = document.getElementById('modalQuantity');
+            let quantity = parseInt(quantityElement.textContent);
+            quantity++;
+            quantityElement.textContent = quantity;
+        }
+
+        function decreaseModalQuantity() {
+            const quantityElement = document.getElementById('modalQuantity');
+            let quantity = parseInt(quantityElement.textContent);
+            if (quantity > 1) {
+                quantity--;
+                quantityElement.textContent = quantity;
+            }
+        }
+
+        // Tab functions for modal
+        function showModalTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.product-specifications .tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            const tabButtons = document.querySelectorAll('.specifications-tabs .tab-btn');
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show the selected tab content
+            document.getElementById('modal' + tabName.charAt(0).toUpperCase() + tabName.slice(1) + 'Tab').classList.add('active');
+            
+            // Add active class to clicked button
+            event.currentTarget.classList.add('active');
+        }
+
+        // Add click event to product cards
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click event to all product cards
+            document.querySelectorAll('.clothing-item').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    // Prevent triggering when clicking on buttons inside the card
+                    if (e.target.closest('button')) return;
+                    
+                    const productName = this.querySelector('h3').textContent;
+                    openProductModal(productName);
+                });
+            });
+            
+            // Close modal when clicking on close button
+            document.getElementById('closeProductModal').addEventListener('click', closeProductModal);
+            
+            // Close modal when clicking outside of it
+            window.addEventListener('click', function(e) {
+                const modal = document.getElementById('productModal');
+                if (e.target === modal) {
+                    closeProductModal();
+                }
+            });
+            
+            // Tab functionality
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+                    
+                    // Navigate to the corresponding category page
+                    const category = btn.getAttribute('data-category');
+                    let url;
+                    switch(category) {
+                        case 'home':
+                            url = 'index.html';
+                            break;
+                        case 'moda':
+                            url = 'categoria-moda.html';
+                            break;
+                        case 'eletronicos':
+                            url = 'eletronicos.html';
+                            break;
+                        case 'casa':
+                            url = 'casa.html';
+                            break;
+                        case 'games':
+                            url = 'games.html';
+                            break;
+                        case 'esportes':
+                            url = 'esportes.html';
+                            break;
+                        case 'infantil':
+                            url = 'infantil.html';
+                            break;
+                        default:
+                            url = 'index.html';
+                    }
+                    window.location.href = url;
+                });
+            });
+        });
+
+        // Filter functionality
+        document.querySelectorAll('select').forEach(select => {
+            select.addEventListener('change', function() {
+                showNotification(`Filtro aplicado: ${this.options[this.selectedIndex].text}`);
+            });
+        });
+
+        // Pagination
+        document.querySelectorAll('.pagination-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                if (!this.classList.contains('prev-btn') && !this.classList.contains('next-btn')) {
+                    document.querySelectorAll('.pagination-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+    </script>
+    <script src="auth-utils.js"></script>
+</body>
+</html>
