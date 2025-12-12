@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Produto - BOSS SHOPP</title>
+    <link rel="stylesheet" href="optimized-styles.css">
+    <link rel="stylesheet" href="product-detail.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="boss-shop-logo.png" alt="BOSS SHOPP" class="logo-image">
+                    </a>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Busque por produtos, marcas e muito mais...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="nav-icons">
+                    <a href="login.html" class="nav-icon">
+                        <i class="fas fa-user"></i>
+                        <span>Entrar</span>
+                    </a>
+                    <a href="favorites.html" class="nav-icon">
+                        <i class="fas fa-heart"></i>
+                        <span>Favoritos</span>
+                    </a>
+                    <a href="purchase.html" class="nav-icon cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrinho</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="eletronicos.html">Eletrônicos</a>
+                <i class="fas fa-chevron-right"></i>
+                <span id="product-name-breadcrumb">iPhone 15 Pro Max</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Product Detail -->
+    <section class="product-detail-section">
+        <div class="container">
+            <div class="product-detail-grid">
+                <!-- Image Gallery -->
+                <div class="product-gallery">
+                    <div class="main-image-container">
+                        <img id="main-image" src="https://images.unsplash.com/photo-1592286927505-2fd0f3a1f3b4?w=800" alt="Produto">
+                        <button class="zoom-btn" onclick="openImageZoom()">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                        <button class="wishlist-btn-large" onclick="toggleWishlist()">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="thumbnail-gallery">
+                        <img src="https://images.unsplash.com/photo-1592286927505-2fd0f3a1f3b4?w=200" class="thumbnail active" onclick="changeImage(this)">
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=200" class="thumbnail" onclick="changeImage(this)">
+                        <img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=200" class="thumbnail" onclick="changeImage(this)">
+                        <img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?w=200" class="thumbnail" onclick="changeImage(this)">
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info-detail">
+                    <div class="product-badge-detail">-35% OFF</div>
+                    <h1 class="product-title" id="product-title">iPhone 15 Pro Max 256GB</h1>
+                    
+                    <div class="product-rating-detail">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="rating-number">4.9</span>
+                        <span class="reviews-count">(1.234 avaliações)</span>
+                        <a href="#reviews" class="write-review">Escrever avaliação</a>
+                    </div>
+
+                    <div class="product-price-detail">
+                        <span class="old-price-detail">R$ 8.999,00</span>
+                        <span class="new-price-detail">R$ 5.849,00</span>
+                        <span class="discount-badge">Economize R$ 3.150,00</span>
+                    </div>
+
+                    <div class="installment-info">
+                        <i class="fas fa-credit-card"></i>
+                        <span>ou 12x de R$ 487,42 sem juros</span>
+                    </div>
+
+                    <div class="product-variants">
+                        <div class="variant-group">
+                            <label>Cor:</label>
+                            <div class="color-options">
+                                <button class="color-option active" style="background: #000;" title="Preto"></button>
+                                <button class="color-option" style="background: #4169E1;" title="Azul"></button>
+                                <button class="color-option" style="background: #C0C0C0;" title="Prata"></button>
+                                <button class="color-option" style="background: #FFD700;" title="Dourado"></button>
+                            </div>
+                        </div>
+
+                        <div class="variant-group">
+                            <label>Armazenamento:</label>
+                            <div class="size-options">
+                                <button class="size-option">128GB</button>
+                                <button class="size-option active">256GB</button>
+                                <button class="size-option">512GB</button>
+                                <button class="size-option">1TB</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <label>Quantidade:</label>
+                        <div class="quantity-controls">
+                            <button onclick="decreaseQuantity()"><i class="fas fa-minus"></i></button>
+                            <input type="number" id="quantity" value="1" min="1" max="10">
+                            <button onclick="increaseQuantity()"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <span class="stock-info"><i class="fas fa-check-circle"></i> 47 unidades disponíveis</span>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn-buy-now" onclick="buyNow()">
+                            <i class="fas fa-bolt"></i>
+                            Comprar Agora
+                        </button>
+                        <button class="btn-add-cart" onclick="addToCart()">
+                            <i class="fas fa-shopping-cart"></i>
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+
+                    <div class="product-benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-truck"></i>
+                            <div>
+                                <strong>Frete Grátis</strong>
+                                <span>Para todo o Brasil</span>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <strong>Garantia de 1 ano</strong>
+                                <span>Direto com o fabricante</span>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-sync-alt"></i>
+                            <div>
+                                <strong>Devolução grátis</strong>
+                                <span>Até 30 dias após a compra</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="share-product">
+                        <span>Compartilhar:</span>
+                        <button class="share-btn"><i class="fab fa-whatsapp"></i></button>
+                        <button class="share-btn"><i class="fab fa-facebook"></i></button>
+                        <button class="share-btn"><i class="fab fa-twitter"></i></button>
+                        <button class="share-btn"><i class="fas fa-link"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Tabs -->
+            <div class="product-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="showTab('description')">Descrição</button>
+                    <button class="tab-btn" onclick="showTab('specifications')">Especificações</button>
+                    <button class="tab-btn" onclick="showTab('reviews')">Avaliações (1.234)</button>
+                </div>
+
+                <div class="tab-content active" id="description">
+                    <h3>Descrição do Produto</h3>
+                    <p>O iPhone 15 Pro Max representa o ápice da tecnologia móvel da Apple. Com seu design em titânio aeroespacial, este smartphone oferece uma combinação perfeita de elegância e durabilidade.</p>
+                    <ul>
+                        <li>Chip A17 Pro - O processador mais rápido já criado para smartphones</li>
+                        <li>Sistema de câmera Pro com teleobjetiva de 5x</li>
+                        <li>Tela Super Retina XDR de 6,7 polegadas</li>
+                        <li>Dynamic Island para uma experiência mais intuitiva</li>
+                        <li>Bateria de longa duração com até 29 horas de reprodução de vídeo</li>
+                    </ul>
+                </div>
+
+                <div class="tab-content" id="specifications">
+                    <h3>Especificações Técnicas</h3>
+                    <table class="specs-table">
+                        <tr><td>Tela</td><td>6,7" Super Retina XDR OLED</td></tr>
+                        <tr><td>Processador</td><td>Apple A17 Pro</td></tr>
+                        <tr><td>Memória RAM</td><td>8GB</td></tr>
+                        <tr><td>Armazenamento</td><td>256GB</td></tr>
+                        <tr><td>Câmera Traseira</td><td>48MP + 12MP + 12MP</td></tr>
+                        <tr><td>Câmera Frontal</td><td>12MP</td></tr>
+                        <tr><td>Bateria</td><td>4.422 mAh</td></tr>
+                        <tr><td>Sistema Operacional</td><td>iOS 17</td></tr>
+                        <tr><td>Conectividade</td><td>5G, Wi-Fi 6E, Bluetooth 5.3</td></tr>
+                        <tr><td>Dimensões</td><td>159,9 x 76,7 x 8,25 mm</td></tr>
+                        <tr><td>Peso</td><td>221g</td></tr>
+                    </table>
+                </div>
+
+                <div class="tab-content" id="reviews">
+                    <h3>Avaliações dos Clientes</h3>
+                    <div class="reviews-summary">
+                        <div class="rating-overview">
+                            <div class="rating-number-large">4.9</div>
+                            <div class="stars-large">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="total-reviews">1.234 avaliações</div>
+                        </div>
+                        <div class="rating-bars">
+                            <div class="rating-bar-item">
+                                <span>5 <i class="fas fa-star"></i></span>
+                                <div class="bar"><div class="fill" style="width: 85%"></div></div>
+                                <span>85%</span>
+                            </div>
+                            <div class="rating-bar-item">
+                                <span>4 <i class="fas fa-star"></i></span>
+                                <div class="bar"><div class="fill" style="width: 10%"></div></div>
+                                <span>10%</span>
+                            </div>
+                            <div class="rating-bar-item">
+                                <span>3 <i class="fas fa-star"></i></span>
+                                <div class="bar"><div class="fill" style="width: 3%"></div></div>
+                                <span>3%</span>
+                            </div>
+                            <div class="rating-bar-item">
+                                <span>2 <i class="fas fa-star"></i></span>
+                                <div class="bar"><div class="fill" style="width: 1%"></div></div>
+                                <span>1%</span>
+                            </div>
+                            <div class="rating-bar-item">
+                                <span>1 <i class="fas fa-star"></i></span>
+                                <div class="bar"><div class="fill" style="width: 1%"></div></div>
+                                <span>1%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reviews-list">
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-avatar">JM</div>
+                                    <div>
+                                        <div class="reviewer-name">João Martins</div>
+                                        <div class="review-date">15 de novembro de 2024</div>
+                                    </div>
+                                </div>
+                                <div class="review-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="review-content">
+                                <p>Produto excelente! A qualidade da câmera é impressionante e o desempenho é muito superior ao modelo anterior. Recomendo!</p>
+                            </div>
+                            <div class="review-helpful">
+                                <button><i class="fas fa-thumbs-up"></i> Útil (45)</button>
+                            </div>
+                        </div>
+
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-avatar">MS</div>
+                                    <div>
+                                        <div class="reviewer-name">Maria Silva</div>
+                                        <div class="review-date">10 de novembro de 2024</div>
+                                    </div>
+                                </div>
+                                <div class="review-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="review-content">
+                                <p>Melhor smartphone que já tive! A bateria dura o dia todo e o design é lindo. Entrega foi rápida.</p>
+                            </div>
+                            <div class="review-helpful">
+                                <button><i class="fas fa-thumbs-up"></i> Útil (32)</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="load-more-reviews">Carregar mais avaliações</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="related-products">
+        <div class="container">
+            <h2>Produtos Relacionados</h2>
+            <div class="products-grid">
+                <!-- Products will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Zoom Modal -->
+    <div id="zoom-modal" class="zoom-modal">
+        <span class="close-zoom" onclick="closeImageZoom()">&times;</span>
+        <img class="zoom-content" id="zoomed-image">
+    </div>
+
+    <script src="script.js"></script>
+    <script src="product-detail.js"></script>
+</body>
+</html>

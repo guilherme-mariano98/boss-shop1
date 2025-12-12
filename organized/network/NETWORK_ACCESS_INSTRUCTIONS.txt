@@ -1,0 +1,59 @@
+BOSS SHOPP - Network Access Instructions
+========================================
+
+CONFIGURAÇÃO ATUALIZADA - 12/11/2025
+
+Para permitir que outros computadores acessem o BOSS SHOPP via rede local:
+
+PASSO 1: CONFIGURAR FIREWALL
+-----------------------------
+Execute como Administrador:
+  enable_network_access.bat
+
+Ou manualmente no PowerShell (como Admin):
+  netsh advfirewall firewall add rule name="BOSS SHOPP Frontend" dir=in action=allow protocol=TCP localport=8000
+  netsh advfirewall firewall add rule name="BOSS SHOPP API Server" dir=in action=allow protocol=TCP localport=8001
+
+PASSO 2: INICIAR SERVIDORES
+----------------------------
+Execute:
+  start-all-services.bat
+
+Ou inicie manualmente:
+  Terminal 1: cd frontend && node server.js
+  Terminal 2: python api_server.py
+
+PASSO 3: ACESSAR DE OUTRO COMPUTADOR
+-------------------------------------
+IP atual da máquina: 10.160.216.59
+
+URLs de acesso:
+  Frontend: http://10.160.216.59:8000
+  API:      http://10.160.216.59:8001
+
+VERIFICAÇÃO
+-----------
+Execute para testar a configuração:
+  testar_acesso_rede.bat
+
+IMPORTANTE
+----------
+✓ Servidores configurados para aceitar conexões de rede (0.0.0.0)
+✓ CORS habilitado para requisições cross-origin
+✓ Ambos os computadores devem estar na mesma rede local
+
+SOLUÇÃO DE PROBLEMAS
+--------------------
+1. Verifique se os servidores estão rodando:
+   netstat -an | findstr "8000"
+   netstat -an | findstr "8001"
+
+2. Verifique o IP atual:
+   ipconfig | findstr "IPv4"
+
+3. Teste acesso local primeiro:
+   http://localhost:8000
+
+4. Verifique firewall do Windows
+
+Para mais detalhes, consulte: GUIA_ACESSO_REDE.md

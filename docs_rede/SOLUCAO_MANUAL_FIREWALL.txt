@@ -1,0 +1,168 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║                                                                      ║
+║         🔧 SOLUÇÃO MANUAL - CONFIGURAR FIREWALL                      ║
+║                                                                      ║
+║         Para acessar de OUTRO COMPUTADOR                             ║
+║                                                                      ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+
+NO COMPUTADOR DO SERVIDOR (10.160.216.59):
+═══════════════════════════════════════════════════════════════════════
+
+
+MÉTODO 1: INTERFACE GRÁFICA (MAIS FÁCIL)
+─────────────────────────────────────────────────────────────────────
+
+1. Pressione a tecla Windows
+
+2. Digite: wf.msc
+
+3. Pressione Enter
+   (Vai abrir "Firewall do Windows com Segurança Avançada")
+
+4. No lado ESQUERDO, clique em: "Regras de Entrada"
+
+5. No lado DIREITO, clique em: "Nova Regra..."
+
+6. Selecione "Porta" → Clique em "Avançar"
+
+7. Selecione "TCP"
+   Digite: 8000
+   → Clique em "Avançar"
+
+8. Selecione "Permitir a conexão"
+   → Clique em "Avançar"
+
+9. Marque TODAS as 3 opções:
+   ☑ Domínio
+   ☑ Particular
+   ☑ Público
+   → Clique em "Avançar"
+
+10. Nome: BOSS SHOPP Frontend
+    → Clique em "Concluir"
+
+11. REPITA os passos 5 a 10 para a porta 8001:
+    - Porta: 8001
+    - Nome: BOSS SHOPP API
+
+
+MÉTODO 2: DESATIVAR FIREWALL TEMPORARIAMENTE (PARA TESTE)
+─────────────────────────────────────────────────────────────────────
+
+⚠️ APENAS PARA TESTAR! REATIVE DEPOIS!
+
+1. Pressione a tecla Windows
+
+2. Digite: firewall
+
+3. Clique em "Firewall do Windows Defender"
+
+4. Clique em "Ativar ou desativar o Firewall do Windows Defender"
+
+5. Selecione "Desativar" em AMBAS as opções
+
+6. Clique em "OK"
+
+7. Teste o acesso do outro computador
+
+8. ⚠️ IMPORTANTE: Depois do teste, REATIVE o firewall!
+
+
+NO OUTRO COMPUTADOR:
+═══════════════════════════════════════════════════════════════════════
+
+TESTE 1: Verificar se está na mesma rede
+─────────────────────────────────────────────────────────────────────
+
+1. Abra o CMD (Prompt de Comando)
+
+2. Digite: ipconfig
+
+3. Procure "Endereço IPv4"
+
+4. O IP deve começar com: 10.160.216.XXX
+   (Se não começar com isso, NÃO está na mesma rede!)
+
+
+TESTE 2: Testar ping
+─────────────────────────────────────────────────────────────────────
+
+No CMD do outro computador:
+
+ping 10.160.216.59
+
+RESULTADO:
+• Se responder → Rede OK!
+• Se não responder → Problema de rede ou firewall
+
+
+TESTE 3: Acessar no navegador
+─────────────────────────────────────────────────────────────────────
+
+Abra o navegador e digite:
+
+http://10.160.216.59:8000
+
+
+POSSÍVEIS ERROS E SOLUÇÕES:
+═══════════════════════════════════════════════════════════════════════
+
+❌ "Este site não pode ser acessado" / "ERR_CONNECTION_TIMED_OUT"
+   → Firewall do servidor bloqueando
+   → SOLUÇÃO: Configure o firewall (Método 1 acima)
+
+❌ "ERR_CONNECTION_REFUSED"
+   → Servidor não está rodando
+   → SOLUÇÃO: Inicie o servidor
+
+❌ Ping não funciona
+   → Computadores em redes diferentes
+   → SOLUÇÃO: Conecte ambos no mesmo Wi-Fi/rede
+
+❌ IP do outro PC não começa com 10.160.216
+   → Redes diferentes
+   → SOLUÇÃO: Conecte no mesmo Wi-Fi
+
+
+CHECKLIST FINAL:
+═══════════════════════════════════════════════════════════════════════
+
+NO SERVIDOR (10.160.216.59):
+□ Servidor está rodando (porta 8000)
+□ Firewall configurado (regras adicionadas)
+□ IP verificado: 10.160.216.59
+
+NO OUTRO COMPUTADOR:
+□ Conectado na mesma rede (IP: 10.160.216.XXX)
+□ Ping funciona para 10.160.216.59
+□ Tentou acessar: http://10.160.216.59:8000
+
+
+SE TUDO ESTIVER OK E AINDA NÃO FUNCIONAR:
+═══════════════════════════════════════════════════════════════════════
+
+Pode ser:
+1. Firewall/antivírus do OUTRO computador bloqueando
+2. Configuração de rede corporativa/escola bloqueando
+3. Roteador com isolamento de clientes ativado
+
+
+TESTE DEFINITIVO:
+═══════════════════════════════════════════════════════════════════════
+
+1. Desative o firewall do servidor (temporariamente)
+2. Tente acessar do outro PC
+3. Se funcionar → Era o firewall! Configure as regras
+4. Se não funcionar → É problema de rede
+
+
+═══════════════════════════════════════════════════════════════════════
+
+RESUMO: Para funcionar de outro computador você PRECISA:
+1. Configurar o firewall do servidor (Método 1)
+2. Ambos na mesma rede (10.160.216.XXX)
+3. Servidor rodando
+
+═══════════════════════════════════════════════════════════════════════

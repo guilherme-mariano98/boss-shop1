@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moda - BOSS SHOPP</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="header-links">
+                    <a href="#" class="header-link">Vendedor</a>
+                    <a href="#" class="header-link">Download</a>
+                    <a href="#" class="header-link">Conecte-se</a>
+                </div>
+                <div class="header-social">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="boss-shop-logo.png" alt="BOSS SHOPP" class="logo-image">
+                    </a>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Busque por produtos, marcas e muito mais...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="nav-icons">
+                    <div class="nav-icon-dropdown">
+                        <a href="login.html" class="nav-icon" id="userIcon">
+                            <i class="fas fa-user"></i>
+                            <span id="userText">Entrar</span>
+                        </a>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="profile.html">
+                                <i class="fas fa-user"></i>
+                                <span>Meu Perfil</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" onclick="logout()">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Sair</span>
+                            </a>
+                        </div>
+                    </div>
+                    <a href="favorites.html" class="nav-icon">
+                        <i class="fas fa-heart"></i>
+                        <span>Favoritos</span>
+                    </a>
+                    <a href="purchase.html" class="nav-icon cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrinho</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Home</a> > <span>Moda</span>
+        </div>
+    </section>
+
+    <!-- Category Header -->
+    <section class="category-header" style="padding: 40px 0; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 8px; margin: 20px 0 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+        <div class="container">
+            <div class="category-hero" style="display: flex; align-items: center; justify-content: space-between; gap: 30px;">
+                <div class="category-text" style="max-width: 50%;">
+                    <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: #333; font-weight: 700;">Moda e Estilo</h1>
+                    <p style="font-size: 1.2rem; color: #666; line-height: 1.6;">As melhores roupas e acessórios para você expressar seu estilo único com elegância e conforto.</p>
+                    <div style="margin-top: 20px;">
+                        <a href="#produtos" style="display: inline-block; padding: 12px 24px; background-color: #ff6b35; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 2px 5px rgba(255, 107, 53, 0.3);">Ver Produtos</a>
+                    </div>
+                </div>
+                <div class="category-image" style="width: 50%; overflow: hidden; border-radius: 8px; box-shadow: 0 6px 16px rgba(0,0,0,0.1);">
+                    <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Moda" style="width: 100%; height: auto; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters and Sorting -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-content">
+                <div class="filter-options">
+                    <div class="filter-group">
+                        <h4>Subcategorias</h4>
+                        <ul>
+                            <li><a href="#" class="filter-link active">Todas</a></li>
+                            <li><a href="#" class="filter-link">Camisetas</a></li>
+                            <li><a href="#" class="filter-link">Calças</a></li>
+                            <li><a href="#" class="filter-link">Vestidos</a></li>
+                            <li><a href="#" class="filter-link">Calçados</a></li>
+                            <li><a href="#" class="filter-link">Acessórios</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Preço</h4>
+                        <ul>
+                            <li><a href="#" class="filter-link">Até R$ 50</a></li>
+                            <li><a href="#" class="filter-link">R$ 50 - R$ 100</a></li>
+                            <li><a href="#" class="filter-link">R$ 100 - R$ 200</a></li>
+                            <li><a href="#" class="filter-link">Acima de R$ 200</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Tamanho</h4>
+                        <ul>
+                            <li><a href="#" class="filter-link">P</a></li>
+                            <li><a href="#" class="filter-link">M</a></li>
+                            <li><a href="#" class="filter-link">G</a></li>
+                            <li><a href="#" class="filter-link">GG</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Marca</h4>
+                        <ul>
+                            <li><a href="#" class="filter-link">Nike</a></li>
+                            <li><a href="#" class="filter-link">Adidas</a></li>
+                            <li><a href="#" class="filter-link">Zara</a></li>
+                            <li><a href="#" class="filter-link">H&M</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="sorting-options">
+                    <div class="sort-by">
+                        <label for="sortSelect">Ordenar por:</label>
+                        <select id="sortSelect">
+                            <option value="popular">Mais populares</option>
+                            <option value="price-low">Menor preço</option>
+                            <option value="price-high">Maior preço</option>
+                            <option value="rating">Melhor avaliados</option>
+                            <option value="newest">Mais recentes</option>
+                        </select>
+                    </div>
+                    <div class="view-options">
+                        <button class="view-btn active"><i class="fas fa-th"></i></button>
+                        <button class="view-btn"><i class="fas fa-list"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Products -->
+    <section class="category-products">
+        <div class="container">
+            <div class="products-header">
+                <h2>Produtos de Moda</h2>
+                <p>120 produtos encontrados</p>
+            </div>
+            
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded dynamically -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="pagination-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <button class="pagination-btn">4</button>
+                <button class="pagination-btn">5</button>
+                <button class="pagination-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers Banner -->
+    <section class="special-offers">
+        <div class="container">
+            <div class="offer-content">
+                <h3>Especial para Você</h3>
+                <p>Descontos exclusivos em produtos de moda selecionados</p>
+                <button class="offer-btn">Ver Ofertas</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>BOSS SHOPP</h4>
+                    <p>Sua loja online com os melhores produtos e preços imperdíveis.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Atendimento</h4>
+                    <ul>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Como Comprar</a></li>
+                        <li><a href="#">Frete e Entrega</a></li>
+                        <li><a href="#">Devoluções</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Sobre</h4>
+                    <ul>
+                        <li><a href="#">Nossa História</a></li>
+                        <li><a href="#">Trabalhe Conosco</a></li>
+                        <li><a href="#">Imprensa</a></li>
+                        <li><a href="#">Investidores</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Pagamento</h4>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fas fa-money-bill"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 BOSS SHOPP. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Carrinho de Compras</h2>
+            <div id="cartItems"></div>
+            <div class="cart-total">
+                <strong>Total: R$ <span id="cartTotal">0,00</span></strong>
+            </div>
+            <button class="checkout-btn" onclick="window.location.href='purchase.html'">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <script src="auth-utils.js"></script>
+    <script>
+        // Show notification message
+        function showNotification(message, type = 'success') {
+            // Remove any existing notifications
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background-color: ${type === 'success' ? '#00aa00' : '#ff4444'};
+                color: white;
+                padding: 15px 20px;
+                border-radius: 5px;
+                z-index: 10000;
+                font-weight: bold;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            `;
+            notification.textContent = message;
+            
+            // Add to document
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+        
+        // Logout function
+        function logout() {
+            // Confirm logout
+            if (confirm('Tem certeza que deseja sair?')) {
+                // Clear authentication data
+                localStorage.removeItem('authToken');
+                localStorage.removeItem('user');
+                
+                // Show success notification
+                showNotification('Logout realizado com sucesso!', 'success');
+                
+                // Update user icon
+                updateUserIcon();
+                
+                // Small delay to show the notification
+                setTimeout(function() {
+                    // Redirect to login page
+                    window.location.href = 'login.html';
+                }, 1000);
+            }
+        }
+        
+        // Carrinho de compras
+        let cart = [];
+
+        // Carregar carrinho do localStorage ao iniciar
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update user icon
+            updateUserIcon();
+            
+            // Handle user dropdown
+            const userIcon = document.getElementById('userIcon');
+            const userDropdown = document.getElementById('userDropdown');
+            
+            if (userIcon && userDropdown) {
+                userIcon.addEventListener('click', function(e) {
+                    // Check if user is logged in (has authToken)
+                    const authToken = localStorage.getItem('authToken');
+                    if (authToken) {
+                        e.preventDefault();
+                        userDropdown.classList.toggle('show');
+                    }
+                    // If not logged in, it will navigate to login page as before
+                });
+                
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!userIcon.contains(e.target) && !userDropdown.contains(e.target)) {
+                        userDropdown.classList.remove('show');
+                    }
+                });
+            }
+            
+            const savedCart = localStorage.getItem('cart');
+            if (savedCart) {
+                cart = JSON.parse(savedCart);
+            }
+            updateCartCount();
+        });
+
+        // Função para adicionar produto ao carrinho
+        function addToCart(productName, price) {
+            const existingItem = cart.find(item => item.name === productName);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    name: productName,
+                    price: price,
+                    quantity: 1
+                });
+            }
+            
+            // Salvar carrinho no localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            updateCartCount();
+            showNotification(`${productName} adicionado ao carrinho!`);
+        }
+
+        // Atualizar contador do carrinho
+        function updateCartCount() {
+            const cartCount = document.querySelector('.cart-count');
+            if (cartCount) {
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                cartCount.textContent = totalItems;
+            }
+        }
+
+        // Abrir modal do carrinho
+        function openCartModal() {
+            const modal = document.getElementById('cartModal');
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            // Carregar carrinho do localStorage
+            const savedCart = localStorage.getItem('cart');
+            if (savedCart) {
+                cart = JSON.parse(savedCart);
+            }
+            
+            // Limpar itens anteriores
+            cartItems.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p style="text-align: center; color: #666;">Seu carrinho está vazio</p>';
+                cartTotal.textContent = '0,00';
+            } else {
+                let total = 0;
+                
+                cart.forEach((item, index) => {
+                    const itemElement = document.createElement('div');
+                    itemElement.style.cssText = `
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 10px 0;
+                        border-bottom: 1px solid #eee;
+                    `;
+                    
+                    const subtotal = item.price * item.quantity;
+                    total += subtotal;
+                    
+                    itemElement.innerHTML = `
+                        <div>
+                            <strong>${item.name}</strong><br>
+                            <span style="color: #666;">R$ ${item.price.toFixed(2).replace('.', ',')} x ${item.quantity}</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <span style="font-weight: bold;">R$ ${subtotal.toFixed(2).replace('.', ',')}</span>
+                            <button onclick="removeFromCart(${index})" style="background: #ff4444; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    `;
+                    
+                    cartItems.appendChild(itemElement);
+                });
+                
+                cartTotal.textContent = total.toFixed(2).replace('.', ',');
+            }
+            
+            modal.style.display = 'block';
+        }
+
+        // Remover item do carrinho
+        function removeFromCart(index) {
+            // Carregar carrinho do localStorage
+            const savedCart = localStorage.getItem('cart');
+            if (savedCart) {
+                cart = JSON.parse(savedCart);
+            }
+            
+            cart.splice(index, 1);
+            
+            // Salvar carrinho atualizado no localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            updateCartCount();
+            openCartModal(); // Reabrir modal atualizado
+        }
+
+        // Fechar modal
+        function closeModal() {
+            const modal = document.getElementById('cartModal');
+            modal.style.display = 'none';
+        }
+
+        // Wishlist functionality
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.wishlist-btn')) {
+                const button = e.target.closest('.wishlist-btn');
+                const heartIcon = button.querySelector('i');
+                if (heartIcon.classList.contains('far')) {
+                    heartIcon.classList.remove('far');
+                    heartIcon.classList.add('fas');
+                    heartIcon.style.color = '#ff4444';
+                    showNotification('Produto adicionado aos favoritos!');
+                } else {
+                    heartIcon.classList.remove('fas');
+                    heartIcon.classList.add('far');
+                    heartIcon.style.color = '';
+                    showNotification('Produto removido dos favoritos!');
+                }
+            }
+        });
+
+        // Filter link active state
+        document.querySelectorAll('.filter-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.filter-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                showNotification(`Filtro aplicado: ${this.textContent}`);
+            });
+        });
+
+        // View options
+        document.querySelectorAll('.view-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                if (this.querySelector('i').classList.contains('fa-list')) {
+                    document.querySelector('.products-grid').classList.add('list-view');
+                    showNotification('Visualização em lista');
+                } else {
+                    document.querySelector('.products-grid').classList.remove('list-view');
+                    showNotification('Visualização em grade');
+                }
+            });
+        });
+
+        // Pagination
+        document.querySelectorAll('.pagination-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                if (!this.classList.contains('prev-btn') && !this.classList.contains('next-btn')) {
+                    document.querySelectorAll('.pagination-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central de Ajuda - BOSS SHOPP</title>
+    <link rel="stylesheet" href="optimized-styles.css">
+    <link rel="stylesheet" href="panel-buttons.css">
+    <link rel="stylesheet" href="pages.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <div class="loader-text">BOSS SHOPP</div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="header-links">
+                    <a href="sobre.html" class="header-link">Sobre</a>
+                    <a href="atendimento.html" class="header-link">Atendimento</a>
+                    <a href="#" class="header-link">Vendedor</a>
+                    <a href="#" class="header-link">Download</a>
+                    <a href="#" class="header-link">Conecte-se</a>
+                </div>
+                <div class="header-social">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="boss-shop-logo.png" alt="BOSS SHOPP" class="logo-image">
+                    </a>
+                </div>
+                
+                <div class="profile-button">
+                    <a href="profile.html" class="profile-btn">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Meu Perfil</span>
+                    </a>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Busque por produtos, marcas e muito mais...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="nav-icons">
+                    <div class="nav-icon-dropdown">
+                        <a href="login.html" class="nav-icon" id="userIcon">
+                            <i class="fas fa-user"></i>
+                            <span id="userText">Entrar</span>
+                        </a>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="profile.html">
+                                <i class="fas fa-user"></i>
+                                <span>Meu Perfil</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" onclick="logout()">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Sair</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Logout button that shows when user is logged in -->
+                    <a href="#" class="nav-icon" id="logoutButton" style="display: none;" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sair</span>
+                    </a>
+                    <a href="favorites.html" class="nav-icon">
+                        <i class="fas fa-heart"></i>
+                        <span>Favoritos</span>
+                    </a>
+                    <a href="purchase.html" class="nav-icon cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrinho</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="atendimento.html">Atendimento</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Central de Ajuda</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Help Center Section -->
+    <section class="help-center-section">
+        <div class="container">
+            <div class="help-center-header">
+                <h1 class="section-title">Central de Ajuda</h1>
+                <p class="section-subtitle">Encontre respostas para suas dúvidas mais frequentes</p>
+            </div>
+            
+            <div class="help-center-content">
+                <div class="help-search">
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Digite sua dúvida...">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                
+                <div class="help-categories">
+                    <div class="category-grid">
+                        <a href="como-comprar.html" class="category-card">
+                            <div class="category-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <h3>Como Comprar</h3>
+                            <p>Passo a passo para realizar suas compras</p>
+                        </a>
+                        
+                        <a href="frete-entrega.html" class="category-card">
+                            <div class="category-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <h3>Frete e Entrega</h3>
+                            <p>Prazos, valores e acompanhamento</p>
+                        </a>
+                        
+                        <a href="devolucoes.html" class="category-card">
+                            <div class="category-icon">
+                                <i class="fas fa-undo"></i>
+                            </div>
+                            <h3>Devoluções</h3>
+                            <p>Política de trocas e reembolsos</p>
+                        </a>
+                        
+                        <a href="#" class="category-card">
+                            <div class="category-icon">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <h3>Pagamentos</h3>
+                            <p>Formas de pagamento e segurança</p>
+                        </a>
+                        
+                        <a href="#" class="category-card">
+                            <div class="category-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h3>Minha Conta</h3>
+                            <p>Cadastro, login e dados pessoais</p>
+                        </a>
+                        
+                        <a href="#" class="category-card">
+                            <div class="category-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Segurança</h3>
+                            <p>Proteção de dados e privacidade</p>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h2>Perguntas Frequentes</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Como faço para rastrear meu pedido?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Você pode rastrear seu pedido acessando a seção "Meus Pedidos" em seu perfil. O código de rastreio também será enviado para o seu e-mail após a postagem do produto.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Qual é o prazo de entrega?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>O prazo de entrega varia de acordo com a região e o tipo de frete selecionado. Para a região Sudeste, o prazo médio é de 2-5 dias úteis. Para demais regiões, o prazo pode variar de 5-10 dias úteis.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Como posso trocar ou devolver um produto?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Você tem até 30 dias após o recebimento para solicitar a troca ou devolução. Entre em contato conosco através do formulário abaixo ou pelo nosso WhatsApp, e nossa equipe irá orientá-lo sobre o processo.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Quais são as formas de pagamento disponíveis?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Aceitamos cartões de crédito (Visa, Mastercard, Elo, Hipercard), boleto bancário e PIX. Em compras acima de R$ 500,00, parcelamos em até 12x sem juros.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>BOSS SHOPP</h3>
+                    <p>Sua loja online de confiança, oferecendo produtos de qualidade com preços competitivos e entrega rápida em todo o Brasil.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Informações</h4>
+                    <ul>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="atendimento.html">Atendimento</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Trocas e Devoluções</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Categorias</h4>
+                    <ul>
+                        <li><a href="moda.html">Moda</a></li>
+                        <li><a href="eletronicos.html">Eletrônicos</a></li>
+                        <li><a href="casa.html">Casa</a></li>
+                        <li><a href="games.html">Games</a></li>
+                        <li><a href="esportes.html">Esportes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> (11) 99999-9999</li>
+                        <li><i class="fas fa-envelope"></i> contato@bossshopp.com.br</li>
+                        <li><i class="fas fa-map-marker-alt"></i> São Paulo, SP</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 BOSS SHOPP. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Hide preloader when page is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            const preloader = document.querySelector('.preloader');
+            if (preloader) {
+                preloader.style.display = 'none';
+            }
+        });
+        
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+        
+        // Delivery option toggle functionality
+        document.querySelectorAll('.option-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const option = header.parentElement;
+                option.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Recursos Aprimorados - BOSS SHOPP</title>
+    <link rel="stylesheet" href="optimized-styles.css">
+    <link rel="stylesheet" href="enhanced-styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="header-links">
+                    <a href="index.html" class="header-link">Voltar para Home</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <h1>BOSS SHOPP</h1>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Test Section -->
+    <section style="padding: 60px 0; background: #f8f9fa;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px; color: #333;">Teste de Recursos Aprimorados</h2>
+            
+            <!-- Flash Sale Test -->
+            <section class="enhanced-flash-sale" style="margin-bottom: 60px;">
+                <div class="container">
+                    <div class="flash-sale-header">
+                        <div class="sale-badge">
+                            <i class="fas fa-bolt"></i>
+                            <span>OFERTA RELÂMPAGO</span>
+                        </div>
+                        <div class="countdown-container">
+                            <span class="countdown-label">Termina em:</span>
+                            <div class="countdown-timer">
+                                <div class="timer-unit">
+                                    <span id="hours" class="timer-number">12</span>
+                                    <span class="timer-label">horas</span>
+                                </div>
+                                <div class="timer-separator">:</div>
+                                <div class="timer-unit">
+                                    <span id="minutes" class="timer-number">34</span>
+                                    <span class="timer-label">min</span>
+                                </div>
+                                <div class="timer-separator">:</div>
+                                <div class="timer-unit">
+                                    <span id="seconds" class="timer-number">56</span>
+                                    <span class="timer-label">seg</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="products-grid">
+                        <div class="loading-placeholder" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+                            <div class="spinner"></div>
+                            <p>Carregando produtos em oferta...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Popular Products Test -->
+            <section class="popular-products">
+                <div class="container">
+                    <div class="section-header">
+                        <h3><i class="fas fa-fire"></i> Produtos em Alta</h3>
+                        <a href="#" class="view-all">Ver Todos</a>
+                    </div>
+                    
+                    <div class="products-grid">
+                        <div class="loading-placeholder" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+                            <div class="spinner"></div>
+                            <p>Carregando produtos populares...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: #000000; color: white; text-align: center; padding: 30px 0;">
+        <div class="container">
+            <p>© 2025 BOSS SHOPP - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script src="enhanced-products.js"></script>
+    <script>
+        // Initialize test
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Enhanced features test page loaded');
+            
+            // Simulate timer
+            function startTestTimer() {
+                const hoursElement = document.getElementById('hours');
+                const minutesElement = document.getElementById('minutes');
+                const secondsElement = document.getElementById('seconds');
+                
+                let totalSeconds = 12 * 3600 + 34 * 60 + 56; // 12:34:56
+                
+                const timer = setInterval(() => {
+                    const hours = Math.floor(totalSeconds / 3600);
+                    const minutes = Math.floor((totalSeconds % 3600) / 60);
+                    const seconds = totalSeconds % 60;
+                    
+                    if (hoursElement) hoursElement.textContent = hours.toString().padStart(2, '0');
+                    if (minutesElement) minutesElement.textContent = minutes.toString().padStart(2, '0');
+                    if (secondsElement) secondsElement.textContent = seconds.toString().padStart(2, '0');
+                    
+                    totalSeconds--;
+                    
+                    if (totalSeconds < 0) {
+                        totalSeconds = 24 * 3600; // Reset to 24 hours
+                    }
+                }, 1000);
+            }
+            
+            startTestTimer();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOSS SHOPP - Painel do Vendedor</title>
+    <link rel="stylesheet" href="seller-panel.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="seller-header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="boss-shop-logo.png" alt="BOSS SHOPP" class="logo-image">
+                <span class="seller-title">Painel do Vendedor</span>
+            </div>
+            <div class="header-actions">
+                <div class="user-info">
+                    <i class="fas fa-store"></i>
+                    <span id="sellerName">Vendedor</span>
+                </div>
+                <button class="logout-btn" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Sair
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <nav class="sidebar-nav">
+            <ul class="nav-menu">
+                <li class="nav-item active" data-section="dashboard">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-section="products">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-box"></i>
+                        <span>Meus Produtos</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-section="orders">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Pedidos</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-section="sales">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Vendas</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-section="customers">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Clientes</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-section="commission">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span>Comissões</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-section="profile">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-user-cog"></i>
+                        <span>Meu Perfil</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="content-section active">
+            <div class="section-header">
+                <h1>Dashboard</h1>
+                <p>Visão geral das suas vendas</p>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalSales">0</h3>
+                        <p>Vendas Hoje</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalRevenue">R$ 0,00</h3>
+                        <p>Receita Hoje</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalProducts">0</h3>
+                        <p>Produtos Ativos</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="commissionRate">5.0%</h3>
+                        <p>Taxa de Comissão</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3>Vendas dos Últimos 7 Dias</h3>
+                    <canvas id="salesChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Produtos Mais Vendidos</h3>
+                    <div id="topProducts" class="top-products-list">
+                        <!-- Será preenchido via JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Sales -->
+            <div class="recent-sales">
+                <h3>Vendas Recentes</h3>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Produto</th>
+                                <th>Cliente</th>
+                                <th>Quantidade</th>
+                                <th>Valor</th>
+                                <th>Comissão</th>
+                                <th>Data</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentSalesTable">
+                            <!-- Será preenchido via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="content-section">
+            <div class="section-header">
+                <h1>Meus Produtos</h1>
+                <button class="btn btn-primary" onclick="openProductModal()">
+                    <i class="fas fa-plus"></i>
+                    Novo Produto
+                </button>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters">
+                <div class="filter-group">
+                    <label>Categoria:</label>
+                    <select id="productCategoryFilter">
+                        <option value="">Todas as categorias</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Status:</label>
+                    <select id="productStatusFilter">
+                        <option value="">Todos</option>
+                        <option value="active">Ativo</option>
+                        <option value="inactive">Inativo</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Buscar:</label>
+                    <input type="text" id="productSearch" placeholder="Nome do produto...">
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid" id="productsGrid">
+                <!-- Será preenchido via JavaScript -->
+            </div>
+        </section>
+
+        <!-- Orders Section -->
+        <section id="orders" class="content-section">
+            <div class="section-header">
+                <h1>Pedidos dos Meus Produtos</h1>
+            </div>
+
+            <!-- Order Filters -->
+            <div class="filters">
+                <div class="filter-group">
+                    <label>Status:</label>
+                    <select id="orderStatusFilter">
+                        <option value="">Todos</option>
+                        <option value="pending">Pendente</option>
+                        <option value="processing">Processando</option>
+                        <option value="shipped">Enviado</option>
+                        <option value="delivered">Entregue</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Data:</label>
+                    <input type="date" id="orderDateFilter">
+                </div>
+                <div class="filter-group">
+                    <label>Produto:</label>
+                    <input type="text" id="orderProductFilter" placeholder="Nome do produto...">
+                </div>
+            </div>
+
+            <!-- Orders Table -->
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Pedido</th>
+                            <th>Produto</th>
+                            <th>Cliente</th>
+                            <th>Quantidade</th>
+                            <th>Valor</th>
+                            <th>Comissão</th>
+                            <th>Status</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersTable">
+                        <!-- Será preenchido via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Sales Section -->
+        <section id="sales" class="content-section">
+            <div class="section-header">
+                <h1>Relatório de Vendas</h1>
+                <div class="date-range">
+                    <input type="date" id="startDate">
+                    <span>até</span>
+                    <input type="date" id="endDate">
+                    <button class="btn btn-secondary" onclick="updateSalesReport()">
+                        <i class="fas fa-search"></i>
+                        Filtrar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sales Summary -->
+            <div class="sales-summary">
+                <div class="summary-card">
+                    <h3>Total de Vendas</h3>
+                    <div class="summary-value" id="totalSalesValue">R$ 0,00</div>
+                </div>
+                <div class="summary-card">
+                    <h3>Total de Comissões</h3>
+                    <div class="summary-value" id="totalCommissionValue">R$ 0,00</div>
+                </div>
+                <div class="summary-card">
+                    <h3>Produtos Vendidos</h3>
+                    <div class="summary-value" id="totalProductsSold">0</div>
+                </div>
+                <div class="summary-card">
+                    <h3>Ticket Médio</h3>
+                    <div class="summary-value" id="averageTicket">R$ 0,00</div>
+                </div>
+            </div>
+
+            <!-- Sales Chart -->
+            <div class="chart-card">
+                <h3>Evolução das Vendas</h3>
+                <canvas id="salesEvolutionChart"></canvas>
+            </div>
+
+            <!-- Top Products -->
+            <div class="top-products-section">
+                <h3>Produtos Mais Vendidos no Período</h3>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Produto</th>
+                                <th>Quantidade Vendida</th>
+                                <th>Valor Total</th>
+                                <th>Comissão Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="topProductsTable">
+                            <!-- Será preenchido via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customers Section -->
+        <section id="customers" class="content-section">
+            <div class="section-header">
+                <h1>Meus Clientes</h1>
+            </div>
+
+            <!-- Customer Stats -->
+            <div class="customer-stats">
+                <div class="stat-item">
+                    <i class="fas fa-users"></i>
+                    <div>
+                        <h4 id="totalCustomers">0</h4>
+                        <p>Total de Clientes</p>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-user-plus"></i>
+                    <div>
+                        <h4 id="newCustomers">0</h4>
+                        <p>Novos este Mês</p>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-heart"></i>
+                    <div>
+                        <h4 id="loyalCustomers">0</h4>
+                        <p>Clientes Fiéis</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customers Table -->
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Email</th>
+                            <th>Compras</th>
+                            <th>Total Gasto</th>
+                            <th>Última Compra</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customersTable">
+                        <!-- Será preenchido via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Commission Section -->
+        <section id="commission" class="content-section">
+            <div class="section-header">
+                <h1>Minhas Comissões</h1>
+            </div>
+
+            <!-- Commission Summary -->
+            <div class="commission-summary">
+                <div class="commission-card">
+                    <h3>Comissão Atual</h3>
+                    <div class="commission-rate" id="currentCommissionRate">5.0%</div>
+                    <p>Taxa aplicada às vendas</p>
+                </div>
+                <div class="commission-card">
+                    <h3>Comissão Este Mês</h3>
+                    <div class="commission-value" id="monthlyCommission">R$ 0,00</div>
+                    <p>Total acumulado</p>
+                </div>
+                <div class="commission-card">
+                    <h3>Próximo Pagamento</h3>
+                    <div class="commission-date" id="nextPayment">--/--/----</div>
+                    <p>Data prevista</p>
+                </div>
+            </div>
+
+            <!-- Commission History -->
+            <div class="commission-history">
+                <h3>Histórico de Comissões</h3>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Período</th>
+                                <th>Vendas</th>
+                                <th>Comissão</th>
+                                <th>Status</th>
+                                <th>Data Pagamento</th>
+                            </tr>
+                        </thead>
+                        <tbody id="commissionHistoryTable">
+                            <!-- Será preenchido via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile" class="content-section">
+            <div class="section-header">
+                <h1>Meu Perfil</h1>
+            </div>
+
+            <div class="profile-grid">
+                <div class="profile-card">
+                    <h3>Informações Pessoais</h3>
+                    <form id="profileForm">
+                        <div class="form-group">
+                            <label>Nome:</label>
+                            <input type="text" id="profileName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email:</label>
+                            <input type="email" id="profileEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Telefone:</label>
+                            <input type="tel" id="profilePhone">
+                        </div>
+                        <div class="form-group">
+                            <label>CPF:</label>
+                            <input type="text" id="profileCpf">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                    </form>
+                </div>
+
+                <div class="profile-card">
+                    <h3>Dados Bancários</h3>
+                    <form id="bankForm">
+                        <div class="form-group">
+                            <label>Banco:</label>
+                            <input type="text" id="bankName">
+                        </div>
+                        <div class="form-group">
+                            <label>Agência:</label>
+                            <input type="text" id="bankAgency">
+                        </div>
+                        <div class="form-group">
+                            <label>Conta:</label>
+                            <input type="text" id="bankAccount">
+                        </div>
+                        <div class="form-group">
+                            <label>Tipo de Conta:</label>
+                            <select id="accountType">
+                                <option value="corrente">Conta Corrente</option>
+                                <option value="poupanca">Poupança</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Salvar Dados</button>
+                    </form>
+                </div>
+
+                <div class="profile-card">
+                    <h3>Alterar Senha</h3>
+                    <form id="passwordForm">
+                        <div class="form-group">
+                            <label>Senha Atual:</label>
+                            <input type="password" id="currentPassword" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Nova Senha:</label>
+                            <input type="password" id="newPassword" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Confirmar Nova Senha:</label>
+                            <input type="password" id="confirmPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Alterar Senha</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="productModalTitle">Novo Produto</h2>
+                <button class="close-btn" onclick="closeProductModal()">&times;</button>
+            </div>
+            <form id="productForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Nome do Produto:</label>
+                        <input type="text" id="productName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Categoria:</label>
+                        <select id="productCategory" required>
+                            <option value="">Selecione uma categoria</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Preço:</label>
+                        <input type="number" id="productPrice" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Estoque:</label>
+                        <input type="number" id="productStock" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Descrição:</label>
+                        <textarea id="productDescription" rows="4"></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>URL da Imagem:</label>
+                        <input type="url" id="productImage">
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeProductModal()">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="panel-access.js"></script>
+    <script src="seller-panel.js"></script>
+    <script>
+        // Verificar acesso ao painel do vendedor
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!checkPanelAccess(USER_TYPES.SELLER)) {
+                return; // Redirecionamento já foi feito na função
+            }
+            
+            // Atualizar nome do vendedor
+            const user = JSON.parse(localStorage.getItem('user') || '{}');
+            const sellerNameElement = document.getElementById('sellerName');
+            if (sellerNameElement && user.name) {
+                sellerNameElement.textContent = user.name;
+            }
+        });
+    </script>
+</body>
+</html>

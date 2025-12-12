@@ -1,0 +1,137 @@
+╔════════════════════════════════════════════════════════════════╗
+║         BOSS SHOPP - ACESSO VIA REDE LOCAL                     ║
+║                    GUIA RÁPIDO                                 ║
+╚════════════════════════════════════════════════════════════════╝
+
+📌 CONFIGURAÇÃO RÁPIDA (3 PASSOS)
+═══════════════════════════════════════════════════════════════
+
+1️⃣ CONFIGURAR FIREWALL (Execute como Administrador)
+   
+   Clique com botão direito e "Executar como Administrador":
+   
+   ► configurar_rede_completo.ps1
+   
+   OU
+   
+   ► enable_network_access.bat
+
+2️⃣ INICIAR SERVIDORES
+   
+   Execute:
+   
+   ► start-all-services.bat
+
+3️⃣ ACESSAR DE OUTRO COMPUTADOR
+   
+   No navegador de outro computador na mesma rede:
+   
+   ► http://10.160.216.59:8000
+
+═══════════════════════════════════════════════════════════════
+
+🔍 VERIFICAR CONFIGURAÇÃO
+═══════════════════════════════════════════════════════════════
+
+Execute para testar se tudo está funcionando:
+
+► testar_acesso_rede.bat
+
+═══════════════════════════════════════════════════════════════
+
+📱 URLS DE ACESSO
+═══════════════════════════════════════════════════════════════
+
+IP da Máquina: 10.160.216.59
+
+Frontend (Site):
+  http://10.160.216.59:8000
+
+API Server:
+  http://10.160.216.59:8001
+
+Páginas Específicas:
+  Login:  http://10.160.216.59:8000/login.html
+  Admin:  http://10.160.216.59:8000/admin-panel.html
+  Perfil: http://10.160.216.59:8000/profile.html
+
+═══════════════════════════════════════════════════════════════
+
+❓ PROBLEMAS COMUNS
+═══════════════════════════════════════════════════════════════
+
+❌ Não consigo acessar de outro computador
+
+   Soluções:
+   
+   1. Verifique se os servidores estão rodando:
+      netstat -an | findstr "8000"
+   
+   2. Verifique se o firewall está configurado:
+      Execute: configurar_rede_completo.ps1 (como Admin)
+   
+   3. Verifique se ambos estão na mesma rede
+   
+   4. Verifique o IP atual:
+      ipconfig | findstr "IPv4"
+
+❌ IP mudou
+
+   1. Verifique o novo IP:
+      ipconfig | findstr "IPv4"
+   
+   2. Use o novo IP para acessar
+
+❌ Porta já em uso
+
+   1. Feche outros servidores rodando nas portas 8000/8001
+   
+   2. Ou mate o processo:
+      netstat -ano | findstr "8000"
+      taskkill /PID <número> /F
+
+═══════════════════════════════════════════════════════════════
+
+📚 DOCUMENTAÇÃO COMPLETA
+═══════════════════════════════════════════════════════════════
+
+Para mais detalhes, consulte:
+
+► GUIA_ACESSO_REDE.md - Guia completo em português
+
+═══════════════════════════════════════════════════════════════
+
+✅ CHECKLIST
+═══════════════════════════════════════════════════════════════
+
+□ Firewall configurado (executou como Admin)
+□ Servidores iniciados (start-all-services.bat)
+□ IP verificado (ipconfig)
+□ Teste local funcionando (http://localhost:8000)
+□ Teste de rede funcionando (http://10.160.216.59:8000)
+
+═══════════════════════════════════════════════════════════════
+
+🎯 RESUMO DOS ARQUIVOS
+═══════════════════════════════════════════════════════════════
+
+Configuração:
+  ► configurar_rede_completo.ps1  (Recomendado - PowerShell)
+  ► enable_network_access.bat     (Alternativo - CMD)
+
+Iniciar/Parar:
+  ► start-all-services.bat        (Inicia tudo)
+  ► stop-all-services.bat         (Para tudo)
+
+Teste:
+  ► testar_acesso_rede.bat        (Verifica configuração)
+
+Documentação:
+  ► GUIA_ACESSO_REDE.md           (Guia completo)
+  ► NETWORK_ACCESS_INSTRUCTIONS.txt (Instruções)
+  ► LEIA-ME_ACESSO_REDE.txt       (Este arquivo)
+
+═══════════════════════════════════════════════════════════════
+
+Última atualização: 12/11/2025
+IP Configurado: 10.160.216.59

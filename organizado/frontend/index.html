@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOSS SHOPP - Sua Loja Online</title>
+    <link rel="stylesheet" href="optimized-styles.css">
+    <link rel="stylesheet" href="panel-buttons.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <div class="loader-text">BOSS SHOPP</div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="header-links">
+                    <a href="#" class="header-link">Vendedor</a>
+                    <a href="#" class="header-link">Download</a>
+                    <a href="#" class="header-link">Conecte-se</a>
+                </div>
+                <div class="header-social">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="boss-shop-logo.png" alt="BOSS SHOPP" class="logo-image">
+                    </a>
+                </div>
+                
+                <div class="profile-button">
+                    <a href="profile.html" class="profile-btn">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Meu Perfil</span>
+                    </a>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Busque por produtos, marcas e muito mais...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="nav-icons">
+                    <div class="nav-icon-dropdown">
+                        <a href="login.html" class="nav-icon" id="userIcon">
+                            <i class="fas fa-user"></i>
+                            <span id="userText">Entrar</span>
+                        </a>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="profile.html">
+                                <i class="fas fa-user"></i>
+                                <span>Meu Perfil</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" onclick="logout()">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Sair</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Logout button that shows when user is logged in -->
+                    <a href="#" class="nav-icon" id="logoutButton" style="display: none;" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sair</span>
+                    </a>
+                    <a href="favorites.html" class="nav-icon">
+                        <i class="fas fa-heart"></i>
+                        <span>Favoritos</span>
+                    </a>
+                    <a href="purchase.html" class="nav-icon cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrinho</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="hero-gradient"></div>
+            <div class="hero-particles"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <i class="fas fa-fire"></i>
+                        <span>Promoção Relâmpago</span>
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="title-main">Ofertas</span>
+                        <span class="title-highlight">Imperdíveis</span>
+                    </h1>
+                    <p class="hero-description">
+                        Economize até <span class="highlight-text">70%</span> em produtos selecionados
+                        <br>Compre agora e aproveite os melhores preços!
+                    </p>
+                    <div class="hero-actions">
+                        <button class="cta-button primary">
+                            <i class="fas fa-shopping-cart"></i>
+                            Ver Ofertas
+                        </button>
+                        <button class="cta-button secondary">
+                            <i class="fas fa-play"></i>
+                            Ver Vídeo
+                        </button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">50k+</span>
+                            <span class="stat-label">Clientes Felizes</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">4.9</span>
+                            <span class="stat-label">⭐ Avaliação</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">Entrega</span>
+                            <span class="stat-label">Grátis</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-products">
+                        <div class="product-float product-1">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span class="price-tag">-50%</span>
+                        </div>
+                        <div class="product-float product-2">
+                            <i class="fas fa-tshirt"></i>
+                            <span class="price-tag">-30%</span>
+                        </div>
+                        <div class="product-float product-3">
+                            <i class="fas fa-laptop"></i>
+                            <span class="price-tag">-40%</span>
+                        </div>
+                    </div>
+                    <div class="hero-shopping-bag">
+                        <i class="fas fa-shopping-bag"></i>
+                        <div class="bag-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-text">Role para baixo</div>
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-pre">Explore por</span>
+                    <span class="title-main">Categorias Populares</span>
+                </h2>
+                <p class="section-description">Encontre os melhores produtos em cada categoria com os preços mais baixos</p>
+            </div>
+            <div class="category-grid">
+                <a href="moda.html" class="category-card moda-card">
+                    <div class="card-bg"></div>
+                    <div class="card-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <div class="card-content">
+                        <h4>Moda</h4>
+                        <p>Até 50% off em roupas e acessórios</p>
+                        <span class="card-cta">Ver produtos <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                    <div class="card-discount">
+                        <span>-50%</span>
+                    </div>
+                </a>
+                <a href="eletronicos.html" class="category-card eletronicos-card">
+                    <div class="card-bg"></div>
+                    <div class="card-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <div class="card-content">
+                        <h4>Eletrônicos</h4>
+                        <p>Últimas novidades em tecnologia</p>
+                        <span class="card-cta">Ver produtos <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                    <div class="card-discount">
+                        <span>-35%</span>
+                    </div>
+                </a>
+                <a href="casa.html" class="category-card casa-card">
+                    <div class="card-bg"></div>
+                    <div class="card-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="card-content">
+                        <h4>Casa</h4>
+                        <p>Decoração e utilidades para seu lar</p>
+                        <span class="card-cta">Ver produtos <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                    <div class="card-discount">
+                        <span>-40%</span>
+                    </div>
+                </a>
+                <a href="games.html" class="category-card games-card">
+                    <div class="card-bg"></div>
+                    <div class="card-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="card-content">
+                        <h4>Games</h4>
+                        <p>Lançamentos e clássicos imperdíveis</p>
+                        <span class="card-cta">Ver produtos <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                    <div class="card-discount">
+                        <span>-25%</span>
+                    </div>
+                </a>
+                <a href="esportes.html" class="category-card esportes-card">
+                    <div class="card-bg"></div>
+                    <div class="card-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <div class="card-content">
+                        <h4>Esportes</h4>
+                        <p>Equipamentos para sua academia</p>
+                        <span class="card-cta">Ver produtos <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                    <div class="card-discount">
+                        <span>-30%</span>
+                    </div>
+                </a>
+                <a href="infantil.html" class="category-card infantil-card">
+                    <div class="card-bg"></div>
+                    <div class="card-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <div class="card-content">
+                        <h4>Infantil</h4>
+                        <p>Roupas e brinquedos para as crianças</p>
+                        <span class="card-cta">Ver produtos <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                    <div class="card-discount">
+                        <span>-60%</span>
+                    </div>
+                </a>
+            </div>
+            <div class="categories-cta">
+                <a href="#" class="view-all-categories">
+                    Ver todas as categorias
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flash Sale - Seção Melhorada -->
+    <section class="flash-sale enhanced-flash-sale">
+        <div class="container">
+            <div class="flash-sale-header">
+                <div class="sale-badge">
+                    <i class="fas fa-bolt"></i>
+                    <span>OFERTA RELÂMPAGO</span>
+                </div>
+                <div class="countdown-container">
+                    <span class="countdown-label">Termina em:</span>
+                    <div class="countdown-timer">
+                        <div class="timer-unit">
+                            <span id="hours" class="timer-number">12</span>
+                            <span class="timer-label">horas</span>
+                        </div>
+                        <div class="timer-separator">:</div>
+                        <div class="timer-unit">
+                            <span id="minutes" class="timer-number">34</span>
+                            <span class="timer-label">min</span>
+                        </div>
+                        <div class="timer-separator">:</div>
+                        <div class="timer-unit">
+                            <span id="seconds" class="timer-number">56</span>
+                            <span class="timer-label">seg</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Produtos serão carregados dinamicamente do banco de dados -->
+                <div class="empty-products-message" style="text-align: center; padding: 60px 20px; grid-column: 1 / -1;">
+                    <i class="fas fa-box-open" style="font-size: 64px; color: #ccc; margin-bottom: 20px;"></i>
+                    <h3 style="color: #666; margin-bottom: 10px;">Nenhum produto em oferta no momento</h3>
+                    <p style="color: #999; margin-bottom: 20px;">Adicione produtos pelo painel administrativo</p>
+                    <a href="admin-panel.html" class="add-products-btn" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);">
+                        <i class="fas fa-plus-circle" style="margin-right: 8px;"></i>
+                        Adicionar Produtos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Highlights -->
+    <section class="special-highlights">
+        <div class="container">
+            <h3 class="section-title">Destaques Especiais</h3>
+            <div class="highlight-grid">
+                <div class="highlight-card">
+                    <div class="highlight-image">
+                        <i class="fas fa-truck highlight-icon"></i>
+                    </div>
+                    <h4>Frete Grátis</h4>
+                    <p>Para compras acima de R$ 200</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-image">
+                        <i class="fas fa-shield-alt highlight-icon"></i>
+                    </div>
+                    <h4>Compra Segura</h4>
+                    <p>Seu dinheiro garantido</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-image">
+                        <i class="fas fa-sync-alt highlight-icon"></i>
+                    </div>
+                    <h4>Devolução Fácil</h4>
+                    <p>Até 30 dias para troca</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-image">
+                        <i class="fas fa-headset highlight-icon"></i>
+                    </div>
+                    <h4>Suporte 24/7</h4>
+                    <p>Atendimento especializado</p>
+                </div>
+                <div class="highlight-card premium-pack">
+                    <div class="highlight-image">
+                        <i class="fas fa-gift highlight-icon"></i>
+                    </div>
+                    <h4>Embalagem Premium</h4>
+                    <p>Para presentear com carinho</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-image">
+                        <i class="fas fa-credit-card highlight-icon"></i>
+                    </div>
+                    <h4>Até 12x Sem Juros</h4>
+                    <p>Parcelamento sem preocupações</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Products -->
+    <section class="popular-products">
+        <div class="container">
+            <div class="section-header">
+                <h3><i class="fas fa-fire"></i> Produtos em Alta</h3>
+                <a href="#" class="view-all">Ver Todos</a>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Produtos serão carregados dinamicamente do banco de dados -->
+                <div class="empty-products-message" style="text-align: center; padding: 60px 20px; grid-column: 1 / -1;">
+                    <i class="fas fa-box-open" style="font-size: 64px; color: #ccc; margin-bottom: 20px;"></i>
+                    <h3 style="color: #666; margin-bottom: 10px;">Nenhum produto popular no momento</h3>
+                    <p style="color: #999; margin-bottom: 20px;">Adicione produtos pelo painel administrativo</p>
+                    <a href="admin-panel.html" class="add-products-btn" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);">
+                        <i class="fas fa-plus-circle" style="margin-right: 8px;"></i>
+                        Adicionar Produtos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Tabs -->
+    <section class="category-tabs">
+        <div class="container">
+            <div class="tabs-header">
+                <h2>Categorias em Destaque</h2>
+            </div>
+            <div class="tabs-container">
+                <button class="tab-btn active" data-category="home">Início</button>
+                <button class="tab-btn" data-category="moda">Moda</button>
+                <button class="tab-btn" data-category="eletronicos">Eletrônicos</button>
+                <button class="tab-btn" data-category="casa">Casa</button>
+                <button class="tab-btn" data-category="games">Games</button>
+                <button class="tab-btn" data-category="esportes">Esportes</button>
+                <button class="tab-btn" data-category="infantil">Infantil</button>
+            </div>
+            
+            <!-- Moda Category Content -->
+            <div class="tab-content active" id="moda-content">
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-badge">-20%</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Camiseta Básica" class="product-img">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Roupas</div>
+  
+                            <h3>Camiseta Básica</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(156)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="old-price">R$ 49,90</span>
+                                <span class="new-price">R$ 39,90</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Camiseta Básica', 39.90)">
+                                <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Calça Jeans" class="product-img">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Calças</div>
+                            <h3>Calça Jeans</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(89)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="new-price">R$ 89,90</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Calça Jeans', 89.90)">
+                                <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-badge">-15%</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Tênis Esportivo" class="product-img">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Calçados</div>
+                            <h3>Tênis Esportivo</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(234)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="old-price">R$ 199,90</span>
+                                <span class="new-price">R$ 169,90</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Tênis Esportivo', 169.90)">
+                                <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1529958030586-3aae4ca485f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Boné Estiloso" class="product-img">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Acessórios</div>
+                            <h3>Boné Estiloso</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(67)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="new-price">R$ 34,90</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Boné Estiloso', 34.90)">
+                                <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-all-container">
+                    <a href="categoria-moda.html" class="view-all-btn">Ver Todos os Produtos de Moda</a>
+                </div>
+            </div>
+            
+            <!-- Eletrônicos Category Content -->
+            <div class="tab-content" id="eletronicos-content">
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-badge">-20%</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1595941069915-4ebc5197c14a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Smartphone Premium" class="product-img">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Celulares</div>
+                            <h3>Smartphone Premium</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(234)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="old-price">R$ 2.200,00</span>
+                                <span class="new-price">R$ 1.760,00</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Smartphone Premium', 1760.00)">
+                                <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-badge">-15%</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Notebook Ultrafino" class="product-img">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Computadores</div>
+                            <h3>Notebook Ultrafino</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(156)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="old-price">R$ 3.500,00</span>
+                                <span class="new-price">R$ 2.975,00</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Notebook Ultrafino', 2975.00)">
+                                <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Fone Bluetooth Sem Fio" class="product-img">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Áudio</div>
+                            <h3>Fone Bluetooth Sem Fio</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(145)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="new-price">R$ 224,90</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Fone Bluetooth Sem Fio', 224.90)">
+                                <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-badge">-10%</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Smart TV 55&quot;" class="product-img">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">TVs</div>
+                            <h3>Smart TV 55"</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(189)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="old-price">R$ 1.950,00</span>
+                                <span class="new-price">R$ 1.750,00</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Smart TV 55&quot;', 1750.00)">
+                                <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-all-container">
+                    <a href="eletronicos.html" class="view-all-btn">Ver Todos os Produtos Eletrônicos</a>
+                </div>
+            </div>
+            
+            <!-- Casa Category Content -->
+            <div class="tab-content" id="casa-content">
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-badge">-15%</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Sofá Confortável" class="product-img">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Móveis</div>
+                            <h3>Sofá Confortável</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(156)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="old-price">R$ 1.200,00</span>
+                                <span class="new-price">R$ 1.020,00</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Sofá Confortável', 1020.00)">
+                                <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Cama Queen Size" class="product-img">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Móveis</div>
+                            <h3>Cama Queen Size</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(234)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="new-price">R$ 899,90</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Cama Queen Size', 899.90)">
+                                <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-badge">-20%</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1584361410532-2c9f3691d5bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Jogo de Talheres" class="product-img">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Utensílios</div>
+                            <h3>Jogo de Talheres</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(78)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="old-price">R$ 199,90</span>
+                                <span class="new-price">R$ 159,90</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Jogo de Talheres', 159.90)">
+                                <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1515405295579-ba7b45403062?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Kit de Lâmpadas LED" class="product-img">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Iluminação</div>
+                            <h3>Kit de Lâmpadas LED</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(112)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="new-price">R$ 97,40</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Kit de Lâmpadas LED', 97.40)">
+                                <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-all-container">
+                    <a href="casa.html" class="view-all-btn">Ver Todos os Produtos para Casa</a>
+                </div>
+            </div>
+            
+            <!-- Games Category Content -->
+            <div class="tab-content" id="games-content">
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-badge">-10%</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Console de Videogame" class="product-img">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Consoles</div>
+                            <h3>Console de Videogame</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(267)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="old-price">R$ 2.500,00</span>
+                                <span class="new-price">R$ 2.250,00</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Console de Videogame', 2250.00)">
+                                <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1572074024869-66870909e1a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Jogo de Tabuleiro" class="product-img">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Jogos</div>
+                            <h3>Jogo de Tabuleiro</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(89)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="new-price">R$ 89,90</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Jogo de Tabuleiro', 89.90)">
+                                <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-badge">-15%</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1589578151266-11308265d904?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Fone Gamer" class="product-img">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Acessórios</div>
+                            <h3>Fone Gamer</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(145)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="old-price">R$ 350,00</span>
+                                <span class="new-price">R$ 299,90</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Fone Gamer', 299.90)">
+                                <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1547137859-095f1fd4e339?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Teclado Mecânico" class="product-img">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Periféricos</div>
+                            <h3>Teclado Mecânico</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(178)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="new-price">R$ 319,90</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Teclado Mecânico', 319.90)">
+                                <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-all-container">
+                    <a href="games.html" class="view-all-btn">Ver Todos os Produtos de Games</a>
+                </div>
+            </div>
+            
+            <!-- Esportes Category Content -->
+            <div class="tab-content" id="esportes-content">
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-badge">-20%</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Conjunto de Halteres" class="product-img">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Academia</div>
+                            <h3>Conjunto de Halteres</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(156)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="old-price">R$ 319,90</span>
+                                <span class="new-price">R$ 254,90</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Conjunto de Halteres', 254.90)">
+                                <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1542281286-9e0a16bb7366?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Tênis para Corrida" class="product-img">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Calçados</div>
+                            <h3>Tênis para Corrida</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(123)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="new-price">R$ 199,90</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Tênis para Corrida', 199.90)">
+                                <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-badge">-15%</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1541252260730-0412e8e2108e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Bola de Futebol" class="product-img">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Futebol</div>
+                            <h3>Bola de Futebol</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(89)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="old-price">R$ 89,90</span>
+                                <span class="new-price">R$ 74,90</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Bola de Futebol', 74.90)">
+                                <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1571085675488-47b72c50a9f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Bicicleta Mountain Bike" class="product-img">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Ciclismo</div>
+                            <h3>Bicicleta Mountain Bike</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(145)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="new-price">R$ 1.299,90</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Bicicleta Mountain Bike', 1299.90)">
+                                <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-all-container">
+                    <a href="esportes.html" class="view-all-btn">Ver Todos os Produtos Esportivos</a>
+                </div>
+            </div>
+            
+            <!-- Infantil Category Content -->
+            <div class="tab-content" id="infantil-content">
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-badge">-20%</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1519629350220-f1338f4e708b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Camiseta Infantil" class="product-img">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Roupas</div>
+                            <h3>Camiseta Infantil</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(78)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="old-price">R$ 42,90</span>
+                                <span class="new-price">R$ 33,90</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Camiseta Infantil', 33.90)">
+                                <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1580877203931-9d868579c59f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Meias Coloridas" class="product-img">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Acessórios</div>
+                            <h3>Meias Coloridas</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(112)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="new-price">R$ 19,90</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Meias Coloridas', 19.90)">
+                                <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-badge">-15%</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1584213695503-9f0e99b5013f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Sapatilha Infantil" class="product-img">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Calçados</div>
+                            <h3>Sapatilha Infantil</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(67)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="old-price">R$ 56,90</span>
+                                <span class="new-price">R$ 47,90</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Sapatilha Infantil', 47.90)">
+                                <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1587090308028-594b9c730b37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Carrinho de Controle Remoto" class="product-img">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Brinquedos</div>
+                            <h3>Carrinho de Controle Remoto</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(156)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="new-price">R$ 89,90</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('Carrinho de Controle Remoto', 89.90)">
+                                <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-all-container">
+                    <a href="infantil.html" class="view-all-btn">Ver Todos os Produtos Infantil</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h3>Fique por dentro das novidades</h3>
+                <p>Assine nossa newsletter e receba ofertas exclusivas e novidades em primeira mão</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Digite seu e-mail" required>
+                    <button type="submit">Assinar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h3 class="section-title">O que nossos clientes dizem</h3>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Produto de excelente qualidade! Entrega super rápida e atendimento impecável. Recomendo a todos!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Maria Silva</h4>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Comprei um notebook e fiquei impressionado com a qualidade e o preço. Produto chegou antes do previsto!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Carlos Oliveira</h4>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Atendimento excelente e produtos de qualidade. Já fiz várias compras e sempre volto para mais!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Ana Souza</h4>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Top Sellers -->
+    <section class="top-sellers">
+        <div class="container">
+            <div class="section-header">
+                <h3><i class="fas fa-crown"></i> Mais Vendidos</h3>
+                <a href="#" class="view-all">Ver Todos</a>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-badge">Top 1</div>
+                    <div class="product-image">
+                        <i class="fas fa-mobile-alt product-icon"></i>
+                    </div>
+                    <div class="product-info">
+                        <h4>Smartphone Pro Max</h4>
+                        <div class="price">
+                            <span class="new-price">R$ 2.499,90</span>
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(542)</span>
+                        </div>
+                        <button class="add-to-cart" onclick="addToCart('Smartphone Pro Max', 2499.90)">
+                            <i class="fas fa-cart-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-badge">Top 2</div>
+                    <div class="product-image">
+                        <i class="fas fa-laptop product-icon"></i>
+                    </div>
+                    <div class="product-info">
+                        <h4>Notebook Ultra Slim</h4>
+                        <div class="price">
+                            <span class="new-price">R$ 3.299,90</span>
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(327)</span>
+                        </div>
+                        <button class="add-to-cart" onclick="addToCart('Notebook Ultra Slim', 3299.90)">
+                            <i class="fas fa-cart-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-badge">Top 3</div>
+                    <div class="product-image">
+                        <i class="fas fa-headphones product-icon"></i>
+                    </div>
+                    <div class="product-info">
+                        <h4>Fone Bluetooth Premium</h4>
+                        <div class="price">
+                            <span class="new-price">R$ 299,90</span>
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(421)</span>
+                        </div>
+                        <button class="add-to-cart" onclick="addToCart('Fone Bluetooth Premium', 299.90)">
+                            <i class="fas fa-cart-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-badge">Top 4</div>
+                    <div class="product-image">
+                        <i class="fas fa-tshirt product-icon"></i>
+                    </div>
+                    <div class="product-info">
+                        <h4>Camiseta Estampada</h4>
+                        <div class="price">
+                            <span class="new-price">R$ 49,90</span>
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(287)</span>
+                        </div>
+                        <button class="add-to-cart" onclick="addToCart('Camiseta Estampada', 49.90)">
+                            <i class="fas fa-cart-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>BOSS SHOPP</h4>
+                    <p>Sua loja online com os melhores produtos e preços imperdíveis.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Atendimento</h4>
+                    <ul>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Como Comprar</a></li>
+                        <li><a href="#">Frete e Entrega</a></li>
+                        <li><a href="#">Devoluções</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Sobre</h4>
+                    <ul>
+                        <li><a href="#">Nossa História</a></li>
+                        <li><a href="#">Trabalhe Conosco</a></li>
+                        <li><a href="#">Imprensa</a></li>
+                        <li><a href="#">Investidores</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Pagamento</h4>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fas fa-money-bill"></i>
+                    </div>
+                </div>
+                
+
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 BOSS SHOPP. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Carrinho de Compras</h2>
+            <div id="cartItems"></div>
+            <div class="cart-total">
+                <strong>Total: R$ <span id="cartTotal">0,00</span></strong>
+            </div>
+            <button class="checkout-btn" onclick="window.location.href='purchase.html'">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <script src="auth-utils.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Show notification message
+        function showNotification(message, type = 'success') {
+            // Remove any existing notifications
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background-color: ${type === 'success' ? '#00aa00' : '#ff4444'};
+                color: white;
+                padding: 15px 20px;
+                border-radius: 5px;
+                z-index: 10000;
+                font-weight: bold;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            `;
+            notification.textContent = message;
+            
+            // Add to document
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+        
+        // Logout function
+        function logout() {
+            // Confirm logout
+            if (confirm('Tem certeza que deseja sair?')) {
+                // Clear authentication data
+                localStorage.removeItem('authToken');
+                localStorage.removeItem('user');
+                
+                // Show success notification
+                showNotification('Logout realizado com sucesso!', 'success');
+                
+                // Update user icon
+                updateUserIcon();
+                
+                // Hide the logout button
+                const logoutButton = document.getElementById('logoutButton');
+                if (logoutButton) {
+                    logoutButton.style.display = 'none';
+                }
+                
+                // Small delay to show the notification
+                setTimeout(function() {
+                    // Redirect to login page
+                    window.location.href = 'login.html';
+                }, 1000);
+            }
+        }
+        
+        // Function to update user icon based on authentication status
+        function updateUserIcon() {
+            const userIcon = document.getElementById('userIcon');
+            const userText = document.getElementById('userText');
+            const userDropdown = document.getElementById('userDropdown');
+            const logoutButton = document.getElementById('logoutButton');
+            
+            const authToken = localStorage.getItem('authToken');
+            const user = localStorage.getItem('user');
+            
+            if (authToken && user) {
+                // User is logged in
+                try {
+                    const userData = JSON.parse(user);
+                    userText.textContent = userData.name || 'Minha Conta';
+                    userIcon.href = '#'; // Prevent navigation to login page
+                    
+                    // Show logout button
+                    if (logoutButton) {
+                        logoutButton.style.display = 'flex';
+                    }
+                } catch (e) {
+                    console.error('Error parsing user data:', e);
+                    userText.textContent = 'Minha Conta';
+                }
+            } else {
+                // User is not logged in
+                userText.textContent = 'Entrar';
+                userIcon.href = 'login.html';
+                
+                // Hide logout button
+                if (logoutButton) {
+                    logoutButton.style.display = 'none';
+                }
+            }
+        }
+        
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update user icon on page load
+            updateUserIcon();
+            
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+                    
+                    // Navigate to the corresponding category page
+                    const category = btn.getAttribute('data-category');
+                    let url;
+                    switch(category) {
+                        case 'home':
+                            url = 'index.html';
+                            break;
+                        case 'moda':
+                            url = 'categoria-moda.html';
+                            break;
+                        case 'eletronicos':
+                            url = 'eletronicos.html';
+                            break;
+                        case 'casa':
+                            url = 'casa.html';
+                            break;
+                        case 'games':
+                            url = 'games.html';
+                            break;
+                        case 'esportes':
+                            url = 'esportes.html';
+                            break;
+                        case 'infantil':
+                            url = 'infantil.html';
+                            break;
+                        default:
+                            url = 'index.html';
+                    }
+                    window.location.href = url;
+                });
+            });
+            
+            // Handle user dropdown
+            const userIcon = document.getElementById('userIcon');
+            const userDropdown = document.getElementById('userDropdown');
+            
+            if (userIcon && userDropdown) {
+                userIcon.addEventListener('click', function(e) {
+                    // Check if user is logged in (has authToken)
+                    const authToken = localStorage.getItem('authToken');
+                    if (authToken) {
+                        e.preventDefault();
+                        userDropdown.classList.toggle('show');
+                    }
+                    // If not logged in, it will navigate to login page as before
+                });
+                
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!userIcon.contains(e.target) && !userDropdown.contains(e.target)) {
+                        userDropdown.classList.remove('show');
+                    }
+                });
+            }
+        });
+    </script>
+    <script src="panel-access.js"></script>
+</body>
+</html>

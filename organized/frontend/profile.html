@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil - BOSS SHOPP</title>
+    <link rel="stylesheet" href="optimized-styles.css">
+    <link rel="stylesheet" href="optimized-profile.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="header-links">
+                    <a href="index.html" class="header-link">Voltar à Loja</a>
+                    <a href="#" class="header-link">Ajuda</a>
+                </div>
+                <div class="header-social">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="boss-shop-logo.png" alt="BOSS SHOPP" class="logo-image">
+                    </a>
+                </div>
+                
+                <div class="profile-button">
+                    <a href="profile.html" class="profile-btn">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Meu Perfil</span>
+                    </a>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Busque por produtos, marcas e muito mais...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="nav-icons">
+                    <a href="index.html" class="nav-icon">
+                        <i class="fas fa-home"></i>
+                        <span>Início</span>
+                    </a>
+                    <a href="favorites.html" class="nav-icon">
+                        <i class="fas fa-heart"></i>
+                        <span>Favoritos</span>
+                    </a>
+                    <a href="purchase.html" class="nav-icon cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrinho</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Category Tabs -->
+    <section class="category-tabs">
+        <div class="container">
+            <div class="tabs-header">
+                <h2>Categorias em Destaque</h2>
+            </div>
+            <div class="tabs-container">
+                <button class="tab-btn" data-category="home">Início</button>
+                <button class="tab-btn" data-category="moda">Moda</button>
+                <button class="tab-btn" data-category="eletronicos">Eletrônicos</button>
+                <button class="tab-btn" data-category="casa">Casa</button>
+                <button class="tab-btn" data-category="games">Games</button>
+                <button class="tab-btn" data-category="esportes">Esportes</button>
+                <button class="tab-btn" data-category="infantil">Infantil</button>
+            </div>
+            
+            <!-- Tab Contents -->
+            <div class="tab-contents-container">
+                <div class="view-all-container">
+                    <p>Veja produtos de outras categorias clicando nas abas acima</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Container -->
+    <div class="profile-container">
+        <div class="container">
+            <div class="profile-wrapper">
+                <!-- Sidebar -->
+                <div class="profile-sidebar">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="profile-info">
+                            <h3 id="profileName">Usuário</h3>
+                            <p id="profileEmail">usuario@email.com</p>
+                        </div>
+                    </div>
+                    
+                    <nav class="profile-nav">
+                        <a href="#" class="nav-item active" data-section="account">
+                            <i class="fas fa-user"></i>
+                            <span>Minha Conta</span>
+                        </a>
+                        <a href="#" class="nav-item" data-section="orders">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>Meus Pedidos</span>
+                        </a>
+                        <a href="favorites.html" class="nav-item">
+                            <i class="fas fa-heart"></i>
+                            <span>Favoritos</span>
+                        </a>
+                        <a href="#" class="nav-item" data-section="addresses">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Endereços</span>
+                        </a>
+                        <a href="#" class="nav-item" data-section="payment">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Pagamento</span>
+                        </a>
+                        <a href="#" class="nav-item" data-section="notifications">
+                            <i class="fas fa-bell"></i>
+                            <span>Notificações</span>
+                        </a>
+                        <a href="#" class="nav-item logout" onclick="logout()">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Sair</span>
+                        </a>
+                    </nav>
+                </div>
+
+                <!-- Main Content -->
+                <div class="profile-content">
+                    <!-- Account Section -->
+                    <div class="content-section active" id="account">
+                        <div class="section-header">
+                            <h2>Minha Conta</h2>
+                            <p>Gerencie suas informações pessoais</p>
+                        </div>
+                        
+                        <div class="account-form">
+                            <form id="profileForm">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="firstName">Nome</label>
+                                        <input type="text" id="firstName" name="firstName" placeholder="Seu nome">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName">Sobrenome</label>
+                                        <input type="text" id="lastName" name="lastName" placeholder="Seu sobrenome">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" placeholder="seu@email.com" readonly>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="phone">Telefone</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="(11) 99999-9999">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="birthDate">Data de Nascimento</label>
+                                    <input type="date" id="birthDate" name="birthDate">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="gender">Gênero</label>
+                                    <select id="gender" name="gender">
+                                        <option value="">Selecione</option>
+                                        <option value="male">Masculino</option>
+                                        <option value="female">Feminino</option>
+                                        <option value="other">Outro</option>
+                                        <option value="prefer-not-say">Prefiro não dizer</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="cpf">CPF</label>
+                                    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="address">Endereço Completo</label>
+                                    <textarea id="address" name="address" rows="3" placeholder="Rua, número, complemento, bairro"></textarea>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="city">Cidade</label>
+                                        <input type="text" id="city" name="city" placeholder="Sua cidade">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="state">Estado</label>
+                                        <select id="state" name="state">
+                                            <option value="">Selecione</option>
+                                            <option value="AC">Acre</option>
+                                            <option value="AL">Alagoas</option>
+                                            <option value="AP">Amapá</option>
+                                            <option value="AM">Amazonas</option>
+                                            <option value="BA">Bahia</option>
+                                            <option value="CE">Ceará</option>
+                                            <option value="DF">Distrito Federal</option>
+                                            <option value="ES">Espírito Santo</option>
+                                            <option value="GO">Goiás</option>
+                                            <option value="MA">Maranhão</option>
+                                            <option value="MT">Mato Grosso</option>
+                                            <option value="MS">Mato Grosso do Sul</option>
+                                            <option value="MG">Minas Gerais</option>
+                                            <option value="PA">Pará</option>
+                                            <option value="PB">Paraíba</option>
+                                            <option value="PR">Paraná</option>
+                                            <option value="PE">Pernambuco</option>
+                                            <option value="PI">Piauí</option>
+                                            <option value="RJ">Rio de Janeiro</option>
+                                            <option value="RN">Rio Grande do Norte</option>
+                                            <option value="RS">Rio Grande do Sul</option>
+                                            <option value="RO">Rondônia</option>
+                                            <option value="RR">Roraima</option>
+                                            <option value="SC">Santa Catarina</option>
+                                            <option value="SP">São Paulo</option>
+                                            <option value="SE">Sergipe</option>
+                                            <option value="TO">Tocantins</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="zipCode">CEP</label>
+                                        <input type="text" id="zipCode" name="zipCode" placeholder="00000-000">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="country">País</label>
+                                        <input type="text" id="country" name="country" value="Brasil" readonly>
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="save-btn">
+                                    <i class="fas fa-save"></i>
+                                    Salvar Alterações
+                                </button>
+                                
+                                <div class="form-group" style="margin-top: 20px; text-align: center;">
+                                    <a href="customer-profile.html" class="btn btn-secondary" style="display: inline-block; padding: 10px 20px; background: #6c757d; color: white; text-decoration: none; border-radius: 5px;">
+                                        <i class="fas fa-user-edit"></i>
+                                        Gerenciar Perfil Completo
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Orders Section -->
+                    <div class="content-section" id="orders">
+                        <div class="section-header">
+                            <h2>Meus Pedidos</h2>
+                            <p>Acompanhe o status dos seus pedidos</p>
+                        </div>
+                        
+                        <div class="orders-list">
+                            <div class="empty-state">
+                                <i class="fas fa-shopping-bag"></i>
+                                <h3>Carregando pedidos...</h3>
+                                <p>Por favor, aguarde enquanto carregamos seu histórico de pedidos.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Favorites Section -->
+                    <div class="content-section" id="favorites">
+                        <div class="section-header">
+                            <h2>Meus Favoritos</h2>
+                            <p>Produtos que você salvou para depois</p>
+                        </div>
+                        
+                        <div class="favorites-list">
+                            <div class="empty-state">
+                                <i class="fas fa-heart"></i>
+                                <h3>Carregando favoritos...</h3>
+                                <p>Por favor, aguarde enquanto carregamos seus produtos favoritos.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Addresses Section -->
+                    <div class="content-section" id="addresses">
+                        <div class="section-header">
+                            <h2>Meus Endereços</h2>
+                            <p>Gerencie seus endereços de entrega</p>
+                        </div>
+                        
+                        <div class="addresses-list">
+                            <div class="empty-state">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <h3>Carregando endereços...</h3>
+                                <p>Por favor, aguarde enquanto carregamos seus endereços.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Section -->
+                    <div class="content-section" id="payment">
+                        <div class="section-header">
+                            <h2>Formas de Pagamento</h2>
+                            <p>Gerencie seus cartões e métodos de pagamento</p>
+                            <button class="add-payment-btn">
+                                <i class="fas fa-plus"></i>
+                                Adicionar Cartão
+                            </button>
+                        </div>
+                        
+                        <div class="payment-methods">
+                            <div class="empty-state">
+                                <i class="fas fa-credit-card"></i>
+                                <h3>Carregando métodos de pagamento...</h3>
+                                <p>Por favor, aguarde enquanto carregamos seus métodos de pagamento.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notifications Section -->
+                    <div class="content-section" id="notifications">
+                        <div class="section-header">
+                            <h2>Notificações</h2>
+                            <p>Configure suas preferências de notificação</p>
+                        </div>
+                        
+                        <div class="notification-settings">
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>Ofertas e Promoções</h4>
+                                    <p>Receba notificações sobre ofertas especiais</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="promotions" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>Status do Pedido</h4>
+                                    <p>Atualizações sobre seus pedidos</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="orderStatus" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>Novos Produtos</h4>
+                                    <p>Seja o primeiro a saber sobre novidades</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="newProducts">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>Newsletter</h4>
+                                    <p>Receba nossa newsletter semanal</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="newsletter">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 BOSS SHOPP. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="profile.js"></script>
+    <script src="auth-utils.js"></script>
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+                    
+                    // Navigate to the corresponding category page
+                    const category = btn.getAttribute('data-category');
+                    let url;
+                    switch(category) {
+                        case 'home':
+                            url = 'index.html';
+                            break;
+                        case 'moda':
+                            url = 'categoria-moda.html';
+                            break;
+                        case 'eletronicos':
+                            url = 'eletronicos.html';
+                            break;
+                        case 'casa':
+                            url = 'casa.html';
+                            break;
+                        case 'games':
+                            url = 'games.html';
+                            break;
+                        case 'esportes':
+                            url = 'esportes.html';
+                            break;
+                        case 'infantil':
+                            url = 'infantil.html';
+                            break;
+                        default:
+                            url = 'index.html';
+                    }
+                    window.location.href = url;
+                });
+            });
+            
+            // Initialize profile functionality
+            initializeProfile();
+        });
+    </script>
+</body>
+</html>

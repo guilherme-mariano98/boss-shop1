@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devoluções - BOSS SHOPP</title>
+    <link rel="stylesheet" href="optimized-styles.css">
+    <link rel="stylesheet" href="panel-buttons.css">
+    <link rel="stylesheet" href="pages.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <div class="loader-text">BOSS SHOPP</div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="header-links">
+                    <a href="sobre.html" class="header-link">Sobre</a>
+                    <a href="atendimento.html" class="header-link">Atendimento</a>
+                    <a href="#" class="header-link">Vendedor</a>
+                    <a href="#" class="header-link">Download</a>
+                    <a href="#" class="header-link">Conecte-se</a>
+                </div>
+                <div class="header-social">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="boss-shop-logo.png" alt="BOSS SHOPP" class="logo-image">
+                    </a>
+                </div>
+                
+                <div class="profile-button">
+                    <a href="profile.html" class="profile-btn">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Meu Perfil</span>
+                    </a>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Busque por produtos, marcas e muito mais...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="nav-icons">
+                    <div class="nav-icon-dropdown">
+                        <a href="login.html" class="nav-icon" id="userIcon">
+                            <i class="fas fa-user"></i>
+                            <span id="userText">Entrar</span>
+                        </a>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="profile.html">
+                                <i class="fas fa-user"></i>
+                                <span>Meu Perfil</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" onclick="logout()">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Sair</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Logout button that shows when user is logged in -->
+                    <a href="#" class="nav-icon" id="logoutButton" style="display: none;" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sair</span>
+                    </a>
+                    <a href="favorites.html" class="nav-icon">
+                        <i class="fas fa-heart"></i>
+                        <span>Favoritos</span>
+                    </a>
+                    <a href="purchase.html" class="nav-icon cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrinho</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="atendimento.html">Atendimento</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Devoluções</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Returns Section -->
+    <section class="returns-section">
+        <div class="container">
+            <div class="returns-header">
+                <h1 class="section-title">Devoluções e Trocas</h1>
+                <p class="section-subtitle">Conheça nossa política de trocas e reembolsos</p>
+            </div>
+            
+            <div class="returns-content">
+                <div class="policy-overview">
+                    <div class="policy-card">
+                        <div class="policy-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="policy-info">
+                            <h3>Prazo de 30 Dias</h3>
+                            <p>Você tem até 30 dias após o recebimento para solicitar troca ou devolução.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="policy-card">
+                        <div class="policy-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="policy-info">
+                            <h3>Produto Original</h3>
+                            <p>O produto deve estar em perfeitas condições, com embalagem original.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="policy-card">
+                        <div class="policy-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="policy-info">
+                            <h3>Reembolso Total</h3>
+                            <p>Reembolso completo do valor pago, incluindo frete (em caso de defeito).</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="returns-process">
+                    <h2>Como Solicitar uma Troca ou Devolução</h2>
+                    
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>Entre em Contato</h3>
+                                <p>Acesse "Meus Pedidos" no seu perfil ou entre em contato com nosso suporte.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>Informe o Motivo</h3>
+                                <p>Explique o motivo da troca/devolução e forneça detalhes do produto.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>Receba as Instruções</h3>
+                                <p>Nossa equipe enviará instruções detalhadas para o processo.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h3>Envie o Produto</h3>
+                                <p>Embalhe o produto com cuidado e envie para o endereço fornecido.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="process-step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h3>Receba a Confirmação</h3>
+                                <p>Após análise, você receberá confirmação da troca ou reembolso.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="returns-conditions">
+                    <h2>Condições para Troca/Devolução</h2>
+                    
+                    <div class="conditions-grid">
+                        <div class="condition accepted">
+                            <div class="condition-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="condition-content">
+                                <h3>Aceitamos</h3>
+                                <ul>
+                                    <li>Produtos com defeito de fabricação</li>
+                                    <li>Produtos diferentes do solicitado</li>
+                                    <li>Produtos em perfeitas condições com embalagem original</li>
+                                    <li>Produtos dentro do prazo de 30 dias</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="condition rejected">
+                            <div class="condition-icon">
+                                <i class="fas fa-times-circle"></i>
+                            </div>
+                            <div class="condition-content">
+                                <h3>Não Aceitamos</h3>
+                                <ul>
+                                    <li>Produtos usados ou com sinais de uso</li>
+                                    <li>Produtos sem embalagem original</li>
+                                    <li>Produtos fora do prazo de 30 dias</li>
+                                    <li>Produtos danificados por mau uso</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="refund-info">
+                    <h2>Informações sobre Reembolsos</h2>
+                    
+                    <div class="refund-methods">
+                        <div class="refund-method">
+                            <h3>Cartão de Crédito</h3>
+                            <p>Reembolso realizado em até 5 dias úteis após confirmação da devolução.</p>
+                        </div>
+                        
+                        <div class="refund-method">
+                            <h3>Boleto Bancário</h3>
+                            <p>Reembolso realizado em até 10 dias úteis via depósito bancário.</p>
+                        </div>
+                        
+                        <div class="refund-method">
+                            <h3>Pix</h3>
+                            <p>Reembolso realizado em até 2 dias úteis após confirmação da devolução.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h2>Perguntas Frequentes</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Tenho que pagar o frete de devolução?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Se a devolução for por defeito do produto ou erro nosso, o frete é por nossa conta. Caso contrário, o frete é por conta do cliente.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Posso trocar por um produto de valor diferente?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Sim, você pode trocar por um produto de valor maior (pagando a diferença) ou menor (recebendo o valor da diferença como crédito para futuras compras).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Quanto tempo leva para receber o reembolso?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>O prazo varia conforme a forma de pagamento: Cartão (5 dias úteis), Boleto (10 dias úteis) e Pix (2 dias úteis).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>BOSS SHOPP</h3>
+                    <p>Sua loja online de confiança, oferecendo produtos de qualidade com preços competitivos e entrega rápida em todo o Brasil.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Informações</h4>
+                    <ul>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="atendimento.html">Atendimento</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Trocas e Devoluções</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Categorias</h4>
+                    <ul>
+                        <li><a href="moda.html">Moda</a></li>
+                        <li><a href="eletronicos.html">Eletrônicos</a></li>
+                        <li><a href="casa.html">Casa</a></li>
+                        <li><a href="games.html">Games</a></li>
+                        <li><a href="esportes.html">Esportes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> (11) 99999-9999</li>
+                        <li><i class="fas fa-envelope"></i> contato@bossshopp.com.br</li>
+                        <li><i class="fas fa-map-marker-alt"></i> São Paulo, SP</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 BOSS SHOPP. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Hide preloader when page is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            const preloader = document.querySelector('.preloader');
+            if (preloader) {
+                preloader.style.display = 'none';
+            }
+        });
+        
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

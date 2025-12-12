@@ -1,0 +1,109 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║                                                                      ║
+║         🔒 MUDAR REDE DE PÚBLICA PARA PRIVADA                        ║
+║                                                                      ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+
+MÉTODO 1: CONFIGURAÇÕES DO WINDOWS (MAIS FÁCIL)
+═══════════════════════════════════════════════════════════════════════
+
+1. Pressione: Windows + I
+   (Abre as Configurações)
+
+2. Clique em: "Rede e Internet"
+
+3. Clique em: "Ethernet" (se for cabo)
+   OU
+   Clique em: "Wi-Fi" (se for sem fio)
+
+4. Clique no nome da sua rede conectada
+
+5. Em "Perfil de rede", selecione: "Privado"
+
+6. Pronto! A rede agora é privada
+
+
+MÉTODO 2: CENTRAL DE REDE E COMPARTILHAMENTO
+═══════════════════════════════════════════════════════════════════════
+
+1. Pressione: Windows + R
+
+2. Digite: control.exe /name Microsoft.NetworkAndSharingCenter
+
+3. Pressione Enter
+
+4. Clique em "Rede pública" (ao lado do nome da rede)
+
+5. Selecione "Rede privada"
+
+6. Feche a janela
+
+
+MÉTODO 3: POWERSHELL (SE OS OUTROS NÃO FUNCIONAREM)
+═══════════════════════════════════════════════════════════════════════
+
+1. Pressione: Windows + X
+
+2. Clique em: "Windows PowerShell (Administrador)"
+
+3. Cole este comando:
+
+Set-NetConnectionProfile -NetworkCategory Private
+
+4. Pressione Enter
+
+
+DEPOIS DE MUDAR PARA PRIVADA:
+═══════════════════════════════════════════════════════════════════════
+
+Agora configure o firewall:
+
+1. Pressione Windows
+
+2. Digite: wf.msc
+
+3. Pressione Enter
+
+4. Clique em "Regras de Entrada"
+
+5. Clique em "Nova Regra..."
+
+6. Porta → Avançar
+
+7. TCP, porta: 8000 → Avançar
+
+8. Permitir a conexão → Avançar
+
+9. Marque TODAS as opções → Avançar
+
+10. Nome: BOSS SHOPP → Concluir
+
+
+ALTERNATIVA: SE NÃO CONSEGUIR MUDAR PARA PRIVADA
+═══════════════════════════════════════════════════════════════════════
+
+Configure o firewall para REDE PÚBLICA também:
+
+Quando criar a regra no firewall (passo 9 acima), certifique-se de
+marcar a opção "Público" também!
+
+☑ Domínio
+☑ Particular (Privado)
+☑ Público  ← IMPORTANTE!
+
+
+TESTE FINAL:
+═══════════════════════════════════════════════════════════════════════
+
+Depois de configurar, acesse do outro computador:
+
+http://10.160.216.59:8000
+
+
+═══════════════════════════════════════════════════════════════════════
+
+IMPORTANTE: Em redes públicas (como escolas, empresas), pode haver
+restrições adicionais que impedem o acesso entre computadores.
+
+═══════════════════════════════════════════════════════════════════════

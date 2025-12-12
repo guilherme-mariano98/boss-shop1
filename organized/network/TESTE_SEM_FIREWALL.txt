@@ -1,0 +1,107 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║                                                                      ║
+║         🔥 TESTE: DESATIVAR FIREWALL TEMPORARIAMENTE                 ║
+║                                                                      ║
+║         ⚠️ APENAS PARA TESTE! REATIVE DEPOIS!                        ║
+║                                                                      ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+
+Este teste vai confirmar se o problema é o firewall.
+
+
+PASSO 1: DESATIVAR O FIREWALL
+═══════════════════════════════════════════════════════════════════════
+
+1. Pressione a tecla Windows
+
+2. Digite: firewall
+
+3. Clique em "Firewall do Windows Defender"
+
+4. No lado esquerdo, clique em:
+   "Ativar ou desativar o Firewall do Windows Defender"
+
+5. Selecione "Desativar o Firewall do Windows Defender" em:
+   • Configurações de rede privada
+   • Configurações de rede pública
+
+6. Clique em "OK"
+
+
+PASSO 2: TESTAR ACESSO
+═══════════════════════════════════════════════════════════════════════
+
+No outro computador, acesse:
+
+http://10.160.216.59:8000
+
+
+RESULTADO DO TESTE:
+═══════════════════════════════════════════════════════════════════════
+
+✅ SE FUNCIONAR:
+   → O problema ERA o firewall!
+   → Reative o firewall (veja abaixo)
+   → Configure as regras corretamente
+
+❌ SE NÃO FUNCIONAR:
+   → O problema NÃO é o firewall
+   → Reative o firewall (veja abaixo)
+   → O problema pode ser:
+     • Computadores em redes diferentes
+     • Firewall do outro computador
+     • Configuração de rede
+
+
+PASSO 3: REATIVAR O FIREWALL (IMPORTANTE!)
+═══════════════════════════════════════════════════════════════════════
+
+⚠️ NÃO ESQUEÇA DE FAZER ISSO!
+
+1. Volte em "Firewall do Windows Defender"
+
+2. Clique em "Ativar ou desativar o Firewall do Windows Defender"
+
+3. Selecione "Ativar o Firewall do Windows Defender" em:
+   • Configurações de rede privada
+   • Configurações de rede pública
+
+4. Clique em "OK"
+
+
+SE O TESTE CONFIRMAR QUE É O FIREWALL:
+═══════════════════════════════════════════════════════════════════════
+
+Você PRECISA adicionar as regras. Faça assim:
+
+1. Pressione: Windows + R
+
+2. Digite: wf.msc
+
+3. Pressione Enter
+
+4. Clique em "Regras de Entrada" (lado esquerdo)
+
+5. Clique em "Nova Regra..." (lado direito)
+
+6. Selecione "Porta" → Avançar
+
+7. Selecione "TCP" e digite: 8000 → Avançar
+
+8. Selecione "Permitir a conexão" → Avançar
+
+9. Marque TODAS as opções → Avançar
+
+10. Nome: BOSS SHOPP Frontend → Concluir
+
+11. REPITA os passos 5-10 para a porta 8001
+    Nome: BOSS SHOPP API
+
+
+═══════════════════════════════════════════════════════════════════════
+
+IMPORTANTE: Este teste é APENAS para confirmar o problema.
+NÃO deixe o firewall desativado!
+
+═══════════════════════════════════════════════════════════════════════

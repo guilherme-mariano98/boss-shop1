@@ -1,0 +1,249 @@
+/* Panel Access Buttons Styles */
+
+/* Footer panel buttons - Ultra Discretos */
+.footer-panels {
+    border-left: none;
+    padding-left: 0;
+    opacity: 0.15;
+    transition: all 0.4s ease;
+    filter: grayscale(100%);
+}
+
+.footer-panels:hover {
+    opacity: 0.8;
+    filter: grayscale(0%);
+}
+
+.panel-buttons-footer {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    margin-top: 10px;
+    justify-content: flex-start;
+}
+
+.footer-panel-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 6px;
+    background: transparent;
+    color: #666;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.4s ease;
+    font-weight: 300;
+    font-size: 11px;
+    border: 1px solid transparent;
+    min-width: 50px;
+    opacity: 0.6;
+}
+
+.footer-panel-btn:hover {
+    background: rgba(120, 120, 120, 0.2);
+    color: #999;
+    text-decoration: none;
+    transform: none;
+    box-shadow: none;
+    opacity: 1;
+    border-color: rgba(150, 150, 150, 0.3);
+}
+
+.footer-panel-btn i {
+    font-size: 10px;
+    width: 12px;
+    text-align: center;
+    margin-right: 3px;
+}
+
+.footer-panel-btn span {
+    font-size: 10px;
+    opacity: 0.7;
+}
+
+.footer-panel-btn.seller-btn:hover {
+    background: rgba(68, 68, 255, 0.1);
+    color: #7a7aff;
+    border-color: rgba(68, 68, 255, 0.2);
+}
+
+.footer-panel-btn.admin-btn:hover {
+    background: rgba(255, 68, 68, 0.1);
+    color: #ff7a7a;
+    border-color: rgba(255, 68, 68, 0.2);
+}
+
+/* Dropdown panel links */
+.user-dropdown a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.user-dropdown a:hover {
+    background-color: #f5f5f5;
+    color: #000;
+}
+
+.user-dropdown a i {
+    width: 16px;
+    text-align: center;
+}
+
+/* Specific styles for panel links */
+#sellerPanelLink,
+#sellerPanelDropdown {
+    color: #4444ff;
+}
+
+#sellerPanelLink:hover,
+#sellerPanelDropdown:hover {
+    background-color: rgba(68, 68, 255, 0.1);
+}
+
+#adminPanelLink,
+#adminPanelDropdown {
+    color: #ff4444;
+}
+
+#adminPanelLink:hover,
+#adminPanelDropdown:hover {
+    background-color: rgba(255, 68, 68, 0.1);
+}
+
+/* Estilos de botões de teste removidos */
+
+/* Panel notification */
+.panel-notification {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+.panel-notification i {
+    font-size: 16px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-panels {
+        border-top: none;
+        padding-top: 10px;
+        margin-top: 10px;
+        text-align: center;
+    }
+    
+    .footer-panels h4 {
+        font-size: 12px;
+        margin-bottom: 8px;
+        opacity: 0.6;
+    }
+    
+    .panel-buttons-footer {
+        justify-content: center;
+        gap: 6px;
+    }
+    
+    .footer-panel-btn {
+        padding: 4px 6px;
+        min-width: 50px;
+        font-size: 10px;
+    }
+    
+    .footer-panel-btn span {
+        display: none;
+    }
+    
+    .footer-panel-btn i {
+        font-size: 11px;
+        margin: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .footer-panels {
+        order: -1;
+        text-align: center;
+    }
+    
+    .panel-buttons-footer {
+        justify-content: center;
+    }
+}
+
+/* Animation for showing/hiding elements */
+.panel-element-show {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+.panel-element-hide {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+/* Pulse animation for highlighting */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Fade in animation for footer panels */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 0.4;
+        transform: translateY(0);
+    }
+}
+
+.footer-panels {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* Estilo extra discreto para o título */
+.footer-panels h4 {
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    text-transform: lowercase;
+}
+
+/* Badge for user type */
+.user-type-badge {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left: 5px;
+}
+
+.user-type-badge.admin {
+    background-color: #ff4444;
+    color: white;
+}
+
+.user-type-badge.seller {
+    background-color: #4444ff;
+    color: white;
+}
+
+.user-type-badge.customer {
+    background-color: #666;
+    color: white;
+}

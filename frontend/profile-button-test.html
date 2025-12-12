@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste do Botão de Perfil</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .test-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .nav-bar {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-icons {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+        }
+        
+        .nav-icon i {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .test-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .test-button {
+            background-color: #000;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .test-button:hover {
+            background-color: #333;
+        }
+        
+        .result {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 15px;
+            min-height: 50px;
+        }
+        
+        .user-info {
+            background-color: #e8f4f8;
+            border: 1px solid #bee0ec;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="test-header">
+            <h1>Teste do Botão de Perfil</h1>
+            <p>Verificando se o botão de perfil aparece corretamente</p>
+        </div>
+        
+        <div class="nav-bar">
+            <div class="nav-content">
+                <div class="logo">
+                    <h2>BOSS SHOPP</h2>
+                </div>
+                <div class="nav-icons">
+                    <a href="login.html" class="nav-icon" id="userIcon">
+                        <i class="fas fa-user"></i>
+                        <span id="userText">Entrar</span>
+                    </a>
+                    <a href="favorites.html" class="nav-icon">
+                        <i class="fas fa-heart"></i>
+                        <span>Favoritos</span>
+                    </a>
+                    <a href="purchase.html" class="nav-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrinho</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Controles de Teste</h2>
+            <button class="test-button" onclick="simulateLogin()">Simular Login</button>
+            <button class="test-button" onclick="simulateLogout()">Simular Logout</button>
+            <button class="test-button" onclick="checkLocalStorage()">Verificar localStorage</button>
+            <button class="test-button" onclick="manualUpdate()">Atualização Manual</button>
+            <button class="test-button" onclick="clearAllData()">Limpar Todos os Dados</button>
+        </div>
+        
+        <div class="test-section">
+            <h2>Informações do Usuário</h2>
+            <div class="user-info" id="userInfo">
+                Nenhum usuário logado
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Resultados</h2>
+            <div class="result" id="results">
+                Clique nos botões acima para testar as funcionalidades
+            </div>
+        </div>
+    </div>
+
+    <script src="auth-utils.js"></script>
+    <script>
+        // Function to simulate login
+        function simulateLogin() {
+            const results = document.getElementById('results');
+            
+            // Set sample auth token
+            localStorage.setItem('authToken', 'sample-token-123');
+            
+            // Set sample user data
+            const sampleUser = {
+                id: 1,
+                username: 'joaosilva',
+                email: 'joao.silva@email.com',
+                first_name: 'João',
+                last_name: 'Silva',
+                date_joined: '2023-03-15T10:30:00Z'
+            };
+            
+            localStorage.setItem('user', JSON.stringify(sampleUser));
+            
+            results.innerHTML = `
+                <p><strong>Login simulado com sucesso!</strong></p>
+                <p>Token de autenticação definido</p>
+                <p>Dados do usuário armazenados</p>
+            `;
+            
+            // Update user info display
+            updateUserInfo();
+            
+            // Try to update the user icon
+            updateUserIcon();
+        }
+        
+        // Function to simulate logout
+        function simulateLogout() {
+            const results = document.getElementById('results');
+            
+            // Clear auth data
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('user');
+            
+            results.innerHTML = `
+                <p><strong>Logout simulado com sucesso!</strong></p>
+                <p>Dados de autenticação removidos</p>
+            `;
+            
+            // Update user info display
+            updateUserInfo();
+            
+            // Try to update the user icon
+            updateUserIcon();
+        }
+        
+        // Function to check localStorage
+        function checkLocalStorage() {
+            const results = document.getElementById('results');
+            const authToken = localStorage.getItem('authToken');
+            const user = localStorage.getItem('user');
+            
+            results.innerHTML = `
+                <p><strong>Estado atual do localStorage:</strong></p>
+                <p>authToken: ${authToken ? 'Definido' : 'Não definido'}</p>
+                <p>user: ${user ? 'Definido' : 'Não definido'}</p>
+                ${user ? `<p>Dados do usuário: ${user}</p>` : ''}
+            `;
+        }
+        
+        // Manual update function
+        function manualUpdate() {
+            updateUserIcon();
+            document.getElementById('results').innerHTML = '<p><strong>Atualização manual executada</strong></p>';
+        }
+        
+        // Clear all data function
+        function clearAllData() {
+            localStorage.clear();
+            document.getElementById('results').innerHTML = '<p><strong>Todos os dados limpos</strong></p>';
+            updateUserInfo();
+            updateUserIcon();
+        }
+        
+        // Update user info display
+        function updateUserInfo() {
+            const userInfo = document.getElementById('userInfo');
+            const user = localStorage.getItem('user');
+            
+            if (user) {
+                try {
+                    const userData = JSON.parse(user);
+                    userInfo.innerHTML = `
+                        <p><strong>Usuário logado:</strong></p>
+                        <p>Nome: ${userData.first_name} ${userData.last_name}</p>
+                        <p>Email: ${userData.email}</p>
+                        <p>Username: ${userData.username}</p>
+                    `;
+                } catch (e) {
+                    userInfo.innerHTML = '<p>Erro ao ler dados do usuário</p>';
+                }
+            } else {
+                userInfo.innerHTML = 'Nenhum usuário logado';
+            }
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is already logged in
+            updateUserInfo();
+            updateUserIcon();
+            
+            document.getElementById('results').innerHTML = `
+                <p><strong>Página carregada com sucesso!</strong></p>
+                <p>Verificando estado de login...</p>
+            `;
+        });
+    </script>
+</body>
+</html>

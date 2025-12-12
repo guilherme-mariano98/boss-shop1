@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste do Botão de Perfil</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .test-section {
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .test-button {
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        
+        .test-button:hover {
+            background-color: #333333;
+        }
+        
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #000000;
+            font-size: 14px;
+        }
+        
+        .nav-icon i {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Teste do Botão de Perfil</h1>
+        
+        <div class="test-section">
+            <h2>Simulação da Barra de Navegação</h2>
+            <div class="nav-icons">
+                <a href="login.html" class="nav-icon" id="userIcon">
+                    <i class="fas fa-user"></i>
+                    <span id="userText">Entrar</span>
+                </a>
+                <a href="favorites.html" class="nav-icon">
+                    <i class="fas fa-heart"></i>
+                    <span>Favoritos</span>
+                </a>
+                <a href="purchase.html" class="nav-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Carrinho</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Controles de Teste</h2>
+            <button class="test-button" onclick="simulateLogin()">Simular Login</button>
+            <button class="test-button" onclick="simulateLogout()">Simular Logout</button>
+            <button class="test-button" onclick="checkLocalStorage()">Verificar localStorage</button>
+            <button class="test-button" onclick="manualUpdate()">Atualização Manual</button>
+        </div>
+        
+        <div class="test-section">
+            <h2>Resultados</h2>
+            <div id="results">
+                Clique nos botões acima para testar as funcionalidades
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to simulate login
+        function simulateLogin() {
+            const results = document.getElementById('results');
+            
+            // Set sample auth token
+            localStorage.setItem('authToken', 'sample-token-123');
+            
+            // Set sample user data
+            const sampleUser = {
+                id: 1,
+                username: 'joaosilva',
+                email: 'joao.silva@email.com',
+                first_name: 'João',
+                last_name: 'Silva',
+                date_joined: '2023-03-15T10:30:00Z'
+            };
+            
+            localStorage.setItem('user', JSON.stringify(sampleUser));
+            
+            results.innerHTML = `
+                <p>Login simulado com sucesso!</p>
+                <p>authToken: ${localStorage.getItem('authToken')}</p>
+                <p>user: ${localStorage.getItem('user')}</p>
+            `;
+            
+            // Try to update the user icon
+            updateUserIcon();
+        }
+        
+        // Function to simulate logout
+        function simulateLogout() {
+            const results = document.getElementById('results');
+            
+            // Clear auth data
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('user');
+            
+            results.innerHTML = `
+                <p>Logout simulado com sucesso!</p>
+                <p>authToken: ${localStorage.getItem('authToken')}</p>
+                <p>user: ${localStorage.getItem('user')}</p>
+            `;
+            
+            // Try to update the user icon
+            updateUserIcon();
+        }
+        
+        // Function to check localStorage
+        function checkLocalStorage() {
+            const results = document.getElementById('results');
+            
+            results.innerHTML = `
+                <p>authToken: ${localStorage.getItem('authToken')}</p>
+                <p>user: ${localStorage.getItem('user')}</p>
+            `;
+        }
+        
+        // Manual update function
+        function manualUpdate() {
+            updateUserIcon();
+            document.getElementById('results').innerHTML = '<p>Atualização manual executada</p>';
+        }
+        
+        // Update user icon based on login status
+        function updateUserIcon() {
+            const userIcon = document.getElementById('userIcon');
+            const userText = document.getElementById('userText');
+            
+            if (!userIcon || !userText) {
+                console.log('userIcon or userText not found');
+                return;
+            }
+            
+            const authToken = localStorage.getItem('authToken');
+            const user = localStorage.getItem('user');
+            
+            if (authToken && user) {
+                try {
+                    const userData = JSON.parse(user);
+                    const name = userData.first_name || userData.username || 'Perfil';
+                    userIcon.href = 'profile.html';
+                    userIcon.innerHTML = `
+                        <i class="fas fa-user"></i>
+                        <span id="userText">${name}</span>
+                    `;
+                } catch (e) {
+                    // If there's an error parsing user data, clear auth tokens
+                    localStorage.removeItem('authToken');
+                    localStorage.removeItem('user');
+                    userIcon.href = 'login.html';
+                    userIcon.innerHTML = `
+                        <i class="fas fa-user"></i>
+                        <span id="userText">Entrar</span>
+                    `;
+                }
+            } else {
+                userIcon.href = 'login.html';
+                userIcon.innerHTML = `
+                    <i class="fas fa-user"></i>
+                    <span id="userText">Entrar</span>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

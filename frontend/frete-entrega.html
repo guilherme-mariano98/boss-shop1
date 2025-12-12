@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frete e Entrega - BOSS SHOPP</title>
+    <link rel="stylesheet" href="optimized-styles.css">
+    <link rel="stylesheet" href="panel-buttons.css">
+    <link rel="stylesheet" href="pages.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <div class="loader-text">BOSS SHOPP</div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="header-links">
+                    <a href="sobre.html" class="header-link">Sobre</a>
+                    <a href="atendimento.html" class="header-link">Atendimento</a>
+                    <a href="#" class="header-link">Vendedor</a>
+                    <a href="#" class="header-link">Download</a>
+                    <a href="#" class="header-link">Conecte-se</a>
+                </div>
+                <div class="header-social">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="boss-shop-logo.png" alt="BOSS SHOPP" class="logo-image">
+                    </a>
+                </div>
+                
+                <div class="profile-button">
+                    <a href="profile.html" class="profile-btn">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Meu Perfil</span>
+                    </a>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Busque por produtos, marcas e muito mais...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="nav-icons">
+                    <div class="nav-icon-dropdown">
+                        <a href="login.html" class="nav-icon" id="userIcon">
+                            <i class="fas fa-user"></i>
+                            <span id="userText">Entrar</span>
+                        </a>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="profile.html">
+                                <i class="fas fa-user"></i>
+                                <span>Meu Perfil</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" onclick="logout()">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Sair</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Logout button that shows when user is logged in -->
+                    <a href="#" class="nav-icon" id="logoutButton" style="display: none;" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sair</span>
+                    </a>
+                    <a href="favorites.html" class="nav-icon">
+                        <i class="fas fa-heart"></i>
+                        <span>Favoritos</span>
+                    </a>
+                    <a href="purchase.html" class="nav-icon cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrinho</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="atendimento.html">Atendimento</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Frete e Entrega</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Shipping Section -->
+    <section class="shipping-section">
+        <div class="container">
+            <div class="shipping-header">
+                <h1 class="section-title">Frete e Entrega</h1>
+                <p class="section-subtitle">Conheça nossas opções de envio e prazos de entrega</p>
+            </div>
+            
+            <div class="shipping-content">
+                <div class="delivery-options">
+                    <h2>Opções de Frete</h2>
+                    
+                    <div class="delivery-option">
+                        <div class="option-header">
+                            <div class="option-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="option-title">
+                                <h3>Entrega Expressa</h3>
+                                <p>Entrega em até 24 horas úteis</p>
+                            </div>
+                            <div class="option-price">
+                                <span>R$ 19,90</span>
+                            </div>
+                        </div>
+                        <div class="option-details">
+                            <p>Entrega prioritária para pedidos realizados até as 14h. Disponível apenas para capitais.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="delivery-option">
+                        <div class="option-header">
+                            <div class="option-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="option-title">
+                                <h3>Entrega Padrão</h3>
+                                <p>Entrega em 2-5 dias úteis</p>
+                            </div>
+                            <div class="option-price">
+                                <span>R$ 9,90</span>
+                            </div>
+                        </div>
+                        <div class="option-details">
+                            <p>Opção mais econômica para todo o Brasil. Prazo pode variar conforme a região.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="delivery-option">
+                        <div class="option-header">
+                            <div class="option-icon">
+                                <i class="fas fa-truck-loading"></i>
+                            </div>
+                            <div class="option-title">
+                                <h3>Entrega Econômica</h3>
+                                <p>Entrega em 5-10 dias úteis</p>
+                            </div>
+                            <div class="option-price">
+                                <span>Grátis</span>
+                            </div>
+                        </div>
+                        <div class="option-details">
+                            <p>Frete grátis para pedidos acima de R$ 199,00. Opção mais econômica com prazo maior.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="delivery-map">
+                    <h2>Prazos por Região</h2>
+                    <div class="map-container">
+                        <div class="region">
+                            <h4>Sudeste</h4>
+                            <p>24-48 horas</p>
+                        </div>
+                        <div class="region">
+                            <h4>Sul</h4>
+                            <p>2-3 dias</p>
+                        </div>
+                        <div class="region">
+                            <h4>Centro-Oeste</h4>
+                            <p>3-5 dias</p>
+                        </div>
+                        <div class="region">
+                            <h4>Nordeste</h4>
+                            <p>4-7 dias</p>
+                        </div>
+                        <div class="region">
+                            <h4>Norte</h4>
+                            <p>5-10 dias</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tracking-info">
+                    <h2>Como Acompanhar seu Pedido</h2>
+                    <div class="tracking-steps">
+                        <div class="tracking-step">
+                            <div class="step-icon">
+                                <i class="fas fa-receipt"></i>
+                            </div>
+                            <div class="step-content">
+                                <h4>Confirmação do Pedido</h4>
+                                <p>Você receberá um e-mail com os detalhes do pedido.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tracking-step">
+                            <div class="step-icon">
+                                <i class="fas fa-box"></i>
+                            </div>
+                            <div class="step-content">
+                                <h4>Separação e Embalagem</h4>
+                                <p>Seu pedido está sendo preparado para envio.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tracking-step">
+                            <div class="step-icon">
+                                <i class="fas fa-shipping-fast"></i>
+                            </div>
+                            <div class="step-content">
+                                <h4>Em Transporte</h4>
+                                <p>Seu pedido foi enviado e está a caminho.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tracking-step">
+                            <div class="step-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <div class="step-content">
+                                <h4>Entregue</h4>
+                                <p>Seu pedido foi entregue com sucesso.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h2>Perguntas Frequentes</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>O frete é cobrado por produto?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Não, o frete é calculado com base no peso total e dimensões do pedido, e não por produto individual.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Posso alterar o endereço de entrega após finalizar o pedido?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>É possível alterar o endereço de entrega apenas enquanto o pedido estiver no status "Em Separação". Entre em contato com nosso suporte imediatamente.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Entregam em finais de semana e feriados?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>As entregas são realizadas de segunda a sexta-feira, das 8h às 18h. Exceto em feriados nacionais.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>BOSS SHOPP</h3>
+                    <p>Sua loja online de confiança, oferecendo produtos de qualidade com preços competitivos e entrega rápida em todo o Brasil.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Informações</h4>
+                    <ul>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="atendimento.html">Atendimento</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Trocas e Devoluções</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Categorias</h4>
+                    <ul>
+                        <li><a href="moda.html">Moda</a></li>
+                        <li><a href="eletronicos.html">Eletrônicos</a></li>
+                        <li><a href="casa.html">Casa</a></li>
+                        <li><a href="games.html">Games</a></li>
+                        <li><a href="esportes.html">Esportes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> (11) 99999-9999</li>
+                        <li><i class="fas fa-envelope"></i> contato@bossshopp.com.br</li>
+                        <li><i class="fas fa-map-marker-alt"></i> São Paulo, SP</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 BOSS SHOPP. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Hide preloader when page is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            const preloader = document.querySelector('.preloader');
+            if (preloader) {
+                preloader.style.display = 'none';
+            }
+        });
+        
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+        
+        // Delivery option toggle functionality
+        document.querySelectorAll('.option-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const option = header.parentElement;
+                option.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

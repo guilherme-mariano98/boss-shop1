@@ -1,0 +1,49 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║                                                                      ║
+║              ⚡ COMANDO ÚNICO PARA RESOLVER                           ║
+║                                                                      ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+
+COPIE E COLE ESTE COMANDO NO POWERSHELL COMO ADMINISTRADOR:
+═══════════════════════════════════════════════════════════════════════
+
+New-NetFirewallRule -DisplayName "BOSS SHOPP" -Direction Inbound -Protocol TCP -LocalPort 8000,8001 -Action Allow -Profile Any
+
+
+COMO ABRIR POWERSHELL COMO ADMINISTRADOR:
+═══════════════════════════════════════════════════════════════════════
+
+1. Pressione: Windows + X
+
+2. Clique em: "Windows PowerShell (Administrador)"
+   OU
+   "Terminal (Administrador)"
+
+3. Clique em "Sim" no aviso
+
+4. Cole o comando acima
+
+5. Pressione Enter
+
+
+DEPOIS DE EXECUTAR:
+═══════════════════════════════════════════════════════════════════════
+
+Acesse de outro computador:
+
+http://10.160.216.59:8000
+
+
+SE AINDA NÃO FUNCIONAR:
+═══════════════════════════════════════════════════════════════════════
+
+NO OUTRO COMPUTADOR, teste:
+
+ping 10.160.216.59
+
+Se o ping NÃO funcionar → Computadores em redes diferentes
+Se o ping funcionar → Pode ser firewall do outro computador
+
+
+═══════════════════════════════════════════════════════════════════════

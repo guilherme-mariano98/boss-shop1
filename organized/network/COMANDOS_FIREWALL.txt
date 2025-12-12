@@ -1,0 +1,91 @@
+═══════════════════════════════════════════════════════════════════════
+  COMANDOS PARA CONFIGURAR O FIREWALL
+═══════════════════════════════════════════════════════════════════════
+
+COPIE E COLE ESTES COMANDOS NO POWERSHELL COMO ADMINISTRADOR:
+
+
+PASSO 1: Abrir PowerShell como Administrador
+─────────────────────────────────────────────────────────────────────
+
+1. Pressione a tecla Windows
+2. Digite: powershell
+3. Clique com BOTÃO DIREITO em "Windows PowerShell"
+4. Selecione "Executar como administrador"
+5. Clique em "Sim" no aviso
+
+
+PASSO 2: Copie e cole estes comandos (um de cada vez):
+─────────────────────────────────────────────────────────────────────
+
+New-NetFirewallRule -DisplayName "BOSS SHOPP Frontend" -Direction Inbound -Protocol TCP -LocalPort 8000 -Action Allow -Profile Any
+
+New-NetFirewallRule -DisplayName "BOSS SHOPP API" -Direction Inbound -Protocol TCP -LocalPort 8001 -Action Allow -Profile Any
+
+
+PASSO 3: Verificar se funcionou
+─────────────────────────────────────────────────────────────────────
+
+netsh advfirewall firewall show rule name="BOSS SHOPP Frontend"
+
+netsh advfirewall firewall show rule name="BOSS SHOPP API"
+
+
+Se aparecer informações das regras, está configurado! ✅
+
+
+PASSO 4: Testar acesso
+─────────────────────────────────────────────────────────────────────
+
+De outro computador na mesma rede, acesse:
+
+http://10.160.216.59:8000
+
+
+═══════════════════════════════════════════════════════════════════════
+  ALTERNATIVA: USAR CMD COMO ADMINISTRADOR
+═══════════════════════════════════════════════════════════════════════
+
+Se preferir usar CMD:
+
+1. Pressione a tecla Windows
+2. Digite: cmd
+3. Clique com BOTÃO DIREITO em "Prompt de Comando"
+4. Selecione "Executar como administrador"
+5. Cole estes comandos:
+
+netsh advfirewall firewall add rule name="BOSS SHOPP Frontend" dir=in action=allow protocol=TCP localport=8000
+
+netsh advfirewall firewall add rule name="BOSS SHOPP API" dir=in action=allow protocol=TCP localport=8001
+
+
+═══════════════════════════════════════════════════════════════════════
+  SE AINDA NÃO FUNCIONAR - TESTE DESATIVANDO O FIREWALL
+═══════════════════════════════════════════════════════════════════════
+
+⚠️ APENAS PARA TESTE! REATIVE DEPOIS!
+
+No PowerShell como Admin:
+
+Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
+
+Teste o acesso: http://10.160.216.59:8000
+
+Para REATIVAR o firewall:
+
+Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled True
+
+
+═══════════════════════════════════════════════════════════════════════
+  VERIFICAR SE O PROBLEMA É O FIREWALL
+═══════════════════════════════════════════════════════════════════════
+
+Execute no PowerShell (não precisa ser Admin):
+
+Test-NetConnection -ComputerName 10.160.216.59 -Port 8000
+
+Se mostrar "TcpTestSucceeded : True" → Firewall OK
+Se mostrar "TcpTestSucceeded : False" → Firewall bloqueando
+
+
+═══════════════════════════════════════════════════════════════════════

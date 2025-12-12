@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favoritos - BOSS SHOPP</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="header-links">
+                    <a href="#" class="header-link">Vendedor</a>
+                    <a href="#" class="header-link">Download</a>
+                    <a href="#" class="header-link">Conecte-se</a>
+                </div>
+                <div class="header-social">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="boss-shop-logo.png" alt="BOSS SHOPP" class="logo-image">
+                    </a>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Busque por produtos, marcas e muito mais...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="nav-icons">
+                    <a href="login.html" class="nav-icon" id="userIcon">
+                        <i class="fas fa-user"></i>
+                        <span id="userText">Entrar</span>
+                    </a>
+                    <a href="favorites.html" class="nav-icon">
+                        <i class="fas fa-heart"></i>
+                        <span>Favoritos</span>
+                    </a>
+                    <a href="purchase.html" class="nav-icon cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrinho</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Category Tabs -->
+    <section class="category-tabs">
+        <div class="container">
+            <div class="tabs-header">
+                <h2>Categorias em Destaque</h2>
+            </div>
+            <div class="tabs-container">
+                <button class="tab-btn" data-category="home">Início</button>
+                <button class="tab-btn" data-category="moda">Moda</button>
+                <button class="tab-btn" data-category="eletronicos">Eletrônicos</button>
+                <button class="tab-btn" data-category="casa">Casa</button>
+                <button class="tab-btn" data-category="games">Games</button>
+                <button class="tab-btn" data-category="esportes">Esportes</button>
+                <button class="tab-btn" data-category="infantil">Infantil</button>
+            </div>
+            
+            <!-- Tab Contents -->
+            <div class="tab-contents-container">
+                <div class="view-all-container">
+                    <p>Veja produtos de outras categorias clicando nas abas acima</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <section class="favorites-section">
+            <div class="section-header">
+                <h2><i class="fas fa-heart"></i> Meus Favoritos</h2>
+                <button id="clearFavorites" class="clear-btn">Limpar Todos</button>
+            </div>
+            
+            <div id="favoritesContainer" class="products-grid">
+                <!-- Favoritos serão carregados aqui dinamicamente -->
+                <div class="empty-favorites">
+                    <i class="fas fa-heart-broken empty-icon"></i>
+                    <h3>Você ainda não tem favoritos</h3>
+                    <p>Adicione produtos clicando no coração <i class="fas fa-heart"></i> nos produtos</p>
+                    <a href="index.html" class="cta-button">Ver Produtos</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>BOSS SHOPP</h4>
+                    <p>Sua loja online preferida com os melhores produtos e preços.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="categoria-moda.html">Moda</a></li>
+                        <li><a href="eletronicos.html">Eletrônicos</a></li>
+                        <li><a href="casa.html">Casa</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p><i class="fas fa-envelope"></i> contato@bossshopp.com</p>
+                    <p><i class="fas fa-phone"></i> (11) 99999-9999</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 BOSS SHOPP. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Carregar favoritos do localStorage
+        function loadFavorites() {
+            const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+            const container = document.getElementById('favoritesContainer');
+            
+            if (favorites.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-favorites">
+                        <i class="fas fa-heart-broken empty-icon"></i>
+                        <h3>Você ainda não tem favoritos</h3>
+                        <p>Adicione produtos clicando no coração <i class="fas fa-heart"></i> nos produtos</p>
+                        <a href="index.html" class="cta-button">Ver Produtos</a>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Criar grid de produtos
+            let productsHTML = '<div class="products-grid">';
+            
+            favorites.forEach((product, index) => {
+                productsHTML += `
+                    <div class="product-card favorite-item" data-product="${product}">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="${product}" class="product-img">
+                            <button class="remove-favorite-btn" data-index="${index}">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3>${product}</h3>
+                            <div class="product-price">
+                                <span class="new-price">R$ ${(Math.random() * 500 + 50).toFixed(2).replace('.', ',')}</span>
+                            </div>
+                            <div class="favorite-actions">
+                                <button class="add-to-cart-btn">
+                                    <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                                </button>
+                                <button class="remove-favorite-btn" data-index="${index}">
+                                    <i class="fas fa-heart"></i> Remover dos Favoritos
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            productsHTML += '</div>';
+            container.innerHTML = productsHTML;
+            
+            // Adicionar event listeners para os botões
+            document.querySelectorAll('.remove-favorite-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const index = this.getAttribute('data-index');
+                    removeFavorite(index);
+                });
+            });
+            
+            document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productCard = this.closest('.product-card');
+                    const productName = productCard.querySelector('h3').textContent;
+                    const priceText = productCard.querySelector('.new-price').textContent;
+                    const price = parseFloat(priceText.replace('R$ ', '').replace(',', '.'));
+                    
+                    addToCart(productName, price);
+                });
+            });
+        }
+        
+        // Função para adicionar produto ao carrinho
+        function addToCart(productName, price) {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            
+            const existingItem = cart.find(item => item.name === productName);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    name: productName,
+                    price: price,
+                    quantity: 1
+                });
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            showNotification(`${productName} adicionado ao carrinho!`);
+        }
+        
+        // Atualizar contador do carrinho
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const cartCount = document.querySelector('.cart-count');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+        
+        // Mostrar notificação
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background-color: #000000;
+                color: #ffffff;
+                padding: 15px 20px;
+                border-radius: 5px;
+                z-index: 10000;
+                font-weight: bold;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            `;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+        
+        // Remover favorito
+        function removeFavorite(index) {
+            let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+            const removedProduct = favorites.splice(index, 1)[0];
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+            loadFavorites();
+            showNotification(`${removedProduct} removido dos favoritos!`);
+        }
+        
+        // Limpar todos os favoritos
+        function clearFavorites() {
+            if (confirm('Tem certeza que deseja remover todos os favoritos?')) {
+                localStorage.removeItem('favorites');
+                loadFavorites();
+                showNotification('Todos os favoritos foram removidos!');
+            }
+        }
+        
+        // Verificar status do usuário
+        // This function is now handled by auth-utils.js
+        
+        // Inicializar quando o DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', function() {
+            // checkUserStatus(); // This is now handled by auth-utils.js
+            updateCartCount();
+            loadFavorites();
+            
+            // Adicionar event listener para o botão de limpar favoritos
+            document.getElementById('clearFavorites').addEventListener('click', clearFavorites);
+        });
+
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+                    
+                    // Navigate to the corresponding category page
+                    const category = btn.getAttribute('data-category');
+                    let url;
+                    switch(category) {
+                        case 'home':
+                            url = 'index.html';
+                            break;
+                        case 'moda':
+                            url = 'categoria-moda.html';
+                            break;
+                        case 'eletronicos':
+                            url = 'eletronicos.html';
+                            break;
+                        case 'casa':
+                            url = 'casa.html';
+                            break;
+                        case 'games':
+                            url = 'games.html';
+                            break;
+                        case 'esportes':
+                            url = 'esportes.html';
+                            break;
+                        case 'infantil':
+                            url = 'infantil.html';
+                            break;
+                        default:
+                            url = 'index.html';
+                    }
+                    window.location.href = url;
+                });
+            });
+        });
+    </script>
+    <script src="auth-utils.js"></script>
+</body>
+</html>

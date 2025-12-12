@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalhe Conosco - BOSS SHOPP</title>
+    <link rel="stylesheet" href="optimized-styles.css">
+    <link rel="stylesheet" href="panel-buttons.css">
+    <link rel="stylesheet" href="pages.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .careers-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .careers-hero h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+        
+        .careers-hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .benefits-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .benefit-icon {
+            font-size: 48px;
+            color: #ff6b35;
+            margin-bottom: 20px;
+        }
+        
+        .benefit-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+        
+        .benefit-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .jobs-section {
+            padding: 80px 0;
+        }
+        
+        .job-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .job-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 20px;
+        }
+        
+        .job-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+        
+        .job-meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        
+        .job-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .job-meta-item i {
+            color: #ff6b35;
+        }
+        
+        .job-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .apply-btn {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .apply-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+        }
+        
+        .application-form {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #ff6b35;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+        }
+        
+        .file-upload-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .file-upload-input {
+            position: absolute;
+            left: -9999px;
+        }
+        
+        .file-upload-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px;
+            background: #f8f9fa;
+            border: 2px dashed #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .file-upload-label:hover {
+            border-color: #ff6b35;
+            background: #fff5f2;
+        }
+        
+        .file-upload-label i {
+            color: #ff6b35;
+            font-size: 20px;
+        }
+        
+        .file-name {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .conditional-field {
+            display: none;
+        }
+        
+        .conditional-field.show {
+            display: block;
+        }
+        
+        .form-section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 30px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ff6b35;
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .radio-option input[type="radio"] {
+            width: auto;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <div class="loader-text">BOSS SHOPP</div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="header-links">
+                    <a href="sobre.html" class="header-link">Sobre</a>
+                    <a href="atendimento.html" class="header-link">Atendimento</a>
+                    <a href="#" class="header-link">Vendedor</a>
+                    <a href="#" class="header-link">Download</a>
+                    <a href="#" class="header-link">Conecte-se</a>
+                </div>
+                <div class="header-social">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="boss-shop-logo.png" alt="BOSS SHOPP" class="logo-image">
+                    </a>
+                </div>
+                
+                <div class="profile-button">
+                    <a href="profile.html" class="profile-btn">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Meu Perfil</span>
+                    </a>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Busque por produtos, marcas e muito mais...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="nav-icons">
+                    <div class="nav-icon-dropdown">
+                        <a href="login.html" class="nav-icon" id="userIcon">
+                            <i class="fas fa-user"></i>
+                            <span id="userText">Entrar</span>
+                        </a>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="profile.html">
+                                <i class="fas fa-user"></i>
+                                <span>Meu Perfil</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" onclick="logout()">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Sair</span>
+                            </a>
+                        </div>
+                    </div>
+                    <a href="#" class="nav-icon" id="logoutButton" style="display: none;" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sair</span>
+                    </a>
+                    <a href="favorites.html" class="nav-icon">
+                        <i class="fas fa-heart"></i>
+                        <span>Favoritos</span>
+                    </a>
+                    <a href="purchase.html" class="nav-icon cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrinho</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="sobre.html">Sobre</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Trabalhe Conosco</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="careers-hero">
+        <div class="container">
+            <h1>Trabalhe Conosco</h1>
+            <p>Faça parte de uma equipe inovadora e apaixonada por transformar o e-commerce brasileiro</p>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="about-header">
+                <h2 class="section-title">Por que trabalhar na BOSS SHOPP?</h2>
+                <p class="section-subtitle">Benefícios e vantagens de fazer parte do nosso time</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="benefit-title">Plano de Carreira</h3>
+                    <p class="benefit-description">
+                        Oportunidades reais de crescimento profissional com planos de desenvolvimento individualizados.
+                    </p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="benefit-title">Capacitação</h3>
+                    <p class="benefit-description">
+                        Investimento em cursos, treinamentos e certificações para desenvolvimento contínuo.
+                    </p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="benefit-title">Trabalho Híbrido</h3>
+                    <p class="benefit-description">
+                        Flexibilidade para trabalhar de casa ou no escritório, equilibrando vida pessoal e profissional.
+                    </p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3 class="benefit-title">Saúde e Bem-estar</h3>
+                    <p class="benefit-description">
+                        Plano de saúde e odontológico completo, além de programas de qualidade de vida.
+                    </p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="benefit-title">Vale Refeição</h3>
+                    <p class="benefit-description">
+                        Vale refeição e alimentação com valores competitivos para sua comodidade.
+                    </p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="benefit-title">Ambiente Colaborativo</h3>
+                    <p class="benefit-description">
+                        Cultura de trabalho inclusiva, diversa e focada em colaboração e inovação.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jobs Section -->
+    <section class="jobs-section">
+        <div class="container">
+            <div class="about-header">
+                <h2 class="section-title">Vagas Abertas</h2>
+                <p class="section-subtitle">32 oportunidades disponíveis - Encontre a perfeita para você</p>
+            </div>
+            
+            <div class="job-card">
+                <div class="job-header">
+                    <div style="flex: 1;">
+                        <h3 class="job-title">Desenvolvedor Full Stack</h3>
+                        <div class="job-meta">
+                            <span class="job-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                São Paulo, SP
+                            </span>
+                            <span class="job-meta-item">
+                                <i class="fas fa-clock"></i>
+                                Tempo Integral
+                            </span>
+                            <span class="job-meta-item">
+                                <i class="fas fa-briefcase"></i>
+                                Pleno/Sênior
+                            </span>
+                        </div>
+                    </div>
+                    <div style="background: #ff6b35; color: white; padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 14px;">
+                        3 vagas
+                    </div>
+                </div>
+                <p class="job-description">
+                    Buscamos desenvolvedor(a) experiente em Node.js, React e bancos de dados para integrar nosso time de tecnologia. Experiência com e-commerce é um diferencial.
+                </p>
+                <button class="apply-btn" onclick="scrollToForm()">Candidatar-se</button>
+            </div>
+            
+            <div class="job-card">
+                <div class="job-header">
+                    <div style="flex: 1;">
+                        <h3 class="job-title">Analista de Marketing Digital</h3>
+                        <div class="job-meta">
+                            <span class="job-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                São Paulo, SP (Híbrido)
+                            </span>
+                            <span class="job-meta-item">
+                                <i class="fas fa-clock"></i>
+                                Tempo Integral
+                            </span>
+                            <span class="job-meta-item">
+                                <i class="fas fa-briefcase"></i>
+                                Pleno
+                            </span>
+                        </div>
+                    </div>
+                    <div style="background: #ff6b35; color: white; padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 14px;">
+                        2 vagas
+                    </div>
+                </div>
+                <p class="job-description">
+                    Profissional criativo e analítico para gerenciar campanhas digitais, SEO, redes sociais e estratégias de crescimento online.
+                </p>
+                <button class="apply-btn" onclick="scrollToForm()">Candidatar-se</button>
+            </div>
+            
+            <div class="job-card">
+                <div class="job-header">
+                    <div style="flex: 1;">
+                        <h3 class="job-title">Coordenador de Logística</h3>
+                        <div class="job-meta">
+                            <span class="job-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Rio de Janeiro, RJ
+                            </span>
+                            <span class="job-meta-item">
+                                <i class="fas fa-clock"></i>
+                                Tempo Integral
+                            </span>
+                            <span class="job-meta-item">
+                                <i class="fas fa-briefcase"></i>
+                                Sênior
+                            </span>
+                        </div>
+                    </div>
+                    <div style="background: #ff6b35; color: white; padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 14px;">
+                        1 vaga
+                    </div>
+                </div>
+                <p class="job-description">
+                    Responsável por coordenar operações de distribuição, gestão de estoque e otimização de processos logísticos.
+                </p>
+                <button class="apply-btn" onclick="scrollToForm()">Candidatar-se</button>
+            </div>
+            
+            <div class="job-card">
+                <div class="job-header">
+                    <div style="flex: 1;">
+                        <h3 class="job-title">Atendente de Customer Success</h3>
+                        <div class="job-meta">
+                            <span class="job-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Remoto
+                            </span>
+                            <span class="job-meta-item">
+                                <i class="fas fa-clock"></i>
+                                Tempo Integral
+                            </span>
+                            <span class="job-meta-item">
+                                <i class="fas fa-briefcase"></i>
+                                Júnior/Pleno
+                            </span>
+                        </div>
+                    </div>
+                    <div style="background: #ff6b35; color: white; padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 14px;">
+                        5 vagas
+                    </div>
+                </div>
+                <p class="job-description">
+                    Profissional dedicado ao sucesso do cliente, com excelente comunicação e habilidades de resolução de problemas.
+                </p>
+                <button class="apply-btn" onclick="scrollToForm()">Candidatar-se</button>
+            </div>
+            
+            <div class="job-card">
+                <div class="job-header">
+                    <div style="flex: 1;">
+                        <h3 class="job-title">Entregador/Motorista</h3>
+                        <div class="job-meta">
+                            <span class="job-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Várias Cidades
+                            </span>
+                            <span class="job-meta-item">
+                                <i class="fas fa-clock"></i>
+                                Tempo Integral
+                            </span>
+                            <span class="job-meta-item">
+                                <i class="fas fa-briefcase"></i>
+                                Operacional
+                            </span>
+                        </div>
+                    </div>
+                    <div style="background: #28a745; color: white; padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 14px;">
+                        10 vagas
+                    </div>
+                </div>
+                <p class="job-description">
+                    Responsável por realizar entregas de produtos aos clientes. Necessário CNH categoria B e experiência com entregas. Veículo próprio é um diferencial.
+                </p>
+                <button class="apply-btn" onclick="scrollToForm()">Candidatar-se</button>
+            </div>
+            
+            <div class="job-card">
+                <div class="job-header">
+                    <div style="flex: 1;">
+                        <h3 class="job-title">Estoquista</h3>
+                        <div class="job-meta">
+                            <span class="job-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                São Paulo, SP
+                            </span>
+                            <span class="job-meta-item">
+                                <i class="fas fa-clock"></i>
+                                Tempo Integral
+                            </span>
+                            <span class="job-meta-item">
+                                <i class="fas fa-briefcase"></i>
+                                Operacional
+                            </span>
+                        </div>
+                    </div>
+                    <div style="background: #28a745; color: white; padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 14px;">
+                        4 vagas
+                    </div>
+                </div>
+                <p class="job-description">
+                    Organização e controle de estoque, recebimento e conferência de mercadorias, separação de pedidos e manutenção da ordem no armazém.
+                </p>
+                <button class="apply-btn" onclick="scrollToForm()">Candidatar-se</button>
+            </div>
+            
+            <div class="job-card">
+                <div class="job-header">
+                    <div style="flex: 1;">
+                        <h3 class="job-title">Designer Gráfico</h3>
+                        <div class="job-meta">
+                            <span class="job-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                São Paulo, SP (Híbrido)
+                            </span>
+                            <span class="job-meta-item">
+                                <i class="fas fa-clock"></i>
+                                Tempo Integral
+                            </span>
+                            <span class="job-meta-item">
+                                <i class="fas fa-briefcase"></i>
+                                Pleno
+                            </span>
+                        </div>
+                    </div>
+                    <div style="background: #ff6b35; color: white; padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 14px;">
+                        2 vagas
+                    </div>
+                </div>
+                <p class="job-description">
+                    Criação de peças gráficas para campanhas, banners, posts para redes sociais e materiais promocionais. Domínio de Adobe Creative Suite.
+                </p>
+                <button class="apply-btn" onclick="scrollToForm()">Candidatar-se</button>
+            </div>
+            
+            <div class="job-card">
+                <div class="job-header">
+                    <div style="flex: 1;">
+                        <h3 class="job-title">Analista Financeiro</h3>
+                        <div class="job-meta">
+                            <span class="job-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                São Paulo, SP
+                            </span>
+                            <span class="job-meta-item">
+                                <i class="fas fa-clock"></i>
+                                Tempo Integral
+                            </span>
+                            <span class="job-meta-item">
+                                <i class="fas fa-briefcase"></i>
+                                Pleno/Sênior
+                            </span>
+                        </div>
+                    </div>
+                    <div style="background: #ff6b35; color: white; padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 14px;">
+                        1 vaga
+                    </div>
+                </div>
+                <p class="job-description">
+                    Análise de demonstrativos financeiros, controle de fluxo de caixa, elaboração de relatórios gerenciais e apoio na tomada de decisões estratégicas.
+                </p>
+                <button class="apply-btn" onclick="scrollToForm()">Candidatar-se</button>
+            </div>
+            
+            <div class="job-card">
+                <div class="job-header">
+                    <div style="flex: 1;">
+                        <h3 class="job-title">Analista de Recursos Humanos</h3>
+                        <div class="job-meta">
+                            <span class="job-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                São Paulo, SP
+                            </span>
+                            <span class="job-meta-item">
+                                <i class="fas fa-clock"></i>
+                                Tempo Integral
+                            </span>
+                            <span class="job-meta-item">
+                                <i class="fas fa-briefcase"></i>
+                                Pleno
+                            </span>
+                        </div>
+                    </div>
+                    <div style="background: #ff6b35; color: white; padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 14px;">
+                        1 vaga
+                    </div>
+                </div>
+                <p class="job-description">
+                    Recrutamento e seleção, gestão de benefícios, treinamento e desenvolvimento, e suporte aos colaboradores em questões trabalhistas.
+                </p>
+                <button class="apply-btn" onclick="scrollToForm()">Candidatar-se</button>
+            </div>
+            
+            <div class="job-card">
+                <div class="job-header">
+                    <div style="flex: 1;">
+                        <h3 class="job-title">Comprador</h3>
+                        <div class="job-meta">
+                            <span class="job-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                São Paulo, SP
+                            </span>
+                            <span class="job-meta-item">
+                                <i class="fas fa-clock"></i>
+                                Tempo Integral
+                            </span>
+                            <span class="job-meta-item">
+                                <i class="fas fa-briefcase"></i>
+                                Pleno
+                            </span>
+                        </div>
+                    </div>
+                    <div style="background: #ff6b35; color: white; padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 14px;">
+                        2 vagas
+                    </div>
+                </div>
+                <p class="job-description">
+                    Negociação com fornecedores, análise de mercado, gestão de contratos e garantia de melhores condições de compra para a empresa.
+                </p>
+                <button class="apply-btn" onclick="scrollToForm()">Candidatar-se</button>
+            </div>
+            
+            <div class="job-card">
+                <div class="job-header">
+                    <div style="flex: 1;">
+                        <h3 class="job-title">Assistente Administrativo</h3>
+                        <div class="job-meta">
+                            <span class="job-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                São Paulo, SP
+                            </span>
+                            <span class="job-meta-item">
+                                <i class="fas fa-clock"></i>
+                                Tempo Integral
+                            </span>
+                            <span class="job-meta-item">
+                                <i class="fas fa-briefcase"></i>
+                                Júnior
+                            </span>
+                        </div>
+                    </div>
+                    <div style="background: #28a745; color: white; padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 14px;">
+                        3 vagas
+                    </div>
+                </div>
+                <p class="job-description">
+                    Suporte administrativo geral, organização de documentos, atendimento telefônico, agendamento de reuniões e apoio às diversas áreas da empresa.
+                </p>
+                <button class="apply-btn" onclick="scrollToForm()">Candidatar-se</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form Section -->
+    <section class="about-section" id="application-form">
+        <div class="container">
+            <div class="about-header">
+                <h2 class="section-title">Envie seu Currículo</h2>
+                <p class="section-subtitle">Preencha o formulário abaixo e faça parte do nosso time</p>
+            </div>
+            
+            <form class="application-form" onsubmit="submitApplication(event)" enctype="multipart/form-data">
+                <h3 class="form-section-title">Dados Pessoais</h3>
+                
+                <div class="form-group">
+                    <label for="name">Nome Completo *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">E-mail *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Telefone/WhatsApp *</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(11) 99999-9999" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="cpf">CPF *</label>
+                    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="birthdate">Data de Nascimento *</label>
+                    <input type="date" id="birthdate" name="birthdate" required>
+                </div>
+                
+                <h3 class="form-section-title">Informações Profissionais</h3>
+                
+                <div class="form-group">
+                    <label for="position">Vaga de Interesse *</label>
+                    <select id="position" name="position" onchange="handlePositionChange()" required>
+                        <option value="">Selecione uma vaga</option>
+                        <optgroup label="Tecnologia (3 vagas)">
+                            <option value="fullstack">Desenvolvedor Full Stack - 3 vagas</option>
+                        </optgroup>
+                        <optgroup label="Marketing e Vendas (4 vagas)">
+                            <option value="marketing">Analista de Marketing Digital - 2 vagas</option>
+                            <option value="designer">Designer Gráfico - 2 vagas</option>
+                        </optgroup>
+                        <optgroup label="Logística e Operações (15 vagas)">
+                            <option value="logistica">Coordenador de Logística - 1 vaga</option>
+                            <option value="entregador">Entregador/Motorista - 10 vagas</option>
+                            <option value="estoquista">Estoquista - 4 vagas</option>
+                        </optgroup>
+                        <optgroup label="Atendimento (5 vagas)">
+                            <option value="customer">Atendente de Customer Success - 5 vagas</option>
+                        </optgroup>
+                        <optgroup label="Administrativo e Financeiro (7 vagas)">
+                            <option value="financeiro">Analista Financeiro - 1 vaga</option>
+                            <option value="rh">Analista de Recursos Humanos - 1 vaga</option>
+                            <option value="comprador">Comprador - 2 vagas</option>
+                            <option value="assistente">Assistente Administrativo - 3 vagas</option>
+                        </optgroup>
+                        <optgroup label="Outras">
+                            <option value="outro">Outra posição</option>
+                        </optgroup>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="specialty">Área de Especialidade *</label>
+                    <select id="specialty" name="specialty" required>
+                        <option value="">Selecione sua área</option>
+                        <option value="tecnologia">Tecnologia</option>
+                        <option value="marketing">Marketing e Vendas</option>
+                        <option value="logistica">Logística e Operações</option>
+                        <option value="atendimento">Atendimento ao Cliente</option>
+                        <option value="administrativo">Administrativo</option>
+                        <option value="financeiro">Financeiro</option>
+                        <option value="rh">Recursos Humanos</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="experience">Anos de Experiência *</label>
+                    <select id="experience" name="experience" required>
+                        <option value="">Selecione</option>
+                        <option value="0-1">Menos de 1 ano</option>
+                        <option value="1-3">1 a 3 anos</option>
+                        <option value="3-5">3 a 5 anos</option>
+                        <option value="5-10">5 a 10 anos</option>
+                        <option value="10+">Mais de 10 anos</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="linkedin">LinkedIn</label>
+                    <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/seu-perfil">
+                </div>
+                
+                <h3 class="form-section-title">Documentos</h3>
+                
+                <div class="form-group">
+                    <label for="resume">Currículo (PDF, DOC ou DOCX) *</label>
+                    <div class="file-upload-wrapper">
+                        <input type="file" id="resume" name="resume" class="file-upload-input" accept=".pdf,.doc,.docx" onchange="updateFileName('resume')" required>
+                        <label for="resume" class="file-upload-label">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <span>Clique para enviar seu currículo</span>
+                        </label>
+                    </div>
+                    <div id="resume-name" class="file-name"></div>
+                </div>
+                
+                <!-- Campos condicionais para entregador/motorista -->
+                <div id="driver-fields" class="conditional-field">
+                    <div class="form-group">
+                        <label for="cnh">CNH (Carteira de Motorista) *</label>
+                        <div class="file-upload-wrapper">
+                            <input type="file" id="cnh" name="cnh" class="file-upload-input" accept=".pdf,.jpg,.jpeg,.png" onchange="updateFileName('cnh')">
+                            <label for="cnh" class="file-upload-label">
+                                <i class="fas fa-id-card"></i>
+                                <span>Enviar CNH (frente e verso)</span>
+                            </label>
+                        </div>
+                        <div id="cnh-name" class="file-name"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cnh-category">Categoria da CNH *</label>
+                        <select id="cnh-category" name="cnh-category">
+                            <option value="">Selecione</option>
+                            <option value="A">A - Moto</option>
+                            <option value="B">B - Carro</option>
+                            <option value="AB">AB - Moto e Carro</option>
+                            <option value="C">C - Caminhão</option>
+                            <option value="D">D - Ônibus</option>
+                            <option value="E">E - Carreta</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Possui veículo próprio? *</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="vehicle-yes" name="vehicle" value="sim">
+                                <label for="vehicle-yes">Sim</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="vehicle-no" name="vehicle" value="nao">
+                                <label for="vehicle-no">Não</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="form-section-title">Questionário</h3>
+                
+                <div class="form-group">
+                    <label for="motivation">Por que você quer trabalhar na BOSS SHOPP? *</label>
+                    <textarea id="motivation" name="motivation" required placeholder="Conte-nos o que te motiva a fazer parte do nosso time"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="strengths">Quais são seus principais pontos fortes? *</label>
+                    <textarea id="strengths" name="strengths" required placeholder="Descreva suas principais habilidades e qualidades"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Disponibilidade para início *</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="avail-immediate" name="availability" value="imediato" required>
+                            <label for="avail-immediate">Imediato</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="avail-15" name="availability" value="15dias">
+                            <label for="avail-15">15 dias</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="avail-30" name="availability" value="30dias">
+                            <label for="avail-30">30 dias</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="avail-other" name="availability" value="outro">
+                            <label for="avail-other">Outro</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="salary-expectation">Pretensão Salarial (R$)</label>
+                    <input type="text" id="salary-expectation" name="salary-expectation" placeholder="Ex: 3.000,00">
+                </div>
+                
+                <div class="form-group">
+                    <label>Aceita trabalhar em horários flexíveis? *</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="flexible-yes" name="flexible-hours" value="sim" required>
+                            <label for="flexible-yes">Sim</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="flexible-no" name="flexible-hours" value="nao">
+                            <label for="flexible-no">Não</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="additional-info">Informações Adicionais</label>
+                    <textarea id="additional-info" name="additional-info" placeholder="Alguma informação adicional que gostaria de compartilhar?"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Enviar Candidatura
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>BOSS SHOPP</h3>
+                    <p>Sua loja online de confiança, oferecendo produtos de qualidade com preços competitivos e entrega rápida em todo o Brasil.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Informações</h4>
+                    <ul>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="nossa-historia.html">Nossa História</a></li>
+                        <li><a href="trabalhe-conosco.html">Trabalhe Conosco</a></li>
+                        <li><a href="imprensa.html">Imprensa</a></li>
+                        <li><a href="investidores.html">Investidores</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Categorias</h4>
+                    <ul>
+                        <li><a href="moda.html">Moda</a></li>
+                        <li><a href="eletronicos.html">Eletrônicos</a></li>
+                        <li><a href="casa.html">Casa</a></li>
+                        <li><a href="games.html">Games</a></li>
+                        <li><a href="esportes.html">Esportes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> (11) 99999-9999</li>
+                        <li><i class="fas fa-envelope"></i> contato@bossshopp.com.br</li>
+                        <li><i class="fas fa-map-marker-alt"></i> São Paulo, SP</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 BOSS SHOPP. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Remove preloader when page loads
+        window.addEventListener('load', function() {
+            const preloader = document.querySelector('.preloader');
+            if (preloader) {
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 300);
+            }
+        });
+        
+        function scrollToForm() {
+            document.getElementById('application-form').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Mostrar/ocultar campos condicionais baseado na vaga selecionada
+        function handlePositionChange() {
+            const position = document.getElementById('position').value;
+            const driverFields = document.getElementById('driver-fields');
+            const cnhInput = document.getElementById('cnh');
+            const cnhCategory = document.getElementById('cnh-category');
+            const vehicleRadios = document.querySelectorAll('input[name="vehicle"]');
+            
+            if (position === 'entregador') {
+                driverFields.classList.add('show');
+                cnhInput.required = true;
+                cnhCategory.required = true;
+                vehicleRadios.forEach(radio => radio.required = true);
+            } else {
+                driverFields.classList.remove('show');
+                cnhInput.required = false;
+                cnhCategory.required = false;
+                vehicleRadios.forEach(radio => radio.required = false);
+            }
+        }
+        
+        // Atualizar nome do arquivo selecionado
+        function updateFileName(inputId) {
+            const input = document.getElementById(inputId);
+            const fileNameDiv = document.getElementById(inputId + '-name');
+            
+            if (input.files && input.files[0]) {
+                const fileName = input.files[0].name;
+                const fileSize = (input.files[0].size / 1024 / 1024).toFixed(2);
+                fileNameDiv.innerHTML = `<i class="fas fa-check-circle" style="color: #28a745;"></i> ${fileName} (${fileSize} MB)`;
+            }
+        }
+        
+        // Máscara para CPF
+        document.getElementById('cpf').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length <= 11) {
+                value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+                e.target.value = value;
+            }
+        });
+        
+        // Máscara para telefone
+        document.getElementById('phone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length <= 11) {
+                value = value.replace(/(\d{2})(\d)/, '($1) $2');
+                value = value.replace(/(\d{5})(\d)/, '$1-$2');
+                e.target.value = value;
+            }
+        });
+        
+        // Validação e envio do formulário
+        function submitApplication(event) {
+            event.preventDefault();
+            
+            // Validar tamanho dos arquivos
+            const resumeFile = document.getElementById('resume').files[0];
+            if (resumeFile && resumeFile.size > 5 * 1024 * 1024) {
+                alert('O currículo deve ter no máximo 5MB');
+                return;
+            }
+            
+            const cnhFile = document.getElementById('cnh').files[0];
+            if (cnhFile && cnhFile.size > 5 * 1024 * 1024) {
+                alert('A CNH deve ter no máximo 5MB');
+                return;
+            }
+            
+            // Simular envio
+            const submitBtn = event.target.querySelector('.submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            
+            setTimeout(() => {
+                alert('✅ Candidatura enviada com sucesso!\n\nObrigado por se candidatar à BOSS SHOPP.\nEntraremos em contato em breve através do e-mail ou telefone informado.');
+                event.target.reset();
+                
+                // Limpar nomes dos arquivos
+                document.getElementById('resume-name').innerHTML = '';
+                document.getElementById('cnh-name').innerHTML = '';
+                
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Candidatura';
+                
+                // Scroll para o topo
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,565 @@
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+                    
+                    // Navigate to the corresponding category page
+                    const category = btn.getAttribute('data-category');
+                    let url;
+                    switch(category) {
+                        case 'home':
+                            url = 'index.html';
+                            break;
+                        case 'moda':
+                            url = 'categoria-moda.html';
+                            break;
+                        case 'eletronicos':
+                            url = 'eletronicos.html';
+                            break;
+                        case 'casa':
+                            url = 'casa.html';
+                            break;
+                        case 'games':
+                            url = 'games.html';
+                            break;
+                        case 'esportes':
+                            url = 'esportes.html';
+                            break;
+                        case 'infantil':
+                            url = 'infantil.html';
+                            break;
+                        default:
+                            url = 'index.html';
+                    }
+                    window.location.href = url;
+                });
+            });
+        });
+
+        // Product data for clothing items
+        const productData = {
+            'Camiseta Básica': {
+                name: 'Camiseta Básica',
+                images: [
+                    'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'
+                ],
+                category: 'Camisetas',
+                rating: 4.5,
+                reviews: 156,
+                oldPrice: 49.90,
+                currentPrice: 39.90,
+                discount: 20,
+                description: 'Camiseta básica de algodão 100%, ideal para o uso diário. Modelo confortável e versátil que combina com qualquer look. Tecido de alta qualidade que não desbota com as lavagens.',
+                specs: {
+                    'Material': '100% Algodão',
+                    'Modelo': 'Básico',
+                    'Gênero': 'Unissex',
+                    'Cor': 'Branco',
+                    'Tamanhos': 'P, M, G, GG'
+                },
+                sizes: ['P', 'M', 'G', 'GG'],
+                code: 'CAM-BAS-001'
+            },
+            'Calça Jeans Slim': {
+                name: 'Calça Jeans Slim',
+                images: [
+                    'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'
+                ],
+                category: 'Calças',
+                rating: 4,
+                reviews: 89,
+                oldPrice: 0,
+                currentPrice: 89.90,
+                discount: 0,
+                description: 'Calça jeans slim com modelagem moderna e confortável. Confeccionada em tecido de algodão com elastano para maior conforto e mobilidade.',
+                specs: {
+                    'Material': '98% Algodão, 2% Elastano',
+                    'Modelo': 'Slim',
+                    'Gênero': 'Unissex',
+                    'Cor': 'Azul',
+                    'Tamanhos': '36, 38, 40, 42, 44'
+                },
+                sizes: ['36', '38', '40', '42', '44'],
+                code: 'CAL-JEAN-001'
+            },
+            'Camisa Social': {
+                name: 'Camisa Social',
+                images: [
+                    'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'
+                ],
+                category: 'Camisas',
+                rating: 4,
+                reviews: 63,
+                oldPrice: 79.90,
+                currentPrice: 67.90,
+                discount: 15,
+                description: 'Camisa social de algodão com modelagem slim. Ideal para ambientes formais e profissionais. Tecido leve e respirável com acabamento refinado.',
+                specs: {
+                    'Material': '100% Algodão',
+                    'Modelo': 'Social',
+                    'Gênero': 'Masculino',
+                    'Cor': 'Branco',
+                    'Tamanhos': 'P, M, G, GG'
+                },
+                sizes: ['P', 'M', 'G', 'GG'],
+                code: 'CAM-SOC-001'
+            },
+            'Vestido Floral': {
+                name: 'Vestido Floral',
+                images: [
+                    'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'
+                ],
+                category: 'Vestidos',
+                rating: 5,
+                reviews: 124,
+                oldPrice: 0,
+                currentPrice: 129.90,
+                discount: 0,
+                description: 'Vestido feminino com estampa floral. Modelo soltinho com mangas curtas e decote em V. Perfeito para ocasiões casuais e eventos leves.',
+                specs: {
+                    'Material': '100% Poliéster',
+                    'Modelo': 'Floral',
+                    'Gênero': 'Feminino',
+                    'Cor': 'Multicolorido',
+                    'Tamanhos': 'P, M, G, GG'
+                },
+                sizes: ['P', 'M', 'G', 'GG'],
+                code: 'VES-FLOR-001'
+            },
+            'Jaqueta Jeans': {
+                name: 'Jaqueta Jeans',
+                images: [
+                    'https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'
+                ],
+                category: 'Jaquetas',
+                rating: 4,
+                reviews: 78,
+                oldPrice: 149.90,
+                currentPrice: 112.40,
+                discount: 25,
+                description: 'Jaqueta jeans masculina com modelagem reta. Bolsos frontais e fechamento com botões. Peça versátil que combina com diversos looks.',
+                specs: {
+                    'Material': '100% Algodão',
+                    'Modelo': 'Jeans',
+                    'Gênero': 'Masculino',
+                    'Cor': 'Azul',
+                    'Tamanhos': 'M, G, GG, XG'
+                },
+                sizes: ['M', 'G', 'GG', 'XG'],
+                code: 'JAQ-JEAN-001'
+            },
+            'Calça Chino': {
+                name: 'Calça Chino',
+                images: [
+                    'https://images.unsplash.com/photo-1544441892-700560bb6719?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1544441892-700560bb6719?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1544441892-700560bb6719?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'
+                ],
+                category: 'Calças',
+                rating: 4.5,
+                reviews: 92,
+                oldPrice: 0,
+                currentPrice: 99.90,
+                discount: 0,
+                description: 'Calça chino com modelagem slim e cós médio. Confeccionada em tecido leve e confortável. Ideal para looks casuais e semi-formais.',
+                specs: {
+                    'Material': '98% Algodão, 2% Elastano',
+                    'Modelo': 'Chino',
+                    'Gênero': 'Unissex',
+                    'Cor': 'Bege',
+                    'Tamanhos': '36, 38, 40, 42, 44'
+                },
+                sizes: ['36', '38', '40', '42', '44'],
+                code: 'CAL-CHIN-001'
+            },
+            'Camiseta Estampada': {
+                name: 'Camiseta Estampada',
+                images: [
+                    'https://images.unsplash.com/photo-1529361136673-9d7e40a3a88f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1529361136673-9d7e40a3a88f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1529361136673-9d7e40a3a88f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'
+                ],
+                category: 'Camisetas',
+                rating: 4,
+                reviews: 67,
+                oldPrice: 59.90,
+                currentPrice: 41.90,
+                discount: 30,
+                description: 'Camiseta estampada com design moderno. Tecido leve e confortável para o uso diário. Disponível em várias estampas criativas.',
+                specs: {
+                    'Material': '100% Algodão',
+                    'Modelo': 'Estampada',
+                    'Gênero': 'Unissex',
+                    'Cor': 'Preto',
+                    'Tamanhos': 'P, M, G, GG'
+                },
+                sizes: ['P', 'M', 'G', 'GG'],
+                code: 'CAM-EST-001'
+            },
+            'Vestido Longo': {
+                name: 'Vestido Longo',
+                images: [
+                    'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+                    'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'
+                ],
+                category: 'Vestidos',
+                rating: 4.5,
+                reviews: 85,
+                oldPrice: 0,
+                currentPrice: 149.90,
+                discount: 0,
+                description: 'Vestido longo feminino com modelagem fluida. Ideal para eventos especiais e ocasiões formais. Tecido leve com caimento perfeito.',
+                specs: {
+                    'Material': '100% Poliéster',
+                    'Modelo': 'Longo',
+                    'Gênero': 'Feminino',
+                    'Cor': 'Vermelho',
+                    'Tamanhos': 'P, M, G, GG'
+                },
+                sizes: ['P', 'M', 'G', 'GG'],
+                code: 'VES-LONG-001'
+            }
+        };
+
+        // Reviews data for products
+        const productReviews = {
+            'Camiseta Básica': [
+                {
+                    reviewer: 'Ana Silva',
+                    date: '10/10/2025',
+                    rating: 5,
+                    title: 'Perfeita para o dia a dia!',
+                    content: 'Camiseta muito confortável e de ótima qualidade. O tecido é macio e respirável. Recomendo!'
+                },
+                {
+                    reviewer: 'Carlos Oliveira',
+                    date: '05/10/2025',
+                    rating: 4,
+                    title: 'Boa qualidade',
+                    content: 'Produto de boa qualidade, porém veio um tamanho menor do que o esperado.'
+                }
+            ],
+            'Calça Jeans Slim': [
+                {
+                    reviewer: 'Roberto Santos',
+                    date: '12/10/2025',
+                    rating: 4,
+                    title: 'Modelagem excelente',
+                    content: 'Calça com modelagem perfeita e tecido de boa qualidade. Recomendo para quem busca conforto e estilo.'
+                }
+            ]
+        };
+
+        // Function to open product modal
+        function openProductModal(productName) {
+            const product = productData[productName];
+            if (!product) return;
+            
+            // Populate modal with product data
+            document.getElementById('modalProductName').textContent = product.name;
+            document.getElementById('modalProductImage').src = product.images[0];
+            document.getElementById('modalProductCode').textContent = product.code;
+            
+            // Set prices
+            if (product.oldPrice > 0) {
+                document.getElementById('modalOldPrice').textContent = `R$ ${product.oldPrice.toFixed(2).replace('.', ',')}`;
+                document.getElementById('modalOldPrice').style.display = 'inline';
+            } else {
+                document.getElementById('modalOldPrice').style.display = 'none';
+            }
+            
+            document.getElementById('modalCurrentPrice').textContent = `R$ ${product.currentPrice.toFixed(2).replace('.', ',')}`;
+            
+            if (product.discount > 0) {
+                document.getElementById('modalDiscount').textContent = `${product.discount}% OFF`;
+                document.getElementById('modalDiscount').style.display = 'inline';
+            } else {
+                document.getElementById('modalDiscount').style.display = 'none';
+            }
+            
+            // Set installments
+            const installments = Math.floor(product.currentPrice / 3);
+            document.getElementById('modalInstallments').textContent = `ou 3x de R$ ${installments.toFixed(2).replace('.', ',')} sem juros`;
+            
+            // Set description
+            document.getElementById('modalProductDescription').textContent = product.description;
+            
+            // Set specifications list
+            const specsList = document.getElementById('modalProductSpecs');
+            specsList.innerHTML = '';
+            for (const [key, value] of Object.entries(product.specs)) {
+                const li = document.createElement('li');
+                li.innerHTML = `<strong>${key}:</strong> ${value}`;
+                specsList.appendChild(li);
+            }
+            
+            // Set specifications table
+            const specTable = document.getElementById('modalSpecTable');
+            specTable.innerHTML = '';
+            for (const [key, value] of Object.entries(product.specs)) {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td><strong>${key}</strong></td><td>${value}</td>`;
+                specTable.appendChild(tr);
+            }
+            
+            // Set rating stars
+            const ratingStars = document.getElementById('modalProductRating');
+            ratingStars.innerHTML = '';
+            const fullStars = Math.floor(product.rating);
+            const hasHalfStar = product.rating % 1 !== 0;
+            
+            for (let i = 0; i < fullStars; i++) {
+                const star = document.createElement('i');
+                star.className = 'fas fa-star';
+                ratingStars.appendChild(star);
+            }
+            
+            if (hasHalfStar) {
+                const halfStar = document.createElement('i');
+                halfStar.className = 'fas fa-star-half-alt';
+                ratingStars.appendChild(halfStar);
+            }
+            
+            const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+            for (let i = 0; i < emptyStars; i++) {
+                const star = document.createElement('i');
+                star.className = 'far fa-star';
+                ratingStars.appendChild(star);
+            }
+            
+            const ratingSpan = document.createElement('span');
+            ratingSpan.textContent = `(${product.reviews})`;
+            ratingStars.appendChild(ratingSpan);
+            
+            // Set reviews tab
+            document.getElementById('modalReviewCount').textContent = product.reviews;
+            document.getElementById('modalAverageRating').textContent = product.rating.toFixed(1);
+            document.getElementById('modalTotalReviews').textContent = `${product.reviews} avaliações`;
+            
+            // Set rating stars for reviews section
+            const reviewStars = document.getElementById('modalRatingStars');
+            reviewStars.innerHTML = '';
+            for (let i = 0; i < fullStars; i++) {
+                const star = document.createElement('i');
+                star.className = 'fas fa-star';
+                reviewStars.appendChild(star);
+            }
+            
+            if (hasHalfStar) {
+                const halfStar = document.createElement('i');
+                halfStar.className = 'fas fa-star-half-alt';
+                reviewStars.appendChild(halfStar);
+            }
+            
+            // Set rating distribution
+            const ratingDistribution = document.getElementById('modalRatingDistribution');
+            ratingDistribution.innerHTML = '';
+            // This is a simplified version - in a real app, this would be based on actual data
+            const distributions = [
+                { stars: 5, percentage: 65, count: Math.floor(product.reviews * 0.65) },
+                { stars: 4, percentage: 20, count: Math.floor(product.reviews * 0.20) },
+                { stars: 3, percentage: 10, count: Math.floor(product.reviews * 0.10) },
+                { stars: 2, percentage: 3, count: Math.floor(product.reviews * 0.03) },
+                { stars: 1, percentage: 2, count: Math.floor(product.reviews * 0.02) }
+            ];
+            
+            distributions.forEach(dist => {
+                const ratingBar = document.createElement('div');
+                ratingBar.className = 'rating-bar';
+                const barContainer = document.createElement('div');
+                barContainer.className = 'bar-container';
+                const bar = document.createElement('div');
+                bar.className = 'bar';
+                bar.style.width = dist.percentage + '%';
+                barContainer.appendChild(bar);
+                ratingBar.innerHTML = `<span>${dist.stars} estrelas</span>`;
+                ratingBar.appendChild(barContainer);
+                ratingBar.innerHTML += `<span>${dist.count}</span>`;
+                ratingDistribution.appendChild(ratingBar);
+            });
+            
+            // Set recent reviews
+            const recentReviews = document.getElementById('modalRecentReviews');
+            recentReviews.innerHTML = '';
+            
+            const reviews = productReviews[productName] || [];
+            reviews.forEach(review => {
+                const reviewElement = document.createElement('div');
+                reviewElement.className = 'review';
+                const reviewRating = document.createElement('div');
+                reviewRating.className = 'review-rating';
+                let starsHtml = '';
+                for (let i = 0; i < review.rating; i++) {
+                    starsHtml += '<i class="fas fa-star"></i>';
+                }
+                for (let i = review.rating; i < 5; i++) {
+                    starsHtml += '<i class="far fa-star"></i>';
+                }
+                reviewElement.innerHTML = `
+                    <div class="review-header">
+                        <div class="reviewer">${review.reviewer}</div>
+                        <div class="review-date">${review.date}</div>
+                    </div>
+                    <div class="review-title">${review.title}</div>
+                    <div class="review-content">${review.content}</div>
+                `;
+                reviewRating.innerHTML = starsHtml;
+                reviewElement.insertBefore(reviewRating, reviewElement.querySelector('.review-title'));
+                recentReviews.appendChild(reviewElement);
+            });
+            
+            // Set thumbnails
+            const thumbnailContainer = document.getElementById('modalThumbnails');
+            thumbnailContainer.innerHTML = '';
+            product.images.forEach((image, index) => {
+                const thumbnail = document.createElement('div');
+                thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
+                thumbnail.innerHTML = `<img src="${image}" alt="${product.name}" class="thumbnail-img">`;
+                thumbnail.addEventListener('click', function() {
+                    document.getElementById('modalProductImage').src = image;
+                    // Remove active class from all thumbnails
+                    document.querySelectorAll('.thumbnail').forEach(thumb => {
+                        thumb.classList.remove('active');
+                    });
+                    // Add active class to clicked thumbnail
+                    this.classList.add('active');
+                });
+                thumbnailContainer.appendChild(thumbnail);
+            });
+            
+            // Set size options
+            const sizeOptions = document.getElementById('modalSizeOptions');
+            sizeOptions.innerHTML = '';
+            if (product.sizes && product.sizes.length > 0) {
+                product.sizes.forEach((size, index) => {
+                    const sizeBtn = document.createElement('button');
+                    sizeBtn.className = `size-btn ${index === 0 ? 'active' : ''}`;
+                    sizeBtn.textContent = size;
+                    sizeBtn.addEventListener('click', function() {
+                        // Remove active class from all size buttons
+                        document.querySelectorAll('.size-btn').forEach(btn => {
+                            btn.classList.remove('active');
+                        });
+                        // Add active class to clicked button
+                        this.classList.add('active');
+                    });
+                    sizeOptions.appendChild(sizeBtn);
+                });
+                document.getElementById('modalSizeSelector').style.display = 'block';
+            } else {
+                document.getElementById('modalSizeSelector').style.display = 'none';
+            }
+            
+            // Set add to cart button
+            document.getElementById('modalAddToCart').onclick = function() {
+                const quantity = parseInt(document.getElementById('modalQuantity').textContent);
+                for (let i = 0; i < quantity; i++) {
+                    addToCart(product.name, product.currentPrice);
+                }
+                closeProductModal(); // Close product modal
+                openCartModal(); // Open cart modal to show added item
+            };
+            
+            // Set buy now button
+            document.getElementById('modalBuyNow').onclick = function() {
+                const quantity = parseInt(document.getElementById('modalQuantity').textContent);
+                for (let i = 0; i < quantity; i++) {
+                    addToCart(product.name, product.currentPrice);
+                }
+                closeProductModal(); // Close product modal
+                window.location.href = 'purchase.html'; // Go to checkout
+            };
+            
+            // Show modal
+            document.getElementById('productModal').style.display = 'block';
+        }
+
+        // Function to close product modal
+        function closeProductModal() {
+            document.getElementById('productModal').style.display = 'none';
+        }
+
+        // Quantity functions for modal
+        function increaseModalQuantity() {
+            const quantityElement = document.getElementById('modalQuantity');
+            let quantity = parseInt(quantityElement.textContent);
+            quantity++;
+            quantityElement.textContent = quantity;
+        }
+
+        function decreaseModalQuantity() {
+            const quantityElement = document.getElementById('modalQuantity');
+            let quantity = parseInt(quantityElement.textContent);
+            if (quantity > 1) {
+                quantity--;
+                quantityElement.textContent = quantity;
+            }
+        }
+
+        // Tab functions for modal
+        function showModalTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.product-specifications .tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            const tabButtons = document.querySelectorAll('.specifications-tabs .tab-btn');
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show the selected tab content
+            document.getElementById('modal' + tabName.charAt(0).toUpperCase() + tabName.slice(1) + 'Tab').classList.add('active');
+            
+            // Add active class to clicked button
+            event.currentTarget.classList.add('active');
+        }
+
+        // Add click event to product cards
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click event to all product cards
+            document.querySelectorAll('.clothing-item').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    // Prevent triggering when clicking on buttons inside the card
+                    if (e.target.closest('button')) return;
+                    
+                    const productName = this.querySelector('h3').textContent;
+                    openProductModal(productName);
+                });
+            });
+            
+            // Close modal when clicking on close button
+            document.getElementById('closeProductModal').addEventListener('click', closeProductModal);
+            
+            // Close modal when clicking outside of it
+            window.addEventListener('click', function(e) {
+                const modal = document.getElementById('productModal');
+                if (e.target === modal) {
+                    closeProductModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+```

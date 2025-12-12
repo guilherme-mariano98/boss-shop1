@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rastrear Pedido - BOSS SHOPP</title>
+    <link rel="stylesheet" href="optimized-styles.css">
+    <link rel="stylesheet" href="panel-buttons.css">
+    <link rel="stylesheet" href="pages.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <div class="loader-text">BOSS SHOPP</div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="header-links">
+                    <a href="sobre.html" class="header-link">Sobre</a>
+                    <a href="atendimento.html" class="header-link">Atendimento</a>
+                    <a href="#" class="header-link">Vendedor</a>
+                    <a href="#" class="header-link">Download</a>
+                    <a href="#" class="header-link">Conecte-se</a>
+                </div>
+                <div class="header-social">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="boss-shop-logo.png" alt="BOSS SHOPP" class="logo-image">
+                    </a>
+                </div>
+                
+                <div class="profile-button">
+                    <a href="profile.html" class="profile-btn">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Meu Perfil</span>
+                    </a>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Busque por produtos, marcas e muito mais...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="nav-icons">
+                    <div class="nav-icon-dropdown">
+                        <a href="login.html" class="nav-icon" id="userIcon">
+                            <i class="fas fa-user"></i>
+                            <span id="userText">Entrar</span>
+                        </a>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="profile.html">
+                                <i class="fas fa-user"></i>
+                                <span>Meu Perfil</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" onclick="logout()">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Sair</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Logout button that shows when user is logged in -->
+                    <a href="#" class="nav-icon" id="logoutButton" style="display: none;" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sair</span>
+                    </a>
+                    <a href="favorites.html" class="nav-icon">
+                        <i class="fas fa-heart"></i>
+                        <span>Favoritos</span>
+                    </a>
+                    <a href="purchase.html" class="nav-icon cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrinho</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="atendimento.html">Atendimento</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Rastrear Pedido</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Tracking Section -->
+    <section class="tracking-section">
+        <div class="container">
+            <div class="tracking-header">
+                <h1 class="section-title">Rastrear Pedido</h1>
+                <p class="section-subtitle">Acompanhe o status da entrega do seu pedido em tempo real</p>
+            </div>
+            
+            <div class="tracking-content">
+                <!-- Tracking Form -->
+                <div class="tracking-form-section">
+                    <div class="form-card">
+                        <h2>Informe os dados do seu pedido</h2>
+                        <form id="trackingForm">
+                            <div class="form-group">
+                                <label for="orderNumber">Número do Pedido</label>
+                                <input type="text" id="orderNumber" name="orderNumber" placeholder="Ex: BS123456789" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" name="email" placeholder="seu.email@exemplo.com" required>
+                            </div>
+                            
+                            <button type="submit" class="submit-button">
+                                <i class="fas fa-search"></i>
+                                Rastrear Pedido
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Tracking Results -->
+                <div id="trackingResults" class="tracking-results" style="display: none;">
+                    <div class="order-info">
+                        <h2>Detalhes do Pedido</h2>
+                        <div class="order-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Número do Pedido:</span>
+                                <span class="detail-value" id="resultOrderNumber">BS123456789</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Data do Pedido:</span>
+                                <span class="detail-value" id="orderDate">15/01/2024</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Status:</span>
+                                <span class="detail-value status-badge" id="orderStatus">Em Transporte</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tracking Timeline -->
+                    <div class="tracking-timeline">
+                        <h2>Acompanhamento do Pedido</h2>
+                        <div class="timeline">
+                            <div class="timeline-step completed">
+                                <div class="step-icon">
+                                    <i class="fas fa-receipt"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4>Confirmação do Pedido</h4>
+                                    <p class="step-date">15/01/2024 - 14:30</p>
+                                    <p>Seu pedido foi confirmado e está sendo processado.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-step completed">
+                                <div class="step-icon">
+                                    <i class="fas fa-box"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4>Separação e Embalagem</h4>
+                                    <p class="step-date">16/01/2024 - 10:15</p>
+                                    <p>Seu pedido foi separado e está sendo embalado.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-step completed">
+                                <div class="step-icon">
+                                    <i class="fas fa-shipping-fast"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4>Em Transporte</h4>
+                                    <p class="step-date">17/01/2024 - 08:45</p>
+                                    <p>Seu pedido foi enviado e está a caminho.</p>
+                                    <p class="tracking-code">Código de rastreio: <strong>BR123456789CD</strong></p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-step active">
+                                <div class="step-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4>Em Rota de Entrega</h4>
+                                    <p class="step-date">Hoje - 09:30</p>
+                                    <p>Seu pedido está na rota de entrega para o seu endereço.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-step">
+                                <div class="step-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4>Entregue</h4>
+                                    <p>Seu pedido será entregue em breve.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Order Items -->
+                    <div class="order-items">
+                        <h2>Itens do Pedido</h2>
+                        <div class="items-list">
+                            <div class="item-card">
+                                <div class="item-image">
+                                    <i class="fas fa-laptop"></i>
+                                </div>
+                                <div class="item-details">
+                                    <h4>Notebook Ultra Slim</h4>
+                                    <p class="item-price">R$ 3.299,90</p>
+                                    <p class="item-quantity">Quantidade: 1</p>
+                                </div>
+                            </div>
+                            
+                            <div class="item-card">
+                                <div class="item-image">
+                                    <i class="fas fa-mouse"></i>
+                                </div>
+                                <div class="item-details">
+                                    <h4>Mouse Sem Fio</h4>
+                                    <p class="item-price">R$ 89,90</p>
+                                    <p class="item-quantity">Quantidade: 2</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Delivery Address -->
+                    <div class="delivery-address">
+                        <h2>Endereço de Entrega</h2>
+                        <div class="address-card">
+                            <p><strong>João Silva</strong></p>
+                            <p>Rua das Flores, 123</p>
+                            <p>Centro - São Paulo/SP</p>
+                            <p>CEP: 01001-000</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sample Tracking Codes -->
+                <div class="sample-codes">
+                    <h3>Exemplos de códigos para teste:</h3>
+                    <div class="code-list">
+                        <button class="code-button" onclick="simulateTracking('BS001')">BS001 - Pedido Entregue</button>
+                        <button class="code-button" onclick="simulateTracking('BS002')">BS002 - Em Transporte</button>
+                        <button class="code-button" onclick="simulateTracking('BS003')">BS003 - Em Separação</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>BOSS SHOPP</h3>
+                    <p>Sua loja online de confiança, oferecendo produtos de qualidade com preços competitivos e entrega rápida em todo o Brasil.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Informações</h4>
+                    <ul>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="atendimento.html">Atendimento</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Trocas e Devoluções</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Categorias</h4>
+                    <ul>
+                        <li><a href="moda.html">Moda</a></li>
+                        <li><a href="eletronicos.html">Eletrônicos</a></li>
+                        <li><a href="casa.html">Casa</a></li>
+                        <li><a href="games.html">Games</a></li>
+                        <li><a href="esportes.html">Esportes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> (11) 99999-9999</li>
+                        <li><i class="fas fa-envelope"></i> contato@bossshopp.com.br</li>
+                        <li><i class="fas fa-map-marker-alt"></i> São Paulo, SP</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 BOSS SHOPP. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Hide preloader when page is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            const preloader = document.querySelector('.preloader');
+            if (preloader) {
+                preloader.style.display = 'none';
+            }
+            
+            // Form submission handler
+            const trackingForm = document.getElementById('trackingForm');
+            if (trackingForm) {
+                trackingForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    simulateTracking();
+                });
+            }
+        });
+        
+        // Simulate tracking function
+        function simulateTracking(orderNumber) {
+            // If order number is provided, use it, otherwise get from form
+            const orderNum = orderNumber || document.getElementById('orderNumber').value;
+            
+            if (!orderNum) {
+                alert('Por favor, informe o número do pedido.');
+                return;
+            }
+            
+            // Show tracking results
+            document.getElementById('trackingResults').style.display = 'block';
+            
+            // Update order number
+            document.getElementById('resultOrderNumber').textContent = orderNum;
+            
+            // Scroll to results
+            document.getElementById('trackingResults').scrollIntoView({ behavior: 'smooth' });
+            
+            // Add animation to timeline steps
+            const steps = document.querySelectorAll('.timeline-step');
+            steps.forEach((step, index) => {
+                setTimeout(() => {
+                    step.classList.add('animate');
+                }, index * 300);
+            });
+        }
+    </script>
+</body>
+</html>

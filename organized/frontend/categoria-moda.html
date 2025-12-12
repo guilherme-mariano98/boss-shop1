@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moda - BOSS SHOPP</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="header-links">
+                    <a href="#" class="header-link">Vendedor</a>
+                    <a href="#" class="header-link">Download</a>
+                    <a href="#" class="header-link">Conecte-se</a>
+                </div>
+                <div class="header-social">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="boss-shop-logo.png" alt="BOSS SHOPP" class="logo-image">
+                    </a>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Busque por produtos, marcas e muito mais...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="nav-icons">
+                    <div class="nav-icon-dropdown">
+                        <a href="login.html" class="nav-icon" id="userIcon">
+                            <i class="fas fa-user"></i>
+                            <span id="userText">Entrar</span>
+                        </a>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="profile.html">
+                                <i class="fas fa-user"></i>
+                                <span>Meu Perfil</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" onclick="logout()">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Sair</span>
+                            </a>
+                        </div>
+                    </div>
+                    <a href="favoritos.html" class="nav-icon">
+                        <i class="fas fa-heart"></i>
+                        <span>Favoritos</span>
+                    </a>
+                    <a href="carrinho.html" class="nav-icon cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrinho</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Home</a> > <span>Moda</span>
+        </div>
+    </section>
+
+    <!-- Category Header -->
+    <section class="category-header">
+        <div class="container">
+            <div class="category-hero">
+                <div class="category-text">
+                    <h1>Moda e Estilo</h1>
+                    <p>Descubra as últimas tendências em roupas, calçados e acessórios</p>
+                </div>
+                <div class="category-image">
+                    <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Moda" class="category-hero-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Banner -->
+    <section class="category-banner">
+        <div class="container">
+            <div class="banner-content">
+                <h2>Ofertas Especiais em Moda</h2>
+                <p>Até 50% de desconto em itens selecionados</p>
+                <button class="banner-btn">Ver Ofertas</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Section: Clothing Collection -->
+    <section class="clothing-collection">
+        <div class="container">
+            <div class="collection-header">
+                <h2>Coleção de Roupas</h2>
+                <p>Descubra nossa seleção premium de roupas</p>
+                <a href="roupas.html" class="collection-link">Ver Coleção Completa</a>
+            </div>
+            <div class="collection-grid">
+                <div class="collection-item">
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Camisetas" class="collection-img">
+                    <div class="collection-overlay">
+                        <h3>Camisetas</h3>
+                    </div>
+                </div>
+                <div class="collection-item">
+                    <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Calças" class="collection-img">
+                    <div class="collection-overlay">
+                        <h3>Calças</h3>
+                    </div>
+                </div>
+                <div class="collection-item">
+                    <img src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Vestidos" class="collection-img">
+                    <div class="collection-overlay">
+                        <h3>Vestidos</h3>
+                    </div>
+                </div>
+                <div class="collection-item">
+                    <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Jaquetas" class="collection-img">
+                    <div class="collection-overlay">
+                        <h3>Jaquetas</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters and Sorting -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-content">
+                <div class="filter-options">
+                    <div class="filter-group">
+                        <h4>Subcategorias</h4>
+                        <ul>
+                            <li><a href="#" class="filter-link active">Todas</a></li>
+                            <li><a href="#" class="filter-link">Camisetas</a></li>
+                            <li><a href="#" class="filter-link">Calças</a></li>
+                            <li><a href="#" class="filter-link">Vestidos</a></li>
+                            <li><a href="#" class="filter-link">Calçados</a></li>
+                            <li><a href="#" class="filter-link">Acessórios</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Preço</h4>
+                        <ul>
+                            <li><a href="#" class="filter-link">Até R$ 50</a></li>
+                            <li><a href="#" class="filter-link">R$ 50 - R$ 100</a></li>
+                            <li><a href="#" class="filter-link">R$ 100 - R$ 200</a></li>
+                            <li><a href="#" class="filter-link">Acima de R$ 200</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Tamanho</h4>
+                        <ul>
+                            <li><a href="#" class="filter-link">P</a></li>
+                            <li><a href="#" class="filter-link">M</a></li>
+                            <li><a href="#" class="filter-link">G</a></li>
+                            <li><a href="#" class="filter-link">GG</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Marca</h4>
+                        <ul>
+                            <li><a href="#" class="filter-link">Nike</a></li>
+                            <li><a href="#" class="filter-link">Adidas</a></li>
+                            <li><a href="#" class="filter-link">Zara</a></li>
+                            <li><a href="#" class="filter-link">H&M</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="sorting-options">
+                    <div class="sort-by">
+                        <label for="sortSelect">Ordenar por:</label>
+                        <select id="sortSelect">
+                            <option value="popular">Mais populares</option>
+                            <option value="price-low">Menor preço</option>
+                            <option value="price-high">Maior preço</option>
+                            <option value="rating">Melhor avaliados</option>
+                            <option value="newest">Mais recentes</option>
+                        </select>
+                    </div>
+                    <div class="view-options">
+                        <button class="view-btn active"><i class="fas fa-th"></i></button>
+                        <button class="view-btn"><i class="fas fa-list"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="category-products">
+        <div class="container">
+            <div class="products-header">
+                <h2>Produtos de Moda</h2>
+                <p>120 produtos encontrados</p>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-badge">-20%</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Camiseta Básica" class="product-img">
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Camisetas</div>
+                        <h3>Camiseta Básica</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(156)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="old-price">R$ 49,90</span>
+                            <span class="new-price">R$ 39,90</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Camiseta Básica', 39.90)">
+                            <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Calça Jeans Slim" class="product-img">
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Calças</div>
+                        <h3>Calça Jeans Slim</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(89)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="new-price">R$ 89,90</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Calça Jeans Slim', 89.90)">
+                            <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-badge">-15%</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Tênis Esportivo" class="product-img">
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Calçados</div>
+                        <h3>Tênis Esportivo</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(234)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="old-price">R$ 199,90</span>
+                            <span class="new-price">R$ 169,90</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Tênis Esportivo', 169.90)">
+                            <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1529958030586-3aae4ca485f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Boné Estiloso" class="product-img">
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Acessórios</div>
+                        <h3>Boné Estiloso</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(67)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="new-price">R$ 34,90</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Boné Estiloso', 34.90)">
+                            <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-badge">-25%</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1577803645773-f96470509666?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Óculos de Sol" class="product-img">
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Acessórios</div>
+                        <h3>Óculos de Sol</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(145)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="old-price">R$ 129,90</span>
+                            <span class="new-price">R$ 97,40</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Óculos de Sol', 97.40)">
+                            <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Mochila Moderna" class="product-img">
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Acessórios</div>
+                        <h3>Mochila Moderna</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(98)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="new-price">R$ 79,90</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Mochila Moderna', 79.90)">
+                            <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <div class="product-badge">-30%</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Relógio Elegante" class="product-img">
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Acessórios</div>
+                        <h3>Relógio Elegante</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(76)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="old-price">R$ 299,90</span>
+                            <span class="new-price">R$ 209,90</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Relógio Elegante', 209.90)">
+                            <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1591123120675-6f7f1aa7eb39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Anel de Prata" class="product-img">
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Acessórios</div>
+                        <h3>Anel de Prata</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(112)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="new-price">R$ 59,90</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Anel de Prata', 59.90)">
+                            <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="product-card">
+                    <div class="product-badge">-10%</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Jaqueta Jeans" class="product-img">
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Jaquetas</div>
+                        <h3>Jaqueta Jeans</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(78)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="old-price">R$ 149,90</span>
+                            <span class="new-price">R$ 134,90</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Jaqueta Jeans', 134.90)">
+                            <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 10 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Sapato Social" class="product-img">
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Calçados</div>
+                        <h3>Sapato Social</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(124)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="new-price">R$ 129,90</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Sapato Social', 129.90)">
+                            <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 11 -->
+                <div class="product-card">
+                    <div class="product-badge">-35%</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Bolsa Feminina" class="product-img">
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Acessórios</div>
+                        <h3>Bolsa Feminina</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(96)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="old-price">R$ 89,90</span>
+                            <span class="new-price">R$ 58,40</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Bolsa Feminina', 58.40)">
+                            <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 12 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Camisa Social" class="product-img">
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Camisas</div>
+                        <h3>Camisa Social</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(63)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="new-price">R$ 79,90</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Camisa Social', 79.90)">
+                            <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="pagination-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <button class="pagination-btn">4</button>
+                <button class="pagination-btn">5</button>
+                <button class="pagination-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers Banner -->
+    <section class="special-offers">
+        <div class="container">
+            <div class="offer-content">
+                <h3>Especial para Você</h3>
+                <p>Descontos exclusivos em produtos de moda selecionados</p>
+                <button class="offer-btn">Ver Ofertas</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>BOSS SHOPP</h4>
+                    <p>Sua loja online com os melhores produtos e preços imperdíveis.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Atendimento</h4>
+                    <ul>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Como Comprar</a></li>
+                        <li><a href="#">Frete e Entrega</a></li>
+                        <li><a href="#">Devoluções</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Sobre</h4>
+                    <ul>
+                        <li><a href="#">Nossa História</a></li>
+                        <li><a href="#">Trabalhe Conosco</a></li>
+                        <li><a href="#">Imprensa</a></li>
+                        <li><a href="#">Investidores</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Pagamento</h4>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fas fa-money-bill"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 BOSS SHOPP. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Carrinho de Compras</h2>
+            <div id="cartItems"></div>
+            <div class="cart-total">
+                <strong>Total: R$ <span id="cartTotal">0,00</span></strong>
+            </div>
+            <button class="checkout-btn" onclick="window.location.href='purchase.html'">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Show notification message
+        function showNotification(message, type = 'success') {
+            // Remove any existing notifications
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background-color: ${type === 'success' ? '#00aa00' : '#ff4444'};
+                color: white;
+                padding: 15px 20px;
+                border-radius: 5px;
+                z-index: 10000;
+                font-weight: bold;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            `;
+            notification.textContent = message;
+            
+            // Add to document
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+        
+        // Logout function
+        function logout() {
+            // Confirm logout
+            if (confirm('Tem certeza que deseja sair?')) {
+                // Clear authentication data
+                localStorage.removeItem('authToken');
+                localStorage.removeItem('user');
+                
+                // Show success notification
+                showNotification('Logout realizado com sucesso!', 'success');
+                
+                // Update user icon
+                updateUserIcon();
+                
+                // Small delay to show the notification
+                setTimeout(function() {
+                    // Redirect to login page
+                    window.location.href = 'login.html';
+                }, 1000);
+            }
+        }
+        
+        // Wishlist functionality
+        document.querySelectorAll('.wishlist-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const heartIcon = this.querySelector('i');
+                if (heartIcon.classList.contains('far')) {
+                    heartIcon.classList.remove('far');
+                    heartIcon.classList.add('fas');
+                    heartIcon.style.color = '#ff4444';
+                    showNotification('Produto adicionado aos favoritos!');
+                } else {
+                    heartIcon.classList.remove('fas');
+                    heartIcon.classList.add('far');
+                    heartIcon.style.color = '';
+                    showNotification('Produto removido dos favoritos!');
+                }
+            });
+        });
+
+        // Filter link active state
+        document.querySelectorAll('.filter-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.filter-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                showNotification(`Filtro aplicado: ${this.textContent}`);
+            });
+        });
+
+        // View options
+        document.querySelectorAll('.view-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                if (this.querySelector('i').classList.contains('fa-list')) {
+                    document.querySelector('.products-grid').classList.add('list-view');
+                    showNotification('Visualização em lista');
+                } else {
+                    document.querySelector('.products-grid').classList.remove('list-view');
+                    showNotification('Visualização em grade');
+                }
+            });
+        });
+
+        // Pagination
+        document.querySelectorAll('.pagination-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                if (!this.classList.contains('prev-btn') && !this.classList.contains('next-btn')) {
+                    document.querySelectorAll('.pagination-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+        
+        // Handle user dropdown
+        document.addEventListener('DOMContentLoaded', function() {
+            const userIcon = document.getElementById('userIcon');
+            const userDropdown = document.getElementById('userDropdown');
+            
+            if (userIcon && userDropdown) {
+                userIcon.addEventListener('click', function(e) {
+                    // Check if user is logged in (has authToken)
+                    const authToken = localStorage.getItem('authToken');
+                    if (authToken) {
+                        e.preventDefault();
+                        userDropdown.classList.toggle('show');
+                    }
+                    // If not logged in, it will navigate to login page as before
+                });
+                
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!userIcon.contains(e.target) && !userDropdown.contains(e.target)) {
+                        userDropdown.classList.remove('show');
+                    }
+                });
+            }
+        });
+    </script>
+    <script src="auth-utils.js"></script>
+</body>
+</html>

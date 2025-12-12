@@ -1,0 +1,198 @@
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Função para formatar valores monetários
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            }).format(value);
+        }
+        
+        // Função para carregar meus produtos
+        async function loadMyProducts() {
+            try {
+                const response = await fetch('http://localhost:8001/api/products');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const products = await response.json();
+                
+                const tableBody = document.getElementById('my-products-table');
+                tableBody.innerHTML = '';
+                
+                if (products.length === 0) {
+                    tableBody.innerHTML = '<tr><td colspan="7" class="text-center">Nenhum produto encontrado</td></tr>';
+                    return;
+                }
+                
+                products.forEach(product => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td><img src="${product.image_url || 'https://via.placeholder.com/50'}" class="product-image" onerror="this.src='https://via.placeholder.com/50'"></td>
+                        <td>${product.name || '-'}</td>
+                        <td>${formatCurrency(product.price || 0)}</td>
+                        <td>${product.stock_quantity || 0}</td>
+                        <td>0</td>
+                        <td><span class="badge bg-${product.is_active ? 'success' : 'secondary'}">${product.is_active ? 'Ativo' : 'Inativo'}</span></td>
+                        <td class="table-actions">
+                            <button class="btn btn-sm btn-outline-primary" onclick="editProduct(${product.id})"><i class="bi bi-pencil"></i></button>
+                            <button class="btn btn-sm btn-outline-danger" onclick="deleteProduct(${product.id})"><i class="bi bi-trash"></i></button>
+                        </td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Erro ao carregar produtos:', error);
+                document.getElementById('my-products-table').innerHTML = '<tr><td colspan="7" class="text-center">Erro ao carregar produtos</td></tr>';
+            }
+        }
+        
+        // Função para abrir o modal de adicionar produto
+        function openAddProductModal() {
+            // Criar modal dinamicamente
+            const modal = document.createElement('div');
+            modal.className = 'modal fade';
+            modal.id = 'addProductModal';
+            modal.tabIndex = '-1';
+            modal.innerHTML = `
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Adicionar Novo Produto</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="add-product-form">
+                                <div class="mb-3">
+                                    <label for="product-name" class="form-label">Nome do Produto</label>
+                                    <input type="text" class="form-control" id="product-name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="product-description" class="form-label">Descrição</label>
+                                    <textarea class="form-control" id="product-description" rows="3"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="product-price" class="form-label">Preço (R$)</label>
+                                    <input type="number" class="form-control" id="product-price" step="0.01" min="0" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="product-category" class="form-label">Categoria</label>
+                                    <select class="form-control" id="product-category" required>
+                                        <option value="">Selecione uma categoria</option>
+                                        <option value="moda">Moda</option>
+                                        <option value="eletronicos">Eletrônicos</option>
+                                        <option value="casa">Casa</option>
+                                        <option value="games">Games</option>
+                                        <option value="esportes">Esportes</option>
+                                        <option value="infantil">Infantil</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="product-image" class="form-label">URL da Imagem</label>
+                                    <input type="text" class="form-control" id="product-image">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-success" onclick="addProduct()">Adicionar Produto</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Inicializar o modal do Bootstrap
+            const bootstrapModal = new bootstrap.Modal(modal);
+            bootstrapModal.show();
+            
+            // Remover o modal do DOM quando for fechado
+            modal.addEventListener('hidden.bs.modal', function () {
+                document.body.removeChild(modal);
+            });
+        }
+        
+        // Função para adicionar um novo produto
+        async function addProduct() {
+            try {
+                const productData = {
+                    name: document.getElementById('product-name').value,
+                    description: document.getElementById('product-description').value,
+                    price: parseFloat(document.getElementById('product-price').value),
+                    category: document.getElementById('product-category').value,
+                    image_url: document.getElementById('product-image').value || null
+                };
+                
+                // Validar dados
+                if (!productData.name || !productData.price || !productData.category) {
+                    alert('Por favor, preencha todos os campos obrigatórios');
+                    return;
+                }
+                
+                // Enviar requisição para a API (simulada por enquanto)
+                // Em uma implementação real, você faria:
+                /*
+                const response = await fetch('http://localhost:8001/api/products', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(productData)
+                });
+                
+                if (response.ok) {
+                    // Fechar o modal
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('addProductModal'));
+                    modal.hide();
+                    
+                    // Recarregar a lista de produtos
+                    loadMyProducts();
+                    
+                    alert('Produto adicionado com sucesso!');
+                } else {
+                    alert('Erro ao adicionar produto');
+                }
+                */
+                
+                // Para demonstração, apenas fechar o modal e recarregar
+                const modal = bootstrap.Modal.getInstance(document.getElementById('addProductModal'));
+                modal.hide();
+                loadMyProducts();
+                alert('Produto adicionado com sucesso! (simulação)');
+                
+            } catch (error) {
+                console.error('Erro ao adicionar produto:', error);
+                alert('Erro ao adicionar produto');
+            }
+        }
+        
+        // Função para editar um produto
+        function editProduct(productId) {
+            alert(`Editar produto ${productId} (funcionalidade a ser implementada)`);
+        }
+        
+        // Função para excluir um produto
+        function deleteProduct(productId) {
+            if (confirm('Tem certeza que deseja excluir este produto?')) {
+                alert(`Excluir produto ${productId} (funcionalidade a ser implementada)`);
+                // Em uma implementação real, você faria uma requisição DELETE para a API
+                loadMyProducts(); // Recarregar a lista
+            }
+        }
+        
+        // Event listener para o botão de adicionar produto
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('add-product-btn').addEventListener('click', openAddProductModal);
+            
+            // Carregar produtos quando a seção for exibida
+            const productsLink = document.querySelector('[data-section="my-products"]');
+            if (productsLink) {
+                productsLink.addEventListener('click', function() {
+                    setTimeout(loadMyProducts, 100); // Pequeno delay para garantir que a seção foi exibida
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Perfil - BOSS SHOPP</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="profile.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .test-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .test-section {
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .test-section h2 {
+            color: #000000;
+            margin-bottom: 15px;
+        }
+        
+        .test-button {
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        
+        .test-button:hover {
+            background-color: #333333;
+        }
+        
+        .result {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 15px;
+            min-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1>Teste de Funcionalidades do Perfil</h1>
+            <p>Página para testar as funcionalidades do perfil do usuário</p>
+        </div>
+        
+        <div class="test-section">
+            <h2>Informações do Usuário</h2>
+            <button class="test-button" onclick="testLoadUserData()">Carregar Dados do Usuário</button>
+            <div class="result" id="userDataResult">
+                Clique no botão acima para carregar os dados do usuário
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Endereços</h2>
+            <button class="test-button" onclick="testLoadAddresses()">Carregar Endereços</button>
+            <button class="test-button" onclick="testAddAddress()">Adicionar Endereço</button>
+            <div class="result" id="addressesResult">
+                Clique nos botões acima para testar as funcionalidades de endereços
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Pedidos</h2>
+            <button class="test-button" onclick="testLoadOrders()">Carregar Pedidos</button>
+            <button class="test-button" onclick="testViewOrderDetails()">Ver Detalhes do Pedido</button>
+            <div class="result" id="ordersResult">
+                Clique nos botões acima para testar as funcionalidades de pedidos
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Notificações</h2>
+            <button class="test-button" onclick="testNotificationSettings()">Testar Configurações de Notificação</button>
+            <div class="result" id="notificationsResult">
+                Clique no botão acima para testar as configurações de notificação
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Test functions
+        function testLoadUserData() {
+            const resultElement = document.getElementById('userDataResult');
+            resultElement.innerHTML = 'Carregando dados do usuário...';
+            
+            // Simulate loading user data
+            setTimeout(() => {
+                resultElement.innerHTML = `
+                    <h3>Dados do Usuário Carregados</h3>
+                    <p><strong>Nome:</strong> João Silva</p>
+                    <p><strong>Email:</strong> joao.silva@email.com</p>
+                    <p><strong>Data de Cadastro:</strong> 15/03/2023</p>
+                `;
+            }, 1000);
+        }
+        
+        function testLoadAddresses() {
+            const resultElement = document.getElementById('addressesResult');
+            resultElement.innerHTML = 'Carregando endereços...';
+            
+            // Simulate loading addresses
+            setTimeout(() => {
+                resultElement.innerHTML = `
+                    <h3>Endereços Carregados</h3>
+                    <div style="border: 1px solid #e0e0e0; border-radius: 5px; padding: 10px; margin: 10px 0;">
+                        <p><strong>Casa</strong> (Padrão)</p>
+                        <p>Rua das Flores, 123</p>
+                        <p>São Paulo - SP, 01234-567</p>
+                    </div>
+                    <div style="border: 1px solid #e0e0e0; border-radius: 5px; padding: 10px; margin: 10px 0;">
+                        <p><strong>Trabalho</strong></p>
+                        <p>Av. Paulista, 1000</p>
+                        <p>São Paulo - SP, 01310-100</p>
+                    </div>
+                `;
+            }, 1000);
+        }
+        
+        function testAddAddress() {
+            const resultElement = document.getElementById('addressesResult');
+            resultElement.innerHTML = 'Adicionando novo endereço...';
+            
+            // Simulate adding address
+            setTimeout(() => {
+                resultElement.innerHTML = `
+                    <h3>Novo Endereço Adicionado</h3>
+                    <p>Endereço adicionado com sucesso!</p>
+                    <div style="border: 1px solid #e0e0e0; border-radius: 5px; padding: 10px; margin: 10px 0;">
+                        <p><strong>Novo Endereço</strong></p>
+                        <p>Rua Nova, 456</p>
+                        <p>Rio de Janeiro - RJ, 20000-000</p>
+                    </div>
+                `;
+            }, 1000);
+        }
+        
+        function testLoadOrders() {
+            const resultElement = document.getElementById('ordersResult');
+            resultElement.innerHTML = 'Carregando pedidos...';
+            
+            // Simulate loading orders
+            setTimeout(() => {
+                resultElement.innerHTML = `
+                    <h3>Pedidos Carregados</h3>
+                    <div style="border: 1px solid #e0e0e0; border-radius: 5px; padding: 10px; margin: 10px 0;">
+                        <p><strong>Pedido #PED-2023-001</strong> - Entregue</p>
+                        <p>Data: 15/10/2023</p>
+                        <p>Total: R$ 249,90</p>
+                    </div>
+                    <div style="border: 1px solid #e0e0e0; border-radius: 5px; padding: 10px; margin: 10px 0;">
+                        <p><strong>Pedido #PED-2023-002</strong> - Em trânsito</p>
+                        <p>Data: 05/09/2023</p>
+                        <p>Total: R$ 89,90</p>
+                    </div>
+                `;
+            }, 1000);
+        }
+        
+        function testViewOrderDetails() {
+            const resultElement = document.getElementById('ordersResult');
+            resultElement.innerHTML = 'Carregando detalhes do pedido...';
+            
+            // Simulate viewing order details
+            setTimeout(() => {
+                resultElement.innerHTML = `
+                    <h3>Detalhes do Pedido #PED-2023-001</h3>
+                    <p><strong>Status:</strong> Entregue</p>
+                    <p><strong>Data do Pedido:</strong> 15/10/2023</p>
+                    <p><strong>Endereço de Entrega:</strong> Rua das Flores, 123 - São Paulo/SP</p>
+                    <p><strong>Itens:</strong></p>
+                    <ul>
+                        <li>Camiseta Básica (2x) - R$ 79,80</li>
+                        <li>Calça Jeans (1x) - R$ 89,90</li>
+                        <li>Tênis Esportivo (1x) - R$ 169,90</li>
+                    </ul>
+                    <p><strong>Total:</strong> R$ 249,90</p>
+                `;
+            }, 1000);
+        }
+        
+        function testNotificationSettings() {
+            const resultElement = document.getElementById('notificationsResult');
+            resultElement.innerHTML = 'Testando configurações de notificação...';
+            
+            // Simulate notification settings
+            setTimeout(() => {
+                resultElement.innerHTML = `
+                    <h3>Configurações de Notificação</h3>
+                    <p><strong>Ofertas e Promoções:</strong> Ativado</p>
+                    <p><strong>Status do Pedido:</strong> Ativado</p>
+                    <p><strong>Novos Produtos:</strong> Desativado</p>
+                    <p><strong>Newsletter:</strong> Ativado</p>
+                    <p style="margin-top: 15px;">Todas as configurações estão funcionando corretamente!</p>
+                `;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

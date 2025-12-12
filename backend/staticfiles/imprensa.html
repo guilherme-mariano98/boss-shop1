@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imprensa - BOSS SHOPP</title>
+    <link rel="stylesheet" href="optimized-styles.css">
+    <link rel="stylesheet" href="panel-buttons.css">
+    <link rel="stylesheet" href="pages.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .press-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .press-hero h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+        
+        .press-hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .press-releases-section {
+            padding: 80px 0;
+        }
+        
+        .press-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .press-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+        }
+        
+        .press-card-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .press-card-content {
+            padding: 30px;
+        }
+        
+        .press-date {
+            color: #ff6b35;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .press-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+        
+        .press-excerpt {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .read-more-btn {
+            color: #ff6b35;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s ease;
+        }
+        
+        .read-more-btn:hover {
+            gap: 12px;
+        }
+        
+        .contact-press-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+        
+        .contact-press-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .contact-press-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        
+        .contact-press-icon {
+            font-size: 48px;
+            color: #ff6b35;
+            margin-bottom: 20px;
+        }
+        
+        .contact-press-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+        
+        .contact-press-info {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .contact-press-info a {
+            color: #ff6b35;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .media-kit-section {
+            padding: 80px 0;
+        }
+        
+        .media-kit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .media-kit-item {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .media-kit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .media-kit-icon {
+            font-size: 48px;
+            color: #ff6b35;
+            margin-bottom: 20px;
+        }
+        
+        .media-kit-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <div class="loader-text">BOSS SHOPP</div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="header-links">
+                    <a href="sobre.html" class="header-link">Sobre</a>
+                    <a href="atendimento.html" class="header-link">Atendimento</a>
+                    <a href="#" class="header-link">Vendedor</a>
+                    <a href="#" class="header-link">Download</a>
+                    <a href="#" class="header-link">Conecte-se</a>
+                </div>
+                <div class="header-social">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="boss-shop-logo.png" alt="BOSS SHOPP" class="logo-image">
+                    </a>
+                </div>
+                
+                <div class="profile-button">
+                    <a href="profile.html" class="profile-btn">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Meu Perfil</span>
+                    </a>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Busque por produtos, marcas e muito mais...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="nav-icons">
+                    <div class="nav-icon-dropdown">
+                        <a href="login.html" class="nav-icon" id="userIcon">
+                            <i class="fas fa-user"></i>
+                            <span id="userText">Entrar</span>
+                        </a>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="profile.html">
+                                <i class="fas fa-user"></i>
+                                <span>Meu Perfil</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" onclick="logout()">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Sair</span>
+                            </a>
+                        </div>
+                    </div>
+                    <a href="#" class="nav-icon" id="logoutButton" style="display: none;" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sair</span>
+                    </a>
+                    <a href="favorites.html" class="nav-icon">
+                        <i class="fas fa-heart"></i>
+                        <span>Favoritos</span>
+                    </a>
+                    <a href="purchase.html" class="nav-icon cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrinho</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="sobre.html">Sobre</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Imprensa</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="press-hero">
+        <div class="container">
+            <h1>Sala de Imprensa</h1>
+            <p>Notícias, comunicados e recursos para a mídia sobre a BOSS SHOPP</p>
+        </div>
+    </section>
+
+    <!-- Press Releases Section -->
+    <section class="press-releases-section">
+        <div class="container">
+            <div class="about-header">
+                <h2 class="section-title">Últimas Notícias</h2>
+                <p class="section-subtitle">Acompanhe as novidades e comunicados oficiais da BOSS SHOPP</p>
+            </div>
+            
+            <div class="press-card">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Notícia" class="press-card-image">
+                <div class="press-card-content">
+                    <div class="press-date">15 de Janeiro de 2025</div>
+                    <h3 class="press-title">BOSS SHOPP Anuncia Expansão para Novas Regiões do Brasil</h3>
+                    <p class="press-excerpt">
+                        A BOSS SHOPP anuncia a abertura de três novos centros de distribuição nas regiões Norte e Nordeste, 
+                        visando reduzir o tempo de entrega e melhorar o atendimento aos clientes dessas regiões.
+                    </p>
+                    <a href="#" class="read-more-btn">
+                        Ler mais <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="press-card">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Notícia" class="press-card-image">
+                <div class="press-card-content">
+                    <div class="press-date">10 de Janeiro de 2025</div>
+                    <h3 class="press-title">Marketplace BOSS SHOPP Alcança 1.000 Vendedores Parceiros</h3>
+                    <p class="press-excerpt">
+                        Em apenas 6 meses desde o lançamento, o marketplace da BOSS SHOPP já conta com mais de 1.000 
+                        vendedores parceiros, oferecendo uma variedade ainda maior de produtos aos clientes.
+                    </p>
+                    <a href="#" class="read-more-btn">
+                        Ler mais <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="press-card">
+                <img src="https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Notícia" class="press-card-image">
+                <div class="press-card-content">
+                    <div class="press-date">28 de Dezembro de 2024</div>
+                    <h3 class="press-title">BOSS SHOPP Recebe Certificação de Sustentabilidade</h3>
+                    <p class="press-excerpt">
+                        A empresa recebe certificação internacional por suas práticas sustentáveis, incluindo uso de 
+                        embalagens 100% recicláveis e programa de logística reversa.
+                    </p>
+                    <a href="#" class="read-more-btn">
+                        Ler mais <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Kit Section -->
+    <section class="media-kit-section">
+        <div class="container">
+            <div class="about-header">
+                <h2 class="section-title">Kit de Mídia</h2>
+                <p class="section-subtitle">Recursos e materiais para download</p>
+            </div>
+            
+            <div class="media-kit-grid">
+                <div class="media-kit-item">
+                    <div class="media-kit-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <h3 class="media-kit-title">Logotipos</h3>
+                    <p style="color: #666; margin-bottom: 20px;">Logos em alta resolução em diversos formatos</p>
+                    <a href="#" class="download-btn">Download</a>
+                </div>
+                
+                <div class="media-kit-item">
+                    <div class="media-kit-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3 class="media-kit-title">Press Kit</h3>
+                    <p style="color: #666; margin-bottom: 20px;">Informações institucionais completas</p>
+                    <a href="#" class="download-btn">Download</a>
+                </div>
+                
+                <div class="media-kit-item">
+                    <div class="media-kit-icon">
+                        <i class="fas fa-images"></i>
+                    </div>
+                    <h3 class="media-kit-title">Fotos</h3>
+                    <p style="color: #666; margin-bottom: 20px;">Banco de imagens oficiais</p>
+                    <a href="#" class="download-btn">Download</a>
+                </div>
+                
+                <div class="media-kit-item">
+                    <div class="media-kit-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="media-kit-title">Manual de Marca</h3>
+                    <p style="color: #666; margin-bottom: 20px;">Guia de identidade visual</p>
+                    <a href="#" class="download-btn">Download</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Press Section -->
+    <section class="contact-press-section">
+        <div class="container">
+            <div class="about-header">
+                <h2 class="section-title">Contato para Imprensa</h2>
+                <p class="section-subtitle">Entre em contato com nossa equipe de comunicação</p>
+            </div>
+            
+            <div class="contact-press-grid">
+                <div class="contact-press-card">
+                    <div class="contact-press-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="contact-press-title">E-mail</h3>
+                    <p class="contact-press-info">
+                        <a href="mailto:imprensa@bossshopp.com.br">imprensa@bossshopp.com.br</a>
+                    </p>
+                </div>
+                
+                <div class="contact-press-card">
+                    <div class="contact-press-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3 class="contact-press-title">Telefone</h3>
+                    <p class="contact-press-info">
+                        (11) 3000-0000<br>
+                        Segunda a Sexta, 9h às 18h
+                    </p>
+                </div>
+                
+                <div class="contact-press-card">
+                    <div class="contact-press-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="contact-press-title">Assessoria de Imprensa</h3>
+                    <p class="contact-press-info">
+                        Ana Paula Silva<br>
+                        Gerente de Comunicação
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>BOSS SHOPP</h3>
+                    <p>Sua loja online de confiança, oferecendo produtos de qualidade com preços competitivos e entrega rápida em todo o Brasil.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Informações</h4>
+                    <ul>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="nossa-historia.html">Nossa História</a></li>
+                        <li><a href="trabalhe-conosco.html">Trabalhe Conosco</a></li>
+                        <li><a href="imprensa.html">Imprensa</a></li>
+                        <li><a href="investidores.html">Investidores</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Categorias</h4>
+                    <ul>
+                        <li><a href="moda.html">Moda</a></li>
+                        <li><a href="eletronicos.html">Eletrônicos</a></li>
+                        <li><a href="casa.html">Casa</a></li>
+                        <li><a href="games.html">Games</a></li>
+                        <li><a href="esportes.html">Esportes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> (11) 99999-9999</li>
+                        <li><i class="fas fa-envelope"></i> contato@bossshopp.com.br</li>
+                        <li><i class="fas fa-map-marker-alt"></i> São Paulo, SP</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 BOSS SHOPP. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Remove preloader when page loads
+        window.addEventListener('load', function() {
+            const preloader = document.querySelector('.preloader');
+            if (preloader) {
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 300);
+            }
+        });
+    </script>
+</body>
+</html>

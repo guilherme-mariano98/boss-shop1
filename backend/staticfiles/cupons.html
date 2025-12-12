@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cupons de Desconto - BOSS SHOPP</title>
+    <link rel="stylesheet" href="optimized-styles.css">
+    <link rel="stylesheet" href="panel-buttons.css">
+    <link rel="stylesheet" href="pages.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .coupons-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .coupons-hero h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+        
+        .coupons-hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .coupons-section {
+            padding: 80px 0;
+        }
+        
+        .coupon-filters {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .filter-btn {
+            padding: 12px 30px;
+            border: 2px solid #e0e0e0;
+            background: white;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #ff6b35;
+            color: white;
+            border-color: #ff6b35;
+        }
+        
+        .coupons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .coupon-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .coupon-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        .coupon-header {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            padding: 30px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .coupon-discount {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+        
+        .coupon-type {
+            font-size: 14px;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .coupon-body {
+            padding: 25px;
+        }
+        
+        .coupon-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+        
+        .coupon-description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .coupon-code-section {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .coupon-code-label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        
+        .coupon-code-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .coupon-code {
+            flex: 1;
+            background: white;
+            padding: 12px;
+            border: 2px dashed #ff6b35;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            font-weight: 700;
+            color: #ff6b35;
+            text-align: center;
+        }
+        
+        .copy-btn {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .copy-btn:hover {
+            background: #e55a2b;
+        }
+        
+        .copy-btn.copied {
+            background: #28a745;
+        }
+        
+        .coupon-details {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .coupon-detail {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .coupon-detail i {
+            color: #ff6b35;
+            width: 20px;
+        }
+        
+        .coupon-expiry {
+            background: #fff3cd;
+            color: #856404;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        
+        .coupon-expiry.expired {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .coupon-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.3);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .use-coupon-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .use-coupon-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+        }
+        
+        .use-coupon-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .no-coupons {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+        
+        .no-coupons i {
+            font-size: 64px;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .coupons-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .coupons-hero h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <div class="loader-text">BOSS SHOPP</div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="header-links">
+                    <a href="sobre.html" class="header-link">Sobre</a>
+                    <a href="atendimento.html" class="header-link">Atendimento</a>
+                    <a href="#" class="header-link">Vendedor</a>
+                    <a href="#" class="header-link">Download</a>
+                    <a href="#" class="header-link">Conecte-se</a>
+                </div>
+                <div class="header-social">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="boss-shop-logo.png" alt="BOSS SHOPP" class="logo-image">
+                    </a>
+                </div>
+                
+                <div class="profile-button">
+                    <a href="profile.html" class="profile-btn">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Meu Perfil</span>
+                    </a>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Busque por produtos, marcas e muito mais...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="nav-icons">
+                    <div class="nav-icon-dropdown">
+                        <a href="login.html" class="nav-icon" id="userIcon">
+                            <i class="fas fa-user"></i>
+                            <span id="userText">Entrar</span>
+                        </a>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="profile.html">
+                                <i class="fas fa-user"></i>
+                                <span>Meu Perfil</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" onclick="logout()">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Sair</span>
+                            </a>
+                        </div>
+                    </div>
+                    <a href="#" class="nav-icon" id="logoutButton" style="display: none;" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sair</span>
+                    </a>
+                    <a href="favorites.html" class="nav-icon">
+                        <i class="fas fa-heart"></i>
+                        <span>Favoritos</span>
+                    </a>
+                    <a href="purchase.html" class="nav-icon cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrinho</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Cupons de Desconto</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="coupons-hero">
+        <div class="container">
+            <h1><i class="fas fa-ticket-alt"></i> Cupons de Desconto</h1>
+            <p>Economize ainda mais nas suas compras! Confira nossos cupons exclusivos</p>
+        </div>
+    </section>
+
+    <!-- Coupons Section -->
+    <section class="coupons-section">
+        <div class="container">
+            <!-- Filters -->
+            <div class="coupon-filters">
+                <button class="filter-btn active" onclick="filterCoupons('all')">
+                    <i class="fas fa-th"></i> Todos
+                </button>
+                <button class="filter-btn" onclick="filterCoupons('percentage')">
+                    <i class="fas fa-percent"></i> Porcentagem
+                </button>
+                <button class="filter-btn" onclick="filterCoupons('fixed')">
+                    <i class="fas fa-dollar-sign"></i> Valor Fixo
+                </button>
+                <button class="filter-btn" onclick="filterCoupons('shipping')">
+                    <i class="fas fa-shipping-fast"></i> Frete Grátis
+                </button>
+            </div>
+
+            <!-- Coupons Grid -->
+            <div class="coupons-grid" id="couponsGrid">
+                <!-- Cupons serão inseridos aqui via JavaScript -->
+            </div>
+
+            <!-- No Coupons Message -->
+            <div class="no-coupons" id="noCoupons" style="display: none;">
+                <i class="fas fa-ticket-alt"></i>
+                <h3>Nenhum cupom encontrado</h3>
+                <p>Tente outro filtro ou volte mais tarde para novos cupons!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>BOSS SHOPP</h3>
+                    <p>Sua loja online de confiança, oferecendo produtos de qualidade com preços competitivos e entrega rápida em todo o Brasil.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Informações</h4>
+                    <ul>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="cupons.html">Cupons de Desconto</a></li>
+                        <li><a href="atendimento.html">Atendimento</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Categorias</h4>
+                    <ul>
+                        <li><a href="moda.html">Moda</a></li>
+                        <li><a href="eletronicos.html">Eletrônicos</a></li>
+                        <li><a href="casa.html">Casa</a></li>
+                        <li><a href="games.html">Games</a></li>
+                        <li><a href="esportes.html">Esportes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> (11) 99999-9999</li>
+                        <li><i class="fas fa-envelope"></i> contato@bossshopp.com.br</li>
+                        <li><i class="fas fa-map-marker-alt"></i> São Paulo, SP</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 BOSS SHOPP. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Remove preloader
+        window.addEventListener('load', function() {
+            const preloader = document.querySelector('.preloader');
+            if (preloader) {
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 300);
+            }
+        });
+        
+        // Dados dos cupons
+        const coupons = [
+            {
+                id: 1,
+                type: 'percentage',
+                discount: '20%',
+                title: 'Desconto em Eletrônicos',
+                description: 'Ganhe 20% de desconto em toda linha de eletrônicos',
+                code: 'ELETRO20',
+                minValue: 200,
+                maxDiscount: 100,
+                expiryDate: '2025-12-31',
+                category: 'Eletrônicos',
+                badge: 'Popular'
+            },
+            {
+                id: 2,
+                type: 'fixed',
+                discount: 'R$ 50',
+                title: 'R$ 50 OFF na Primeira Compra',
+                description: 'Desconto de R$ 50 para novos clientes',
+                code: 'BEMVINDO50',
+                minValue: 150,
+                maxDiscount: 50,
+                expiryDate: '2025-12-31',
+                category: 'Todos',
+                badge: 'Novo'
+            },
+            {
+                id: 3,
+                type: 'shipping',
+                discount: 'Frete Grátis',
+                title: 'Frete Grátis',
+                description: 'Frete grátis para todo o Brasil',
+                code: 'FRETEGRATIS',
+                minValue: 100,
+                maxDiscount: 0,
+                expiryDate: '2025-12-31',
+                category: 'Todos',
+                badge: 'Destaque'
+            },
+            {
+                id: 4,
+                type: 'percentage',
+                discount: '15%',
+                title: 'Desconto em Moda',
+                description: 'Economize 15% em roupas e acessórios',
+                code: 'MODA15',
+                minValue: 100,
+                maxDiscount: 75,
+                expiryDate: '2025-06-30',
+                category: 'Moda',
+                badge: null
+            },
+            {
+                id: 5,
+                type: 'percentage',
+                discount: '30%',
+                title: 'Super Desconto Casa & Decoração',
+                description: 'Aproveite 30% OFF em produtos para casa',
+                code: 'CASA30',
+                minValue: 250,
+                maxDiscount: 150,
+                expiryDate: '2025-03-31',
+                category: 'Casa',
+                badge: 'Oferta'
+            },
+            {
+                id: 6,
+                type: 'fixed',
+                discount: 'R$ 100',
+                title: 'R$ 100 OFF em Compras Acima de R$ 500',
+                description: 'Desconto especial para compras grandes',
+                code: 'MEGA100',
+                minValue: 500,
+                maxDiscount: 100,
+                expiryDate: '2025-12-31',
+                category: 'Todos',
+                badge: 'VIP'
+            },
+            {
+                id: 7,
+                type: 'percentage',
+                discount: '25%',
+                title: 'Games e Consoles',
+                description: 'Desconto especial em games e acessórios',
+                code: 'GAMES25',
+                minValue: 150,
+                maxDiscount: 120,
+                expiryDate: '2025-12-31',
+                category: 'Games',
+                badge: null
+            },
+            {
+                id: 8,
+                type: 'shipping',
+                discount: 'Frete Expresso Grátis',
+                title: 'Frete Expresso Grátis',
+                description: 'Receba em até 24h sem pagar frete',
+                code: 'EXPRESS24',
+                minValue: 200,
+                maxDiscount: 0,
+                expiryDate: '2025-12-31',
+                category: 'Todos',
+                badge: 'Rápido'
+            },
+            {
+                id: 9,
+                type: 'percentage',
+                discount: '10%',
+                title: 'Desconto Progressivo',
+                description: 'Quanto mais comprar, mais desconto ganha',
+                code: 'PROGRESSIVO10',
+                minValue: 50,
+                maxDiscount: 200,
+                expiryDate: '2025-12-31',
+                category: 'Todos',
+                badge: null
+            },
+            {
+                id: 10,
+                type: 'fixed',
+                discount: 'R$ 30',
+                title: 'Desconto Esportes',
+                description: 'R$ 30 OFF em artigos esportivos',
+                code: 'ESPORTE30',
+                minValue: 120,
+                maxDiscount: 30,
+                expiryDate: '2025-09-30',
+                category: 'Esportes',
+                badge: null
+            }
+        ];
+        
+        let currentFilter = 'all';
+        
+        // Renderizar cupons
+        function renderCoupons(filter = 'all') {
+            const grid = document.getElementById('couponsGrid');
+            const noCoupons = document.getElementById('noCoupons');
+            
+            let filteredCoupons = coupons;
+            
+            if (filter !== 'all') {
+                filteredCoupons = coupons.filter(c => c.type === filter);
+            }
+            
+            if (filteredCoupons.length === 0) {
+                grid.style.display = 'none';
+                noCoupons.style.display = 'block';
+                return;
+            }
+            
+            grid.style.display = 'grid';
+            noCoupons.style.display = 'none';
+            
+            grid.innerHTML = filteredCoupons.map(coupon => {
+                const expiryDate = new Date(coupon.expiryDate);
+                const today = new Date();
+                const daysLeft = Math.ceil((expiryDate - today) / (1000 * 60 * 60 * 24));
+                const isExpired = daysLeft < 0;
+                
+                return `
+                    <div class="coupon-card" data-type="${coupon.type}">
+                        <div class="coupon-header">
+                            ${coupon.badge ? `<div class="coupon-badge">${coupon.badge}</div>` : ''}
+                            <div class="coupon-discount">${coupon.discount}</div>
+                            <div class="coupon-type">${getCouponTypeLabel(coupon.type)}</div>
+                        </div>
+                        <div class="coupon-body">
+                            <h3 class="coupon-title">${coupon.title}</h3>
+                            <p class="coupon-description">${coupon.description}</p>
+                            
+                            <div class="coupon-code-section">
+                                <div class="coupon-code-label">Código do Cupom:</div>
+                                <div class="coupon-code-box">
+                                    <div class="coupon-code" id="code-${coupon.id}">${coupon.code}</div>
+                                    <button class="copy-btn" onclick="copyCouponCode('${coupon.code}', ${coupon.id})">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="coupon-details">
+                                <div class="coupon-detail">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span>Compra mínima: R$ ${coupon.minValue.toFixed(2)}</span>
+                                </div>
+                                ${coupon.maxDiscount > 0 ? `
+                                <div class="coupon-detail">
+                                    <i class="fas fa-tag"></i>
+                                    <span>Desconto máximo: R$ ${coupon.maxDiscount.toFixed(2)}</span>
+                                </div>
+                                ` : ''}
+                                <div class="coupon-detail">
+                                    <i class="fas fa-layer-group"></i>
+                                    <span>Categoria: ${coupon.category}</span>
+                                </div>
+                            </div>
+                            
+                            <div class="coupon-expiry ${isExpired ? 'expired' : ''}">
+                                ${isExpired ? 
+                                    '<i class="fas fa-times-circle"></i> Cupom Expirado' : 
+                                    `<i class="fas fa-clock"></i> Válido por mais ${daysLeft} dias`
+                                }
+                            </div>
+                            
+                            <button class="use-coupon-btn" ${isExpired ? 'disabled' : ''} onclick="useCoupon('${coupon.code}')">
+                                <i class="fas fa-shopping-bag"></i> ${isExpired ? 'Cupom Expirado' : 'Usar Cupom'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        // Obter label do tipo de cupom
+        function getCouponTypeLabel(type) {
+            const labels = {
+                'percentage': 'Desconto Percentual',
+                'fixed': 'Desconto Fixo',
+                'shipping': 'Frete Grátis'
+            };
+            return labels[type] || type;
+        }
+        
+        // Filtrar cupons
+        function filterCoupons(type) {
+            currentFilter = type;
+            
+            // Atualizar botões ativos
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.closest('.filter-btn').classList.add('active');
+            
+            // Renderizar cupons filtrados
+            renderCoupons(type);
+        }
+        
+        // Copiar código do cupom
+        function copyCouponCode(code, couponId) {
+            navigator.clipboard.writeText(code).then(() => {
+                const btn = event.target.closest('.copy-btn');
+                const originalHTML = btn.innerHTML;
+                
+                btn.innerHTML = '<i class="fas fa-check"></i>';
+                btn.classList.add('copied');
+                
+                // Mostrar notificação
+                showNotification(`Cupom ${code} copiado!`, 'success');
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                showNotification('Erro ao copiar cupom', 'error');
+            });
+        }
+        
+        // Usar cupom
+        function useCoupon(code) {
+            // Salvar cupom no localStorage
+            localStorage.setItem('appliedCoupon', code);
+            
+            // Mostrar notificação
+            showNotification(`Cupom ${code} aplicado! Redirecionando para o carrinho...`, 'success');
+            
+            // Redirecionar para o carrinho após 1.5 segundos
+            setTimeout(() => {
+                window.location.href = 'purchase.html';
+            }, 1500);
+        }
+        
+        // Mostrar notificação
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? '#28a745' : '#dc3545'};
+                color: white;
+                padding: 15px 25px;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                z-index: 10000;
+                font-weight: 600;
+                animation: slideIn 0.3s ease;
+            `;
+            notification.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i> ${message}`;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+        
+        // Adicionar animações CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Renderizar cupons ao carregar a página
+        renderCoupons();
+    </script>
+</body>
+</html>
