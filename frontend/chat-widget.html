@@ -1,0 +1,518 @@
+<!-- Chat Widget - Add this to any page -->
+<div id="chat-widget" class="chat-widget">
+    <button class="chat-toggle" onclick="toggleChat()">
+        <i class="fas fa-comments"></i>
+        <span class="chat-badge">1</span>
+    </button>
+    
+    <div class="chat-window" id="chat-window">
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <div class="agent-avatar">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <div>
+                    <h4>Atendimento BOSS SHOPP</h4>
+                    <span class="status-online">Online</span>
+                </div>
+            </div>
+            <button class="chat-close" onclick="toggleChat()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="chat-messages" id="chat-messages">
+            <div class="message bot-message">
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>Olá! 👋 Bem-vindo ao atendimento da BOSS SHOPP!</p>
+                    <p>Como posso ajudar você hoje?</p>
+                    <span class="message-time">Agora</span>
+                </div>
+            </div>
+            
+            <div class="quick-replies">
+                <button class="quick-reply" onclick="sendQuickReply('Rastrear pedido')">
+                    <i class="fas fa-box"></i> Rastrear pedido
+                </button>
+                <button class="quick-reply" onclick="sendQuickReply('Dúvidas sobre produto')">
+                    <i class="fas fa-question-circle"></i> Dúvidas sobre produto
+                </button>
+                <button class="quick-reply" onclick="sendQuickReply('Trocar/Devolver')">
+                    <i class="fas fa-exchange-alt"></i> Trocar/Devolver
+                </button>
+                <button class="quick-reply" onclick="sendQuickReply('Falar com atendente')">
+                    <i class="fas fa-user"></i> Falar com atendente
+                </button>
+            </div>
+        </div>
+        
+        <div class="chat-input-container">
+            <button class="attach-btn" title="Anexar arquivo">
+                <i class="fas fa-paperclip"></i>
+            </button>
+            <input type="text" id="chat-input" class="chat-input" placeholder="Digite sua mensagem...">
+            <button class="send-btn" onclick="sendMessage()">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Chat Widget Styles */
+.chat-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.chat-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff6b35, #ff8c42);
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+    transition: all 0.3s;
+    position: relative;
+}
+
+.chat-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+}
+
+.chat-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ff4444;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    border: 2px solid white;
+}
+
+.chat-window {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 380px;
+    height: 550px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chat-window.active {
+    display: flex;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.chat-header {
+    background: linear-gradient(135deg, #ff6b35, #ff8c42);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.agent-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.chat-header h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.status-online {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.status-online::before {
+    content: '●';
+    color: #4caf50;
+    margin-right: 5px;
+}
+
+.chat-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background: #f8f9fa;
+}
+
+.message {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.bot-message {
+    justify-content: flex-start;
+}
+
+.user-message {
+    justify-content: flex-end;
+}
+
+.message-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff6b35, #ff8c42);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.user-message .message-avatar {
+    background: #e0e0e0;
+    color: #666;
+    order: 2;
+}
+
+.message-content {
+    max-width: 70%;
+    background: white;
+    padding: 12px 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.user-message .message-content {
+    background: linear-gradient(135deg, #ff6b35, #ff8c42);
+    color: white;
+}
+
+.message-content p {
+    margin: 0 0 8px 0;
+    line-height: 1.5;
+}
+
+.message-content p:last-of-type {
+    margin-bottom: 0;
+}
+
+.message-time {
+    font-size: 11px;
+    opacity: 0.7;
+    display: block;
+    margin-top: 5px;
+}
+
+.quick-replies {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.quick-reply {
+    padding: 10px 12px;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-align: left;
+}
+
+.quick-reply:hover {
+    border-color: #ff6b35;
+    background: #fff5f2;
+    color: #ff6b35;
+}
+
+.quick-reply i {
+    font-size: 16px;
+}
+
+.chat-input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background: white;
+    border-top: 1px solid #e0e0e0;
+}
+
+.attach-btn {
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.attach-btn:hover {
+    color: #ff6b35;
+}
+
+.chat-input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    font-size: 14px;
+    outline: none;
+}
+
+.chat-input:focus {
+    border-color: #ff6b35;
+}
+
+.send-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff6b35, #ff8c42);
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.send-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Typing indicator */
+.typing-indicator {
+    display: flex;
+    gap: 4px;
+    padding: 10px;
+}
+
+.typing-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #999;
+    animation: typing 1.4s infinite;
+}
+
+.typing-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-10px); }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .chat-window {
+        width: calc(100vw - 40px);
+        height: calc(100vh - 100px);
+    }
+}
+</style>
+
+<script>
+function toggleChat() {
+    const chatWindow = document.getElementById('chat-window');
+    chatWindow.classList.toggle('active');
+    
+    if (chatWindow.classList.contains('active')) {
+        document.getElementById('chat-input').focus();
+        // Remove badge
+        const badge = document.querySelector('.chat-badge');
+        if (badge) badge.style.display = 'none';
+    }
+}
+
+function sendMessage() {
+    const input = document.getElementById('chat-input');
+    const message = input.value.trim();
+    
+    if (!message) return;
+    
+    // Add user message
+    addMessage(message, 'user');
+    input.value = '';
+    
+    // Show typing indicator
+    showTypingIndicator();
+    
+    // Simulate bot response
+    setTimeout(() => {
+        hideTypingIndicator();
+        const responses = [
+            'Obrigado pela sua mensagem! Um de nossos atendentes irá responder em breve.',
+            'Entendi! Vou verificar isso para você.',
+            'Ótima pergunta! Deixe-me buscar essas informações.',
+            'Estou aqui para ajudar! Pode me dar mais detalhes?'
+        ];
+        const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        addMessage(randomResponse, 'bot');
+    }, 2000);
+}
+
+function sendQuickReply(text) {
+    addMessage(text, 'user');
+    
+    // Hide quick replies
+    const quickReplies = document.querySelector('.quick-replies');
+    if (quickReplies) quickReplies.style.display = 'none';
+    
+    // Show typing indicator
+    showTypingIndicator();
+    
+    // Simulate bot response based on quick reply
+    setTimeout(() => {
+        hideTypingIndicator();
+        let response = '';
+        
+        switch(text) {
+            case 'Rastrear pedido':
+                response = 'Para rastrear seu pedido, por favor informe o número do pedido ou seu CPF.';
+                break;
+            case 'Dúvidas sobre produto':
+                response = 'Ficarei feliz em ajudar! Qual produto você gostaria de saber mais?';
+                break;
+            case 'Trocar/Devolver':
+                response = 'Você tem até 30 dias para trocar ou devolver seu produto. Qual o número do seu pedido?';
+                break;
+            case 'Falar com atendente':
+                response = 'Conectando você com um atendente humano... Por favor, aguarde um momento.';
+                break;
+            default:
+                response = 'Como posso ajudar você?';
+        }
+        
+        addMessage(response, 'bot');
+    }, 1500);
+}
+
+function addMessage(text, type) {
+    const messagesContainer = document.getElementById('chat-messages');
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${type}-message`;
+    
+    const now = new Date();
+    const time = now.getHours() + ':' + String(now.getMinutes()).padStart(2, '0');
+    
+    messageDiv.innerHTML = `
+        <div class="message-avatar">
+            <i class="fas fa-${type === 'bot' ? 'robot' : 'user'}"></i>
+        </div>
+        <div class="message-content">
+            <p>${text}</p>
+            <span class="message-time">${time}</span>
+        </div>
+    `;
+    
+    messagesContainer.appendChild(messageDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
+function showTypingIndicator() {
+    const messagesContainer = document.getElementById('chat-messages');
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'message bot-message typing-message';
+    typingDiv.innerHTML = `
+        <div class="message-avatar">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="message-content">
+            <div class="typing-indicator">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+        </div>
+    `;
+    messagesContainer.appendChild(typingDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
+function hideTypingIndicator() {
+    const typingMessage = document.querySelector('.typing-message');
+    if (typingMessage) typingMessage.remove();
+}
+
+// Send message on Enter key
+document.addEventListener('DOMContentLoaded', function() {
+    const chatInput = document.getElementById('chat-input');
+    if (chatInput) {
+        chatInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    }
+});
+</script>

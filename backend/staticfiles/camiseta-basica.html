@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camiseta Básica - BOSS SHOPP</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="header-links">
+                    <a href="#" class="header-link">Vendedor</a>
+                    <a href="#" class="header-link">Download</a>
+                    <a href="#" class="header-link">Conecte-se</a>
+                </div>
+                <div class="header-social">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="boss-shop-logo.png" alt="BOSS SHOPP" class="logo-image">
+                    </a>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Busque por produtos, marcas e muito mais...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="nav-icons">
+                    <a href="login.html" class="nav-icon" id="userIcon">
+                        <i class="fas fa-user"></i>
+                        <span id="userText">Entrar</span>
+                    </a>
+                    <a href="#" class="nav-icon">
+                        <i class="fas fa-heart"></i>
+                        <span>Favoritos</span>
+                    </a>
+                    <a href="carrinho.html" class="nav-icon cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrinho</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Category Tabs -->
+    <section class="category-tabs">
+        <div class="container">
+            <div class="tabs-header">
+                <h2>Categorias em Destaque</h2>
+            </div>
+            <div class="tabs-container">
+                <button class="tab-btn" data-category="home">Início</button>
+                <button class="tab-btn" data-category="moda">Moda</button>
+                <button class="tab-btn" data-category="eletronicos">Eletrônicos</button>
+                <button class="tab-btn" data-category="casa">Casa</button>
+                <button class="tab-btn" data-category="games">Games</button>
+                <button class="tab-btn" data-category="esportes">Esportes</button>
+                <button class="tab-btn" data-category="infantil">Infantil</button>
+            </div>
+            
+            <!-- Tab Contents -->
+            <div class="tab-contents-container">
+                <div class="view-all-container">
+                    <p>Veja produtos de outras categorias clicando nas abas acima</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Home</a> > 
+            <a href="moda.html">Moda</a> > 
+            <span>Camiseta Básica</span>
+        </div>
+    </section>
+
+    <!-- Product Detail -->
+    <section class="product-detail">
+        <div class="container">
+            <div class="product-detail-content">
+                <!-- Product Images -->
+                <div class="product-images">
+                    <div class="main-image">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Camiseta Básica" class="product-detail-img">
+                    </div>
+                    <div class="thumbnail-images">
+                        <div class="thumbnail active">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Camiseta Básica" class="thumbnail-img">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Camiseta Básica" class="thumbnail-img">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Camiseta Básica" class="thumbnail-img">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info-detail">
+                    <h1>Camiseta Básica Premium</h1>
+                    <div class="product-rating">
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(156 avaliações)</span>
+                        </div>
+                        <div class="product-code">
+                            <i class="fas fa-barcode"></i> Código: CAM-BAS-001
+                        </div>
+                    </div>
+
+                    <div class="product-price">
+                        <div class="price-container">
+                            <span class="old-price">R$ 49,90</span>
+                            <span class="current-price">R$ 39,90</span>
+                            <span class="discount">20% OFF</span>
+                        </div>
+                        <div class="installments">
+                            <i class="fas fa-credit-card"></i> ou 3x de R$ 13,30 sem juros
+                        </div>
+                    </div>
+
+                    <div class="product-description">
+                        <h3><i class="fas fa-file-alt"></i> Descrição</h3>
+                        <p>Camiseta básica de algodão 100%, ideal para o uso diário. Modelo confortável e versátil que combina com qualquer look. Tecido de alta qualidade que não desbota com as lavagens.</p>
+                        
+                        <ul>
+                            <li><strong><i class="fas fa-tshirt"></i> Material:</strong> 100% Algodão</li>
+                            <li><strong><i class="fas fa-tag"></i> Modelo:</strong> Básico</li>
+                            <li><strong><i class="fas fa-venus-mars"></i> Gênero:</strong> Unissex</li>
+                            <li><strong><i class="fas fa-palette"></i> Cor:</strong> Branco</li>
+                            <li><strong><i class="fas fa-ruler-combined"></i> Tamanhos:</strong> P, M, G, GG</li>
+                        </ul>
+                    </div>
+
+                    <div class="product-options">
+                        <div class="size-selector">
+                            <h4><i class="fas fa-ruler"></i> Tamanho</h4>
+                            <div class="size-options">
+                                <button class="size-btn">P</button>
+                                <button class="size-btn active">M</button>
+                                <button class="size-btn">G</button>
+                                <button class="size-btn">GG</button>
+                            </div>
+                        </div>
+
+                        <div class="quantity-selector">
+                            <h4><i class="fas fa-sort-numeric-up"></i> Quantidade</h4>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="decreaseQuantity()">-</button>
+                                <span class="quantity" id="quantity">1</span>
+                                <button class="quantity-btn" onclick="increaseQuantity()">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="add-to-cart-btn" onclick="addToCart('Camiseta Básica', 39.90)">
+                            <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
+                        </button>
+                        <button class="buy-now-btn">
+                            <i class="fas fa-bolt"></i> Comprar Agora
+                        </button>
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i> Adicionar aos Favoritos
+                        </button>
+                    </div>
+
+                    <div class="shipping-info">
+                        <h4><i class="fas fa-truck"></i> Calcular Frete</h4>
+                        <div class="cep-input">
+                            <input type="text" placeholder="Informe seu CEP" id="cep">
+                            <button onclick="calculateShipping()"><i class="fas fa-calculator"></i> Calcular</button>
+                        </div>
+                        <div class="shipping-options" id="shippingOptions">
+                            <!-- Shipping options will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Specifications -->
+    <section class="product-specifications">
+        <div class="container">
+            <div class="specifications-tabs">
+                <button class="tab-btn active" onclick="showTab('specifications')"><i class="fas fa-info-circle"></i> Especificações</button>
+                <button class="tab-btn" onclick="showTab('reviews')"><i class="fas fa-star"></i> Avaliações (156)</button>
+                <button class="tab-btn" onclick="showTab('shipping')"><i class="fas fa-truck"></i> Frete e Devolução</button>
+            </div>
+
+            <div class="tab-content active" id="specificationsTab">
+                <table class="spec-table">
+                    <tr>
+                        <td><i class="fas fa-tshirt"></i> <strong>Material</strong></td>
+                        <td>100% Algodão</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-palette"></i> <strong>Cor</strong></td>
+                        <td>Branco</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-ruler-combined"></i> <strong>Tamanhos Disponíveis</strong></td>
+                        <td>P, M, G, GG</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-venus-mars"></i> <strong>Gênero</strong></td>
+                        <td>Unissex</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-tag"></i> <strong>Modelo</strong></td>
+                        <td>Básico</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-percentage"></i> <strong>Composição</strong></td>
+                        <td>100% Algodão Penteado</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-tint"></i> <strong>Lavagem</strong></td>
+                        <td>Lavar à mão ou máquina em temperatura máxima de 30°C</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="tab-content" id="reviewsTab">
+                <div class="reviews-summary">
+                    <div class="rating-average">
+                        <div class="rating-value">4.5</div>
+                        <div class="rating-stars-large">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="reviews-count">156 avaliações</div>
+                    </div>
+                    
+                    <div class="rating-distribution">
+                        <div class="rating-bar">
+                            <span>5 estrelas</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 65%"></div>
+                            </div>
+                            <span>102</span>
+                        </div>
+                        <div class="rating-bar">
+                            <span>4 estrelas</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 20%"></div>
+                            </div>
+                            <span>31</span>
+                        </div>
+                        <div class="rating-bar">
+                            <span>3 estrelas</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 10%"></div>
+                            </div>
+                            <span>15</span>
+                        </div>
+                        <div class="rating-bar">
+                            <span>2 estrelas</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 3%"></div>
+                            </div>
+                            <span>5</span>
+                        </div>
+                        <div class="rating-bar">
+                            <span>1 estrela</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 2%"></div>
+                            </div>
+                            <span>3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recent-reviews">
+                    <h3><i class="fas fa-comments"></i> Últimas Avaliações</h3>
+                    <div class="review">
+                        <div class="review-header">
+                            <div class="reviewer"><i class="fas fa-user"></i> Maria Silva</div>
+                            <div class="review-date"><i class="fas fa-calendar"></i> 15/10/2025</div>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="review-title">Excelente qualidade!</div>
+                        <div class="review-content">
+                            Produto de ótima qualidade, tecido confortável e acabamento perfeito. Recomendo!
+                        </div>
+                    </div>
+
+                    <div class="review">
+                        <div class="review-header">
+                            <div class="reviewer"><i class="fas fa-user"></i> João Pereira</div>
+                            <div class="review-date"><i class="fas fa-calendar"></i> 12/10/2025</div>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="review-title">Muito boa</div>
+                        <div class="review-content">
+                            Camiseta confortável e de boa qualidade. Chegou antes do previsto.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="shippingTab">
+                <div class="shipping-content">
+                    <h3><i class="fas fa-shipping-fast"></i> Frete</h3>
+                    <ul>
+                        <li><i class="fas fa-clock"></i> Entrega em 3 a 7 dias úteis para todo o Brasil</li>
+                        <li><i class="fas fa-gift"></i> Frete grátis para pedidos acima de R$ 199,00</li>
+                        <li><i class="fas fa-bolt"></i> Entrega expressa disponível em algumas regiões</li>
+                    </ul>
+
+                    <h3><i class="fas fa-undo"></i> Devolução</h3>
+                    <ul>
+                        <li><i class="fas fa-calendar-check"></i> Prazo de 7 dias para devolução</li>
+                        <li><i class="fas fa-check-circle"></i> Produto deve estar em perfeitas condições, com etiquetas</li>
+                        <li><i class="fas fa-money-check"></i> Reembolso em até 5 dias úteis após recebimento</li>
+                        <li><i class="fas fa-truck-loading"></i> Frete de devolução por conta do cliente</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="related-products">
+        <div class="container">
+            <h2><i class="fas fa-heart"></i> Produtos Relacionados</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-vest product-icon"></i>
+                        <div class="discount-badge">-15%</div>
+                        <button class="quick-view" title="Visualização Rápida">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h4>Calça Jeans</h4>
+                        <div class="price">
+                            <span class="old-price">R$ 99,90</span>
+                            <span class="new-price">R$ 84,90</span>
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(89)</span>
+                        </div>
+                        <button class="add-to-cart" onclick="addToCart('Calça Jeans', 84.90)">
+                            <i class="fas fa-cart-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-shoe-prints product-icon"></i>
+                        <button class="quick-view" title="Visualização Rápida">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h4>Tênis Esportivo</h4>
+                        <div class="price">
+                            <span class="new-price">R$ 169,90</span>
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(234)</span>
+                        </div>
+                        <button class="add-to-cart" onclick="addToCart('Tênis Esportivo', 169.90)">
+                            <i class="fas fa-cart-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-hat-cowboy product-icon"></i>
+                        <div class="discount-badge">-25%</div>
+                        <button class="quick-view" title="Visualização Rápida">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h4>Boné Estiloso</h4>
+                        <div class="price">
+                            <span class="old-price">R$ 45,90</span>
+                            <span class="new-price">R$ 34,40</span>
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(67)</span>
+                        </div>
+                        <button class="add-to-cart" onclick="addToCart('Boné Estiloso', 34.40)">
+                            <i class="fas fa-cart-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-glasses product-icon"></i>
+                        <button class="quick-view" title="Visualização Rápida">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h4>Óculos de Sol</h4>
+                        <div class="price">
+                            <span class="new-price">R$ 97,40</span>
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(145)</span>
+                        </div>
+                        <button class="add-to-cart" onclick="addToCart('Óculos de Sol', 97.40)">
+                            <i class="fas fa-cart-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>BOSS SHOPP</h4>
+                    <p>Sua loja online com os melhores produtos e preços imperdíveis.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Atendimento</h4>
+                    <ul>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Como Comprar</a></li>
+                        <li><a href="#">Frete e Entrega</a></li>
+                        <li><a href="#">Devoluções</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Sobre</h4>
+                    <ul>
+                        <li><a href="#">Nossa História</a></li>
+                        <li><a href="#">Trabalhe Conosco</a></li>
+                        <li><a href="#">Imprensa</a></li>
+                        <li><a href="#">Investidores</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Pagamento</h4>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fas fa-money-bill"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 BOSS SHOPP. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Carrinho de Compras</h2>
+            <div id="cartItems"></div>
+            <div class="cart-total">
+                <strong>Total: R$ <span id="cartTotal">0,00</span></strong>
+            </div>
+            <button class="checkout-btn" onclick="window.location.href='purchase.html'">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Quantity controls
+        let quantity = 1;
+
+        function increaseQuantity() {
+            quantity++;
+            document.getElementById('quantity').textContent = quantity;
+        }
+
+        function decreaseQuantity() {
+            if (quantity > 1) {
+                quantity--;
+                document.getElementById('quantity').textContent = quantity;
+            }
+        }
+
+        // Tab switching
+        function showTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab-btn').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName + 'Tab').classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        // Calculate shipping
+        function calculateShipping() {
+            const cep = document.getElementById('cep').value;
+            if (cep && cep.length >= 8) {
+                const shippingOptions = document.getElementById('shippingOptions');
+                shippingOptions.innerHTML = `
+                    <div class="shipping-option">
+                        <div class="shipping-type">
+                            <strong>Entrega Padrão</strong>
+                            <span>3-7 dias úteis</span>
+                        </div>
+                        <div class="shipping-price">R$ 12,90</div>
+                    </div>
+                    <div class="shipping-option">
+                        <div class="shipping-type">
+                            <strong>Entrega Expressa</strong>
+                            <span>1-2 dias úteis</span>
+                        </div>
+                        <div class="shipping-price">R$ 24,90</div>
+                    </div>
+                    <div class="shipping-option free-shipping">
+                        <div class="shipping-type">
+                            <strong>Frete Grátis</strong>
+                            <span>7-14 dias úteis</span>
+                        </div>
+                        <div class="shipping-price">Grátis</div>
+                    </div>
+                `;
+            } else {
+                alert('Por favor, informe um CEP válido.');
+            }
+        }
+
+        // Wishlist functionality
+        document.querySelector('.wishlist-btn').addEventListener('click', function() {
+            const heartIcon = this.querySelector('i');
+            if (heartIcon.classList.contains('far')) {
+                heartIcon.classList.remove('far');
+                heartIcon.classList.add('fas');
+                heartIcon.style.color = '#ff4444';
+                showNotification('Produto adicionado aos favoritos!');
+            } else {
+                heartIcon.classList.remove('fas');
+                heartIcon.classList.add('far');
+                heartIcon.style.color = '';
+                showNotification('Produto removido dos favoritos!');
+            }
+        });
+
+        // Buy now functionality
+        document.querySelector('.buy-now-btn').addEventListener('click', function() {
+            addToCart('Camiseta Básica', 39.90);
+            window.location.href = 'purchase.html';
+        });
+
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+                    
+                    // Navigate to the corresponding category page
+                    const category = btn.getAttribute('data-category');
+                    let url;
+                    switch(category) {
+                        case 'home':
+                            url = 'index.html';
+                            break;
+                        case 'moda':
+                            url = 'categoria-moda.html';
+                            break;
+                        case 'eletronicos':
+                            url = 'eletronicos.html';
+                            break;
+                        case 'casa':
+                            url = 'casa.html';
+                            break;
+                        case 'games':
+                            url = 'games.html';
+                            break;
+                        case 'esportes':
+                            url = 'esportes.html';
+                            break;
+                        case 'infantil':
+                            url = 'infantil.html';
+                            break;
+                        default:
+                            url = 'index.html';
+                    }
+                    window.location.href = url;
+                });
+            });
+        });
+    </script>
+    <script src="auth-utils.js"></script>
+</body>
+</html>

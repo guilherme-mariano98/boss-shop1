@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demonstração CEP - Conexão com Correios</title>
+    <link rel="stylesheet" href="optimized-styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #212529;
+            line-height: 1.6;
+            font-size: 14px;
+            padding: 20px;
+        }
+        .demo-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .input-wrapper input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .search-btn {
+            background: linear-gradient(45deg, #000000, #333333);
+            color: #ffffff;
+            border: 2px solid #000000;
+            border-left: none;
+            padding: 0 20px;
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 42px;
+        }
+        .search-btn:hover {
+            background: linear-gradient(45deg, #333333, #000000);
+            transform: translateY(-1px);
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #000000;
+            color: #ffffff;
+            padding: 15px 20px;
+            border-radius: 5px;
+            z-index: 10000;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #000000;
+            margin-bottom: 10px;
+        }
+        .header p {
+            color: #666;
+            font-size: 16px;
+        }
+        .test-ceps {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        .test-ceps h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .test-ceps ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .test-ceps li {
+            margin-bottom: 5px;
+        }
+        .btn {
+            background: linear-gradient(45deg, #000000, #333333);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn:hover {
+            background: linear-gradient(45deg, #333333, #000000);
+            transform: translateY(-2px);
+        }
+        .explanation {
+            background-color: #e8f4f8;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .step {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .step:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .step-number {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            background: #007bff;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 25px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .connection-status {
+            padding: 10px;
+            border-radius: 4px;
+            margin: 15px 0;
+            text-align: center;
+            font-weight: bold;
+        }
+        .status-connected {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status-disconnected {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="header">
+            <h1><i class="fas fa-mail-bulk"></i> Demonstração CEP - Conexão com Correios</h1>
+            <p>Funcionalidade aprimorada com conexão direta aos serviços dos Correios</p>
+        </div>
+        
+        <div class="connection-status status-disconnected" id="connectionStatus">
+            Serviço CEP: Desconectado - Usando APIs públicas como fallback
+        </div>
+        
+        <div class="explanation">
+            <h3>Como funciona:</h3>
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>Conexão direta com Correios</strong> através do serviço local
+            </div>
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>Fallback automático</strong> para APIs públicas se o serviço local não estiver disponível
+            </div>
+            <div class="step">
+                <span class="step-number">3</span>
+                <strong>Dados em tempo real</strong> diretamente da base dos Correios
+            </div>
+        </div>
+        
+        <div class="test-ceps">
+            <h3>CEPs de Teste:</h3>
+            <ul>
+                <li><strong>01001-000</strong> - São Paulo, SP (Edifício Martinelli)</li>
+                <li><strong>20010-000</strong> - Rio de Janeiro, RJ (Centro)</li>
+                <li><strong>29010-000</strong> - Vitória, ES (Centro)</li>
+                <li><strong>30110-000</strong> - Belo Horizonte, MG (Centro)</li>
+                <li><strong>40010-000</strong> - Salvador, BA (Centro)</li>
+            </ul>
+        </div>
+        
+        <div class="form-group">
+            <label for="cep">CEP</label>
+            <div class="input-wrapper">
+                <input type="text" id="cep" name="cep" placeholder="00000-000" maxlength="9" oninput="formatCEP(this)">
+                <button type="button" class="search-btn" onclick="searchCEP()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="street">Rua</label>
+            <input type="text" id="street" name="street" placeholder="Nome da rua">
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group" style="display: inline-block; width: 48%; margin-right: 2%;">
+                <label for="number">Número</label>
+                <input type="text" id="number" name="number" placeholder="Número">
+            </div>
+            <div class="form-group" style="display: inline-block; width: 48%;">
+                <label for="complement">Complemento</label>
+                <input type="text" id="complement" name="complement" placeholder="Apartamento, bloco, etc.">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="neighborhood">Bairro</label>
+            <input type="text" id="neighborhood" name="neighborhood" placeholder="Bairro">
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group" style="display: inline-block; width: 68%; margin-right: 2%;">
+                <label for="city">Cidade</label>
+                <input type="text" id="city" name="city" placeholder="Cidade">
+            </div>
+            <div class="form-group" style="display: inline-block; width: 28%;">
+                <label for="state">Estado</label>
+                <select id="state" name="state">
+                    <option value="">Selecione</option>
+                    <option value="AC">AC</option>
+                    <option value="AL">AL</option>
+                    <option value="AP">AP</option>
+                    <option value="AM">AM</option>
+                    <option value="BA">BA</option>
+                    <option value="CE">CE</option>
+                    <option value="DF">DF</option>
+                    <option value="ES">ES</option>
+                    <option value="GO">GO</option>
+                    <option value="MA">MA</option>
+                    <option value="MT">MT</option>
+                    <option value="MS">MS</option>
+                    <option value="MG">MG</option>
+                    <option value="PA">PA</option>
+                    <option value="PB">PB</option>
+                    <option value="PR">PR</option>
+                    <option value="PE">PE</option>
+                    <option value="PI">PI</option>
+                    <option value="RJ">RJ</option>
+                    <option value="RN">RN</option>
+                    <option value="RS">RS</option>
+                    <option value="RO">RO</option>
+                    <option value="RR">RR</option>
+                    <option value="SC">SC</option>
+                    <option value="SP">SP</option>
+                    <option value="SE">SE</option>
+                    <option value="TO">TO</option>
+                </select>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px;">
+            <button class="btn" onclick="testWithSampleCEP()">
+                <i class="fas fa-magic"></i> Testar com CEP 01001-000
+            </button>
+            <button class="btn" onclick="checkServiceStatus()" style="background: linear-gradient(45deg, #28a745, #20c997);">
+                <i class="fas fa-sync-alt"></i> Verificar Status do Serviço
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Função para formatar o CEP
+        function formatCEP(input) {
+            let value = input.value.replace(/\D/g, '');
+            
+            if (value.length > 5) {
+                value = value.substring(0, 5) + '-' + value.substring(5, 8);
+            }
+            
+            input.value = value;
+        }
+        
+        // Função para mostrar notificação
+        function showNotification(message) {
+            // Remover notificação existente, se houver
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            // Criar elemento de notificação
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Remover após 3 segundos
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+        
+        // Função para verificar o status do serviço
+        function checkServiceStatus() {
+            fetch('http://localhost:5001/health')
+                .then(response => response.json())
+                .then(data => {
+                    const statusElement = document.getElementById('connectionStatus');
+                    if (data.status === 'ok') {
+                        statusElement.className = 'connection-status status-connected';
+                        statusElement.innerHTML = '<i class="fas fa-check-circle"></i> Serviço CEP: Conectado - Conexão direta com Correios';
+                    } else {
+                        throw new Error('Service not healthy');
+                    }
+                })
+                .catch(error => {
+                    const statusElement = document.getElementById('connectionStatus');
+                    statusElement.className = 'connection-status status-disconnected';
+                    statusElement.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Serviço CEP: Desconectado - Usando APIs públicas como fallback';
+                });
+        }
+        
+        // Função para procurar CEP
+        function searchCEP() {
+            const cepInput = document.getElementById('cep');
+            const cep = cepInput.value.replace(/\D/g, '');
+            
+            if (cep.length !== 8) {
+                alert('Por favor, insira um CEP válido com 8 dígitos.');
+                return;
+            }
+            
+            // Mostrar indicador de carregamento
+            const searchBtn = cepInput.parentElement.querySelector('.search-btn');
+            const originalHTML = searchBtn.innerHTML;
+            searchBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            searchBtn.disabled = true;
+            
+            // Primeiro tentar nosso próprio serviço de CEP (conectado aos Correios)
+            fetch(`http://localhost:5001/api/cep/${cep}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Preencher os campos com os dados retornados
+                        document.getElementById('street').value = data.data.street || '';
+                        document.getElementById('neighborhood').value = data.data.neighborhood || '';
+                        document.getElementById('city').value = data.data.city || '';
+                        document.getElementById('state').value = data.data.state || '';
+                        
+                        // Se o campo de número estiver vazio, colocar o foco nele
+                        const numberInput = document.getElementById('number');
+                        if (!numberInput.value) {
+                            numberInput.focus();
+                        }
+                        
+                        showNotification(`CEP ${cep} encontrado com sucesso! (Conexão direta com Correios)`);
+                    } else {
+                        throw new Error(data.error || 'CEP não encontrado');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar CEP no serviço local:', error);
+                    
+                    // Fallback para APIs públicas
+                    const apis = [
+                        // ViaCEP API (principal)
+                        {
+                            url: `https://viacep.com.br/ws/${cep}/json/`,
+                            transform: (data) => ({
+                                street: data.logradouro,
+                                neighborhood: data.bairro,
+                                city: data.localidade,
+                                state: data.uf
+                            })
+                        },
+                        // BrasilAPI (fallback)
+                        {
+                            url: `https://brasilapi.com.br/api/cep/v1/${cep}`,
+                            transform: (data) => ({
+                                street: data.street,
+                                neighborhood: data.neighborhood,
+                                city: data.city,
+                                state: data.state
+                            })
+                        }
+                    ];
+                    
+                    // Função para tentar a próxima API
+                    function tryNextAPI(index) {
+                        if (index >= apis.length) {
+                            // Todas as APIs falharam
+                            alert('Não foi possível encontrar o CEP. Por favor, verifique o número e tente novamente.');
+                            searchBtn.innerHTML = originalHTML;
+                            searchBtn.disabled = false;
+                            return;
+                        }
+                        
+                        const api = apis[index];
+                        
+                        fetch(api.url)
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error('API request failed');
+                                }
+                                return response.json();
+                            })
+                            .then(data => {
+                                // Verificar se a resposta indica erro
+                                if (data.erro || data.status === 404 || !data) {
+                                    throw new Error('CEP not found');
+                                }
+                                
+                                // Transformar os dados conforme a API
+                                const transformedData = api.transform(data);
+                                
+                                // Preencher os campos com os dados retornados
+                                document.getElementById('street').value = transformedData.street || '';
+                                document.getElementById('neighborhood').value = transformedData.neighborhood || '';
+                                document.getElementById('city').value = transformedData.city || '';
+                                document.getElementById('state').value = transformedData.state || '';
+                                
+                                // Se o campo de número estiver vazio, colocar o foco nele
+                                const numberInput = document.getElementById('number');
+                                if (!numberInput.value) {
+                                    numberInput.focus();
+                                }
+                                
+                                showNotification(`CEP ${cep} encontrado com sucesso! (via ${index === 0 ? 'ViaCEP' : 'BrasilAPI'})`);
+                            })
+                            .catch(error => {
+                                console.error(`Erro ao buscar CEP na API ${index + 1}:`, error);
+                                // Tentar a próxima API
+                                tryNextAPI(index + 1);
+                                return;
+                            })
+                            .finally(() => {
+                                // Restaurar botão de busca apenas se todas as tentativas falharem
+                                // ou quando tiver sucesso
+                                if (index >= apis.length - 1) {
+                                    searchBtn.innerHTML = originalHTML;
+                                    searchBtn.disabled = false;
+                                }
+                            });
+                    }
+                    
+                    // Iniciar com a primeira API
+                    tryNextAPI(0);
+                });
+        }
+        
+        // Função para testar com um CEP de exemplo
+        function testWithSampleCEP() {
+            document.getElementById('cep').value = '01001-000';
+            searchCEP();
+        }
+        
+        // Verificar status do serviço quando a página carregar
+        window.addEventListener('load', function() {
+            checkServiceStatus();
+        });
+    </script>
+</body>
+</html>

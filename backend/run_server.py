@@ -25,33 +25,42 @@ def main():
     
     # Run Django migrations
     print("Running migrations...")
-    subprocess.check_call([sys.executable, "manage.py", "makemigrations"])
-    subprocess.check_call([sys.executable, "manage.py", "migrate"])
-    
-    # Create superuser if it doesn't exist
-    print("Creating superuser if it doesn't exist...")
+    subprocess.check_call([sys.executable, "manage.py", "migrate", "--noinput"])
+
+    # Collect static files for production
+    print("Collecting static files...")
     try:
-        # Set up Django
+        subprocess.check_call([sys.executable, "manage.py", "collectstatic", "--noinput"])
+    except Exception as e:
+        print(f"Could not collect static files: {e}")
+    
+    # Create superuser via environment variables (optional)
+    print("Ensuring superuser via environment variables...")
+    try:
         import django
-        from django.conf import settings
         django.setup()
-        
-        # We need to import this after django.setup()
+
         from django.contrib.auth import get_user_model
         User = get_user_model()
-        
-        # Check if superuser exists
-        if not User.objects.filter(is_superuser=True).exists():
-            User.objects.create_superuser(
-                username='admin',
-                email='admin@example.com',
-                password='admin123'
-            )
-            print("Superuser 'admin' created with password 'admin123'")
+
+        su_username = os.environ.get("DJANGO_SUPERUSER_USERNAME")
+        su_email = os.environ.get("DJANGO_SUPERUSER_EMAIL")
+        su_password = os.environ.get("DJANGO_SUPERUSER_PASSWORD")
+
+        if su_username and su_email and su_password:
+            if not User.objects.filter(username=su_username).exists():
+                User.objects.create_superuser(
+                    username=su_username,
+                    email=su_email,
+                    password=su_password,
+                )
+                print(f"Superuser '{su_username}' created via env vars")
+            else:
+                print(f"Superuser '{su_username}' already exists")
         else:
-            print("Superuser already exists")
+            print("Superuser env vars not provided; skipping auto-creation")
     except Exception as e:
-        print(f"Could not create superuser: {e}")
+        print(f"Could not ensure superuser: {e}")
     
     # Populate initial data
     print("Populating initial data...")
@@ -60,11 +69,22 @@ def main():
     except Exception as e:
         print(f"Could not populate data: {e}")
     
-    # Run the server
+    # Run the server using dynamic PORT (Render sets $PORT)
+    port = os.environ.get("PORT", "8000")
+    use_gunicorn = os.environ.get("USE_GUNICORN", "").lower() in ("1", "true", "yes")
+
+    if use_gunicorn:
+        print("Starting Django with gunicorn...")
+        try:
+            subprocess.check_call(["gunicorn", "boss_shopp.wsgi:application", "--bind", f"0.0.0.0:{port}"])
+            return
+        except Exception as e:
+            print(f"Failed to start with gunicorn, falling back to runserver: {e}")
+
     print("Starting Django development server...")
-    print("Access the admin panel at: http://0.0.0.0:8000/admin/")
-    print("Access the API at: http://0.0.0.0:8000/api/")
-    subprocess.check_call([sys.executable, "manage.py", "runserver", "0.0.0.0:8000"])
+    print(f"Access the admin panel at: http://0.0.0.0:{port}/admin/")
+    print(f"Access the API at: http://0.0.0.0:{port}/api/")
+    subprocess.check_call([sys.executable, "manage.py", "runserver", f"0.0.0.0:{port}"])
 
 if __name__ == '__main__':
     main()

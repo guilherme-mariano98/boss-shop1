@@ -1,0 +1,313 @@
+/*
+ * Mobile Styles for BOSS SHOPP
+ * Enhanced mobile experience with touch-friendly controls
+ */
+
+/* Base mobile styles */
+@media (max-width: 768px) {
+    /* Container adjustments */
+    .container {
+        padding: 0 15px;
+        width: 100%;
+    }
+    
+    /* Typography adjustments */
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+    }
+    
+    p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    /* Navigation enhancements */
+    .navbar {
+        padding: 10px 0;
+        position: relative;
+    }
+    
+    .nav-content {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .logo-image {
+        height: 40px;
+    }
+    
+    .search-container {
+        order: 3;
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    .search-input {
+        font-size: 16px; /* Prevents zoom on iOS */
+        padding: 12px 15px;
+    }
+    
+    .nav-icons {
+        gap: 15px;
+    }
+    
+    .nav-icon span {
+        display: none; /* Hide text labels on mobile */
+    }
+    
+    .nav-icon {
+        font-size: 1.2rem;
+        padding: 8px;
+    }
+    
+    /* Hero section adjustments */
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 0;
+    }
+    
+    .hero-text, .hero-visual {
+        width: 100%;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .cta-button {
+        width: 100%;
+        padding: 15px;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 30px;
+    }
+    
+    .stat-item {
+        width: 100%;
+    }
+    
+    /* Categories section */
+    .category-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .category-card {
+        min-height: 180px;
+    }
+    
+    .card-content h4 {
+        font-size: 1.3rem;
+    }
+    
+    /* Products section */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .product-card {
+        margin-bottom: 10px;
+    }
+    
+    .product-image {
+        height: 150px;
+    }
+    
+    /* Footer adjustments */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 0;
+    }
+    
+    .footer-column {
+        margin-bottom: 25px;
+        width: 100%;
+    }
+    
+    .footer-column:last-child {
+        margin-bottom: 0;
+    }
+    
+    /* Buttons */
+    .btn {
+        padding: 12px 20px;
+        font-size: 1rem;
+        min-height: 44px; /* Minimum touch target size */
+    }
+    
+    /* Forms */
+    input, select, textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+        padding: 12px 15px;
+    }
+    
+    /* Utility classes */
+    .hidden-mobile {
+        display: none !important;
+    }
+    
+    .visible-mobile {
+        display: block !important;
+    }
+    
+    .text-center-mobile {
+        text-align: center;
+    }
+}
+
+/* Small mobile devices (phones) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    /* Product grid becomes single column */
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Further reduce font sizes */
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .hero-title {
+        font-size: 1.75rem;
+    }
+    
+    /* Simplify complex layouts */
+    .section-header {
+        margin-bottom: 20px;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    /* Adjust button sizes */
+    .btn {
+        padding: 14px 16px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    /* Cart adjustments */
+    .cart-count {
+        top: -5px;
+        right: -5px;
+        min-width: 20px;
+        height: 20px;
+        font-size: 0.7rem;
+    }
+}
+
+/* Tablet landscape */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Touch device enhancements */
+@media (hover: none) and (pointer: coarse) {
+    /* Remove hover effects on touch devices */
+    .btn:hover, .category-card:hover, .product-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    
+    /* Add touch feedback */
+    .btn:active, .category-card:active, .product-card:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
+    
+    /* Larger touch targets */
+    .nav-icon, .category-card, .product-card {
+        min-height: 44px;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .navbar {
+        border-bottom: 2px solid #000;
+    }
+    
+    .btn {
+        border: 2px solid currentColor;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .preloader {
+        display: none;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .preloader {
+        background: #1a1a1a;
+    }
+    
+    .loader-text {
+        color: #ffffff;
+    }
+}
+
+/* Orientation changes */
+@media (orientation: landscape) and (max-height: 500px) {
+    .hero {
+        min-height: auto;
+        padding: 20px 0;
+    }
+    
+    .hero-content {
+        flex-direction: row;
+    }
+    
+    .hero-text, .hero-visual {
+        width: 50%;
+    }
+}

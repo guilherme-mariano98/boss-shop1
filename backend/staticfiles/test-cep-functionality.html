@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Funcionalidade CEP</title>
+    <link rel="stylesheet" href="optimized-styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #212529;
+            line-height: 1.6;
+            font-size: 14px;
+            padding: 20px;
+        }
+        .test-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .input-wrapper input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .search-btn {
+            background: linear-gradient(45deg, #000000, #333333);
+            color: #ffffff;
+            border: 2px solid #000000;
+            border-left: none;
+            padding: 0 20px;
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 42px;
+        }
+        .search-btn:hover {
+            background: linear-gradient(45deg, #333333, #000000);
+            transform: translateY(-1px);
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #000000;
+            color: #ffffff;
+            padding: 15px 20px;
+            border-radius: 5px;
+            z-index: 10000;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #000000;
+            margin-bottom: 10px;
+        }
+        .test-result {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 6px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #007bff;
+        }
+        .test-result.success {
+            border-left-color: #28a745;
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .test-result.error {
+            border-left-color: #dc3545;
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .btn {
+            background: linear-gradient(45deg, #000000, #333333);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn:hover {
+            background: linear-gradient(45deg, #333333, #000000);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="header">
+            <h1><i class="fas fa-vial"></i> Teste de Funcionalidade CEP</h1>
+            <p>Verificação da implementação do serviço de busca de CEP</p>
+        </div>
+        
+        <div class="test-result" id="serviceStatus">
+            <strong>Verificando status do serviço...</strong>
+        </div>
+        
+        <div class="form-group">
+            <label for="cep">CEP para Teste</label>
+            <div class="input-wrapper">
+                <input type="text" id="cep" name="cep" placeholder="00000-000" maxlength="9" value="01001-000">
+                <button type="button" class="search-btn" onclick="testCEP()" id="testBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="test-result" id="testResult" style="display: none;">
+            <strong>Resultado do Teste:</strong>
+            <div id="resultContent"></div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px;">
+            <button class="btn" onclick="runFullTest()">
+                <i class="fas fa-play-circle"></i> Executar Teste Completo
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Função para mostrar notificação
+        function showNotification(message) {
+            // Remover notificação existente, se houver
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            // Criar elemento de notificação
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Remover após 3 segundos
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+        
+        // Função para verificar o status do serviço
+        function checkServiceStatus() {
+            const statusElement = document.getElementById('serviceStatus');
+            
+            fetch('http://localhost:5001/health')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'ok') {
+                        statusElement.className = 'test-result success';
+                        statusElement.innerHTML = '<i class="fas fa-check-circle"></i> <strong>Serviço CEP:</strong> Conectado e funcionando';
+                    } else {
+                        throw new Error('Service not healthy');
+                    }
+                })
+                .catch(error => {
+                    statusElement.className = 'test-result error';
+                    statusElement.innerHTML = '<i class="fas fa-exclamation-triangle"></i> <strong>Serviço CEP:</strong> Desconectado - Usando APIs públicas como fallback';
+                });
+        }
+        
+        // Função para testar CEP
+        function testCEP() {
+            const cepInput = document.getElementById('cep');
+            const cep = cepInput.value.replace(/\D/g, '');
+            const testBtn = document.getElementById('testBtn');
+            const resultElement = document.getElementById('testResult');
+            const resultContent = document.getElementById('resultContent');
+            
+            if (cep.length !== 8) {
+                alert('Por favor, insira um CEP válido com 8 dígitos.');
+                return;
+            }
+            
+            // Mostrar indicador de carregamento
+            const originalHTML = testBtn.innerHTML;
+            testBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            testBtn.disabled = true;
+            
+            resultElement.style.display = 'none';
+            
+            // Testar o serviço local
+            fetch(`http://localhost:5001/api/cep/${cep}`)
+                .then(response => response.json())
+                .then(data => {
+                    resultElement.style.display = 'block';
+                    
+                    if (data.success) {
+                        resultElement.className = 'test-result success';
+                        resultContent.innerHTML = `
+                            <p><i class="fas fa-check-circle"></i> <strong>CEP encontrado com sucesso!</strong></p>
+                            <p><strong>Rua:</strong> ${data.data.street || 'Não informado'}</p>
+                            <p><strong>Bairro:</strong> ${data.data.neighborhood || 'Não informado'}</p>
+                            <p><strong>Cidade:</strong> ${data.data.city || 'Não informado'}</p>
+                            <p><strong>Estado:</strong> ${data.data.state || 'Não informado'}</p>
+                            <p><strong>Fonte:</strong> Serviço local (Correios)</p>
+                        `;
+                        showNotification('CEP encontrado com sucesso!');
+                    } else {
+                        throw new Error(data.error || 'CEP não encontrado');
+                    }
+                })
+                .catch(error => {
+                    // Fallback para ViaCEP
+                    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                        .then(response => response.json())
+                        .then(data => {
+                            resultElement.style.display = 'block';
+                            
+                            if (data.erro) {
+                                resultElement.className = 'test-result error';
+                                resultContent.innerHTML = `
+                                    <p><i class="fas fa-exclamation-triangle"></i> <strong>CEP não encontrado</strong></p>
+                                    <p>Não foi possível encontrar o CEP ${cep}.</p>
+                                `;
+                                showNotification('CEP não encontrado');
+                            } else {
+                                resultElement.className = 'test-result success';
+                                resultContent.innerHTML = `
+                                    <p><i class="fas fa-check-circle"></i> <strong>CEP encontrado com sucesso!</strong></p>
+                                    <p><strong>Rua:</strong> ${data.logradouro || 'Não informado'}</p>
+                                    <p><strong>Bairro:</strong> ${data.bairro || 'Não informado'}</p>
+                                    <p><strong>Cidade:</strong> ${data.localidade || 'Não informado'}</p>
+                                    <p><strong>Estado:</strong> ${data.uf || 'Não informado'}</p>
+                                    <p><strong>Fonte:</strong> ViaCEP (fallback)</p>
+                                `;
+                                showNotification('CEP encontrado via ViaCEP!');
+                            }
+                        })
+                        .catch(viacepError => {
+                            resultElement.style.display = 'block';
+                            resultElement.className = 'test-result error';
+                            resultContent.innerHTML = `
+                                <p><i class="fas fa-exclamation-triangle"></i> <strong>Erro na busca</strong></p>
+                                <p>Não foi possível conectar aos serviços de CEP.</p>
+                                <p>Erro: ${viacepError.message}</p>
+                            `;
+                            showNotification('Erro na busca de CEP');
+                        });
+                })
+                .finally(() => {
+                    // Restaurar botão
+                    testBtn.innerHTML = originalHTML;
+                    testBtn.disabled = false;
+                });
+        }
+        
+        // Função para executar teste completo
+        function runFullTest() {
+            checkServiceStatus();
+            setTimeout(testCEP, 1000);
+        }
+        
+        // Verificar status do serviço quando a página carregar
+        window.addEventListener('load', function() {
+            checkServiceStatus();
+        });
+    </script>
+</body>
+</html>

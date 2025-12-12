@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparar Produtos - BOSS SHOPP</title>
+    <link rel="stylesheet" href="optimized-styles.css">
+    <link rel="stylesheet" href="compare.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="boss-shop-logo.png" alt="BOSS SHOPP" class="logo-image">
+                    </a>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Busque por produtos, marcas e muito mais...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="nav-icons">
+                    <a href="login.html" class="nav-icon">
+                        <i class="fas fa-user"></i>
+                        <span>Entrar</span>
+                    </a>
+                    <a href="favorites.html" class="nav-icon">
+                        <i class="fas fa-heart"></i>
+                        <span>Favoritos</span>
+                    </a>
+                    <a href="purchase.html" class="nav-icon cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrinho</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Compare Section -->
+    <section class="compare-section">
+        <div class="container">
+            <div class="compare-header">
+                <h1><i class="fas fa-balance-scale"></i> Comparar Produtos</h1>
+                <p>Compare até 4 produtos lado a lado para tomar a melhor decisão</p>
+            </div>
+
+            <!-- Add Products -->
+            <div class="add-products-section" id="add-products-section">
+                <div class="add-product-card" onclick="openProductSelector(0)">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>Adicionar Produto</span>
+                </div>
+                <div class="add-product-card" onclick="openProductSelector(1)">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>Adicionar Produto</span>
+                </div>
+                <div class="add-product-card" onclick="openProductSelector(2)">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>Adicionar Produto</span>
+                </div>
+                <div class="add-product-card" onclick="openProductSelector(3)">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>Adicionar Produto</span>
+                </div>
+            </div>
+
+            <!-- Comparison Table -->
+            <div class="comparison-table" id="comparison-table" style="display: none;">
+                <div class="comparison-row comparison-header-row">
+                    <div class="comparison-cell label-cell">
+                        <button class="clear-comparison" onclick="clearComparison()">
+                            <i class="fas fa-trash"></i> Limpar Comparação
+                        </button>
+                    </div>
+                    <div class="comparison-cell product-cell" id="product-0"></div>
+                    <div class="comparison-cell product-cell" id="product-1"></div>
+                    <div class="comparison-cell product-cell" id="product-2"></div>
+                    <div class="comparison-cell product-cell" id="product-3"></div>
+                </div>
+
+                <!-- Price Row -->
+                <div class="comparison-row">
+                    <div class="comparison-cell label-cell">
+                        <strong>Preço</strong>
+                    </div>
+                    <div class="comparison-cell" id="price-0"></div>
+                    <div class="comparison-cell" id="price-1"></div>
+                    <div class="comparison-cell" id="price-2"></div>
+                    <div class="comparison-cell" id="price-3"></div>
+                </div>
+
+                <!-- Rating Row -->
+                <div class="comparison-row">
+                    <div class="comparison-cell label-cell">
+                        <strong>Avaliação</strong>
+                    </div>
+                    <div class="comparison-cell" id="rating-0"></div>
+                    <div class="comparison-cell" id="rating-1"></div>
+                    <div class="comparison-cell" id="rating-2"></div>
+                    <div class="comparison-cell" id="rating-3"></div>
+                </div>
+
+                <!-- Discount Row -->
+                <div class="comparison-row">
+                    <div class="comparison-cell label-cell">
+                        <strong>Desconto</strong>
+                    </div>
+                    <div class="comparison-cell" id="discount-0"></div>
+                    <div class="comparison-cell" id="discount-1"></div>
+                    <div class="comparison-cell" id="discount-2"></div>
+                    <div class="comparison-cell" id="discount-3"></div>
+                </div>
+
+                <!-- Shipping Row -->
+                <div class="comparison-row">
+                    <div class="comparison-cell label-cell">
+                        <strong>Frete</strong>
+                    </div>
+                    <div class="comparison-cell" id="shipping-0"></div>
+                    <div class="comparison-cell" id="shipping-1"></div>
+                    <div class="comparison-cell" id="shipping-2"></div>
+                    <div class="comparison-cell" id="shipping-3"></div>
+                </div>
+
+                <!-- Category Row -->
+                <div class="comparison-row">
+                    <div class="comparison-cell label-cell">
+                        <strong>Categoria</strong>
+                    </div>
+                    <div class="comparison-cell" id="category-0"></div>
+                    <div class="comparison-cell" id="category-1"></div>
+                    <div class="comparison-cell" id="category-2"></div>
+                    <div class="comparison-cell" id="category-3"></div>
+                </div>
+
+                <!-- Stock Row -->
+                <div class="comparison-row">
+                    <div class="comparison-cell label-cell">
+                        <strong>Disponibilidade</strong>
+                    </div>
+                    <div class="comparison-cell" id="stock-0"></div>
+                    <div class="comparison-cell" id="stock-1"></div>
+                    <div class="comparison-cell" id="stock-2"></div>
+                    <div class="comparison-cell" id="stock-3"></div>
+                </div>
+
+                <!-- Action Row -->
+                <div class="comparison-row">
+                    <div class="comparison-cell label-cell"></div>
+                    <div class="comparison-cell" id="action-0"></div>
+                    <div class="comparison-cell" id="action-1"></div>
+                    <div class="comparison-cell" id="action-2"></div>
+                    <div class="comparison-cell" id="action-3"></div>
+                </div>
+            </div>
+
+            <!-- Winner Badge -->
+            <div class="winner-section" id="winner-section" style="display: none;">
+                <div class="winner-badge">
+                    <i class="fas fa-trophy"></i>
+                    <h3>Melhor Custo-Benefício</h3>
+                    <p id="winner-name"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Selector Modal -->
+    <div id="product-selector-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Selecione um Produto</h3>
+                <button class="modal-close" onclick="closeProductSelector()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="product-search" class="product-search" placeholder="Buscar produto...">
+                <div class="product-list" id="product-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="compare.js"></script>
+</body>
+</html>

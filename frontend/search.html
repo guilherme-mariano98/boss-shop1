@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Produtos - BOSS SHOPP</title>
+    <link rel="stylesheet" href="optimized-styles.css">
+    <link rel="stylesheet" href="search.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="boss-shop-logo.png" alt="BOSS SHOPP" class="logo-image">
+                    </a>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" id="search-input" class="search-input" placeholder="Busque por produtos, marcas e muito mais...">
+                    <button class="search-btn" onclick="performSearch()"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="nav-icons">
+                    <a href="login.html" class="nav-icon">
+                        <i class="fas fa-user"></i>
+                        <span>Entrar</span>
+                    </a>
+                    <a href="favorites.html" class="nav-icon">
+                        <i class="fas fa-heart"></i>
+                        <span>Favoritos</span>
+                    </a>
+                    <a href="purchase.html" class="nav-icon cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrinho</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Results -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-layout">
+                <!-- Filters Sidebar -->
+                <aside class="filters-sidebar">
+                    <div class="filter-header">
+                        <h3>Filtros</h3>
+                        <button class="clear-filters" onclick="clearFilters()">Limpar</button>
+                    </div>
+
+                    <!-- Category Filter -->
+                    <div class="filter-group">
+                        <h4>Categorias</h4>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="eletronicos" onchange="applyFilters()">
+                                <span>Eletrônicos</span>
+                                <span class="count">(234)</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="moda" onchange="applyFilters()">
+                                <span>Moda</span>
+                                <span class="count">(567)</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="casa" onchange="applyFilters()">
+                                <span>Casa</span>
+                                <span class="count">(189)</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="games" onchange="applyFilters()">
+                                <span>Games</span>
+                                <span class="count">(145)</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="esportes" onchange="applyFilters()">
+                                <span>Esportes</span>
+                                <span class="count">(298)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Price Filter -->
+                    <div class="filter-group">
+                        <h4>Faixa de Preço</h4>
+                        <div class="price-inputs">
+                            <input type="number" id="min-price" placeholder="Mín" onchange="applyFilters()">
+                            <span>até</span>
+                            <input type="number" id="max-price" placeholder="Máx" onchange="applyFilters()">
+                        </div>
+                        <div class="price-ranges">
+                            <button class="price-range-btn" onclick="setPriceRange(0, 100)">Até R$ 100</button>
+                            <button class="price-range-btn" onclick="setPriceRange(100, 500)">R$ 100 - R$ 500</button>
+                            <button class="price-range-btn" onclick="setPriceRange(500, 1000)">R$ 500 - R$ 1.000</button>
+                            <button class="price-range-btn" onclick="setPriceRange(1000, 99999)">Acima de R$ 1.000</button>
+                        </div>
+                    </div>
+
+                    <!-- Rating Filter -->
+                    <div class="filter-group">
+                        <h4>Avaliação</h4>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="5" onchange="applyFilters()">
+                                <span class="stars-filter">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="4" onchange="applyFilters()">
+                                <span class="stars-filter">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </span>
+                                <span>ou mais</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="3" onchange="applyFilters()">
+                                <span class="stars-filter">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </span>
+                                <span>ou mais</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Discount Filter -->
+                    <div class="filter-group">
+                        <h4>Desconto</h4>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="50" onchange="applyFilters()">
+                                <span>50% ou mais</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="40" onchange="applyFilters()">
+                                <span>40% ou mais</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="30" onchange="applyFilters()">
+                                <span>30% ou mais</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="20" onchange="applyFilters()">
+                                <span>20% ou mais</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Shipping Filter -->
+                    <div class="filter-group">
+                        <h4>Entrega</h4>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="free-shipping" onchange="applyFilters()">
+                                <span>Frete Grátis</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="fast-delivery" onchange="applyFilters()">
+                                <span>Entrega Rápida</span>
+                            </label>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Results Area -->
+                <div class="results-area">
+                    <div class="results-header">
+                        <div class="results-info">
+                            <h2 id="search-query">Resultados para: "<span></span>"</h2>
+                            <p id="results-count">Encontramos <strong>0</strong> produtos</p>
+                        </div>
+                        <div class="sort-options">
+                            <label>Ordenar por:</label>
+                            <select id="sort-select" onchange="sortResults()">
+                                <option value="relevance">Mais Relevantes</option>
+                                <option value="price-asc">Menor Preço</option>
+                                <option value="price-desc">Maior Preço</option>
+                                <option value="rating">Melhor Avaliação</option>
+                                <option value="newest">Mais Recentes</option>
+                                <option value="discount">Maior Desconto</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Active Filters -->
+                    <div class="active-filters" id="active-filters"></div>
+
+                    <!-- Products Grid -->
+                    <div class="products-grid" id="products-grid">
+                        <!-- Products will be loaded here -->
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination" id="pagination">
+                        <button class="page-btn" onclick="previousPage()">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn">4</button>
+                        <button class="page-btn">5</button>
+                        <button class="page-btn" onclick="nextPage()">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="search.js"></script>
+</body>
+</html>

@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investidores - BOSS SHOPP</title>
+    <link rel="stylesheet" href="optimized-styles.css">
+    <link rel="stylesheet" href="panel-buttons.css">
+    <link rel="stylesheet" href="pages.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .investors-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .investors-hero h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+        
+        .investors-hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .financial-highlights {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .highlight-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        
+        .highlight-number {
+            font-size: 48px;
+            font-weight: 900;
+            color: #ff6b35;
+            margin-bottom: 10px;
+        }
+        
+        .highlight-label {
+            font-size: 16px;
+            color: #666;
+            font-weight: 600;
+        }
+        
+        .highlight-change {
+            font-size: 14px;
+            color: #28a745;
+            margin-top: 10px;
+        }
+        
+        .highlight-change.negative {
+            color: #dc3545;
+        }
+        
+        .reports-section {
+            padding: 80px 0;
+        }
+        
+        .reports-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .report-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .report-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .report-icon {
+            font-size: 48px;
+            color: #ff6b35;
+            margin-bottom: 20px;
+        }
+        
+        .report-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+        
+        .report-date {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        .download-report-btn {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .download-report-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+        }
+        
+        .governance-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .governance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .governance-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        
+        .governance-icon {
+            font-size: 48px;
+            color: #ff6b35;
+            margin-bottom: 20px;
+        }
+        
+        .governance-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+        
+        .governance-description {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .contact-ir-section {
+            padding: 80px 0;
+        }
+        
+        .contact-ir-card {
+            background: white;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            max-width: 600px;
+            margin: 50px auto 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <div class="loader-text">BOSS SHOPP</div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="header-links">
+                    <a href="sobre.html" class="header-link">Sobre</a>
+                    <a href="atendimento.html" class="header-link">Atendimento</a>
+                    <a href="#" class="header-link">Vendedor</a>
+                    <a href="#" class="header-link">Download</a>
+                    <a href="#" class="header-link">Conecte-se</a>
+                </div>
+                <div class="header-social">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="boss-shop-logo.png" alt="BOSS SHOPP" class="logo-image">
+                    </a>
+                </div>
+                
+                <div class="profile-button">
+                    <a href="profile.html" class="profile-btn">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Meu Perfil</span>
+                    </a>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Busque por produtos, marcas e muito mais...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="nav-icons">
+                    <div class="nav-icon-dropdown">
+                        <a href="login.html" class="nav-icon" id="userIcon">
+                            <i class="fas fa-user"></i>
+                            <span id="userText">Entrar</span>
+                        </a>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="profile.html">
+                                <i class="fas fa-user"></i>
+                                <span>Meu Perfil</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" onclick="logout()">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Sair</span>
+                            </a>
+                        </div>
+                    </div>
+                    <a href="#" class="nav-icon" id="logoutButton" style="display: none;" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sair</span>
+                    </a>
+                    <a href="favorites.html" class="nav-icon">
+                        <i class="fas fa-heart"></i>
+                        <span>Favoritos</span>
+                    </a>
+                    <a href="purchase.html" class="nav-icon cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrinho</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="sobre.html">Sobre</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Investidores</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="investors-hero">
+        <div class="container">
+            <h1>Relações com Investidores</h1>
+            <p>Informações financeiras, relatórios e governança corporativa da BOSS SHOPP</p>
+        </div>
+    </section>
+
+    <!-- Financial Highlights Section -->
+    <section class="financial-highlights">
+        <div class="container">
+            <div class="about-header">
+                <h2 class="section-title">Destaques Financeiros</h2>
+                <p class="section-subtitle">Principais indicadores do último trimestre</p>
+            </div>
+            
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <div class="highlight-number">R$ 250M</div>
+                    <div class="highlight-label">Receita Bruta</div>
+                    <div class="highlight-change">
+                        <i class="fas fa-arrow-up"></i> +35% vs ano anterior
+                    </div>
+                </div>
+                
+                <div class="highlight-card">
+                    <div class="highlight-number">R$ 45M</div>
+                    <div class="highlight-label">EBITDA</div>
+                    <div class="highlight-change">
+                        <i class="fas fa-arrow-up"></i> +42% vs ano anterior
+                    </div>
+                </div>
+                
+                <div class="highlight-card">
+                    <div class="highlight-number">18%</div>
+                    <div class="highlight-label">Margem EBITDA</div>
+                    <div class="highlight-change">
+                        <i class="fas fa-arrow-up"></i> +2.5 p.p.
+                    </div>
+                </div>
+                
+                <div class="highlight-card">
+                    <div class="highlight-number">150K</div>
+                    <div class="highlight-label">Novos Clientes</div>
+                    <div class="highlight-change">
+                        <i class="fas fa-arrow-up"></i> +28% vs trimestre anterior
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reports Section -->
+    <section class="reports-section">
+        <div class="container">
+            <div class="about-header">
+                <h2 class="section-title">Relatórios e Documentos</h2>
+                <p class="section-subtitle">Acesse nossos relatórios financeiros e apresentações</p>
+            </div>
+            
+            <div class="reports-grid">
+                <div class="report-card">
+                    <div class="report-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3 class="report-title">Relatório Anual 2024</h3>
+                    <p class="report-date">Publicado em 15/01/2025</p>
+                    <button class="download-report-btn" onclick="downloadPDF('relatorio-anual')">
+                        <i class="fas fa-download"></i> Download PDF
+                    </button>
+                </div>
+                
+                <div class="report-card">
+                    <div class="report-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="report-title">Resultados 4T24</h3>
+                    <p class="report-date">Publicado em 10/01/2025</p>
+                    <button class="download-report-btn" onclick="downloadPDF('resultados-4t24')">
+                        <i class="fas fa-download"></i> Download PDF
+                    </button>
+                </div>
+                
+                <div class="report-card">
+                    <div class="report-icon">
+                        <i class="fas fa-presentation"></i>
+                    </div>
+                    <h3 class="report-title">Apresentação Institucional</h3>
+                    <p class="report-date">Atualizado em 05/01/2025</p>
+                    <button class="download-report-btn" onclick="downloadPDF('apresentacao')">
+                        <i class="fas fa-download"></i> Download PDF
+                    </button>
+                </div>
+                
+                <div class="report-card">
+                    <div class="report-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3 class="report-title">Demonstrações Financeiras</h3>
+                    <p class="report-date">Publicado em 20/12/2024</p>
+                    <button class="download-report-btn" onclick="downloadPDF('demonstracoes')">
+                        <i class="fas fa-download"></i> Download PDF
+                    </button>
+                </div>
+                
+                <div class="report-card">
+                    <div class="report-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="report-title">Calendário de Eventos</h3>
+                    <p class="report-date">Atualizado em 01/01/2025</p>
+                    <button class="download-report-btn" onclick="downloadPDF('calendario')">
+                        <i class="fas fa-download"></i> Download PDF
+                    </button>
+                </div>
+                
+                <div class="report-card">
+                    <div class="report-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3 class="report-title">Estatuto Social</h3>
+                    <p class="report-date">Última revisão em 15/12/2024</p>
+                    <button class="download-report-btn" onclick="downloadPDF('estatuto')">
+                        <i class="fas fa-download"></i> Download PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Governance Section -->
+    <section class="governance-section">
+        <div class="container">
+            <div class="about-header">
+                <h2 class="section-title">Governança Corporativa</h2>
+                <p class="section-subtitle">Nosso compromisso com transparência e boas práticas</p>
+            </div>
+            
+            <div class="governance-grid">
+                <div class="governance-card">
+                    <div class="governance-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="governance-title">Compliance</h3>
+                    <p class="governance-description">
+                        Programa robusto de compliance e ética empresarial, garantindo conformidade com todas as regulamentações aplicáveis.
+                    </p>
+                </div>
+                
+                <div class="governance-card">
+                    <div class="governance-icon">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h3 class="governance-title">Conselho de Administração</h3>
+                    <p class="governance-description">
+                        Conselho independente e diversificado, com profissionais experientes de diferentes áreas de atuação.
+                    </p>
+                </div>
+                
+                <div class="governance-card">
+                    <div class="governance-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3 class="governance-title">Código de Conduta</h3>
+                    <p class="governance-description">
+                        Diretrizes claras de conduta ética para todos os colaboradores, parceiros e fornecedores.
+                    </p>
+                </div>
+                
+                <div class="governance-card">
+                    <div class="governance-icon">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h3 class="governance-title">Auditoria</h3>
+                    <p class="governance-description">
+                        Processos rigorosos de auditoria interna e externa para garantir a integridade das informações financeiras.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact IR Section -->
+    <section class="contact-ir-section">
+        <div class="container">
+            <div class="about-header">
+                <h2 class="section-title">Contato com Relações com Investidores</h2>
+                <p class="section-subtitle">Nossa equipe está à disposição para atendê-lo</p>
+            </div>
+            
+            <div class="contact-ir-card">
+                <div style="font-size: 64px; color: #ff6b35; margin-bottom: 30px;">
+                    <i class="fas fa-envelope-open-text"></i>
+                </div>
+                <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 20px;">Entre em Contato</h3>
+                <p style="color: #666; margin-bottom: 30px; line-height: 1.6;">
+                    Para dúvidas, esclarecimentos ou solicitações de informações adicionais, 
+                    entre em contato com nossa equipe de Relações com Investidores.
+                </p>
+                <div style="margin-bottom: 15px;">
+                    <strong>E-mail:</strong> 
+                    <a href="mailto:ri@bossshopp.com.br" style="color: #ff6b35; text-decoration: none;">ri@bossshopp.com.br</a>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <strong>Telefone:</strong> (11) 3000-1000
+                </div>
+                <div>
+                    <strong>Horário de Atendimento:</strong> Segunda a Sexta, 9h às 18h
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>BOSS SHOPP</h3>
+                    <p>Sua loja online de confiança, oferecendo produtos de qualidade com preços competitivos e entrega rápida em todo o Brasil.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Informações</h4>
+                    <ul>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="nossa-historia.html">Nossa História</a></li>
+                        <li><a href="trabalhe-conosco.html">Trabalhe Conosco</a></li>
+                        <li><a href="imprensa.html">Imprensa</a></li>
+                        <li><a href="investidores.html">Investidores</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Categorias</h4>
+                    <ul>
+                        <li><a href="moda.html">Moda</a></li>
+                        <li><a href="eletronicos.html">Eletrônicos</a></li>
+                        <li><a href="casa.html">Casa</a></li>
+                        <li><a href="games.html">Games</a></li>
+                        <li><a href="esportes.html">Esportes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> (11) 99999-9999</li>
+                        <li><i class="fas fa-envelope"></i> contato@bossshopp.com.br</li>
+                        <li><i class="fas fa-map-marker-alt"></i> São Paulo, SP</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 BOSS SHOPP. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Remove preloader when page loads
+        window.addEventListener('load', function() {
+            const preloader = document.querySelector('.preloader');
+            if (preloader) {
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 300);
+            }
+        });
+        
+        // Função para gerar e baixar PDF
+        function downloadPDF(reportType) {
+            // Verificar se jsPDF está carregado, se não, usar fallback
+            if (typeof window.jspdf === 'undefined') {
+                console.warn('jsPDF não disponível, usando método alternativo');
+                downloadPDFFallback(reportType);
+                return;
+            }
+            
+            try {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+            
+            // Configurações do documento
+            const pageWidth = doc.internal.pageSize.getWidth();
+            const pageHeight = doc.internal.pageSize.getHeight();
+            const margin = 20;
+            let yPosition = margin;
+            
+            // Cabeçalho
+            doc.setFillColor(255, 107, 53);
+            doc.rect(0, 0, pageWidth, 40, 'F');
+            
+            doc.setTextColor(255, 255, 255);
+            doc.setFontSize(24);
+            doc.setFont(undefined, 'bold');
+            doc.text('BOSS SHOPP', margin, 25);
+            
+            doc.setFontSize(12);
+            doc.setFont(undefined, 'normal');
+            doc.text('Relações com Investidores', margin, 33);
+            
+            yPosition = 60;
+            doc.setTextColor(0, 0, 0);
+            
+            // Conteúdo baseado no tipo de relatório
+            const reports = {
+                'relatorio-anual': {
+                    title: 'Relatório Anual 2024',
+                    date: '15 de Janeiro de 2025',
+                    content: [
+                        'RESUMO EXECUTIVO',
+                        '',
+                        'A BOSS SHOPP encerrou o ano de 2024 com resultados excepcionais, consolidando',
+                        'sua posição como uma das principais plataformas de e-commerce do Brasil.',
+                        '',
+                        'DESTAQUES FINANCEIROS',
+                        '',
+                        '• Receita Bruta: R$ 250 milhões (+35% vs 2023)',
+                        '• EBITDA: R$ 45 milhões (+42% vs 2023)',
+                        '• Margem EBITDA: 18% (+2.5 p.p.)',
+                        '• Novos Clientes: 150 mil (+28% vs trimestre anterior)',
+                        '',
+                        'PRINCIPAIS CONQUISTAS',
+                        '',
+                        '• Expansão para 3 novos centros de distribuição',
+                        '• Lançamento do marketplace com 1.000+ vendedores parceiros',
+                        '• Certificação de sustentabilidade internacional',
+                        '• Implementação de IA para recomendações personalizadas',
+                        '',
+                        'PERSPECTIVAS 2025',
+                        '',
+                        'Para 2025, projetamos crescimento de 40% na receita, com foco em:',
+                        '• Expansão geográfica para regiões Norte e Nordeste',
+                        '• Investimento em tecnologia e inovação',
+                        '• Ampliação do catálogo de produtos',
+                        '• Fortalecimento da marca e experiência do cliente'
+                    ]
+                },
+                'resultados-4t24': {
+                    title: 'Resultados do 4º Trimestre de 2024',
+                    date: '10 de Janeiro de 2025',
+                    content: [
+                        'DESEMPENHO OPERACIONAL - 4T24',
+                        '',
+                        'RECEITA E RENTABILIDADE',
+                        '',
+                        '• Receita Líquida: R$ 75 milhões',
+                        '• Crescimento: +38% vs 4T23',
+                        '• EBITDA: R$ 13,5 milhões',
+                        '• Margem EBITDA: 18%',
+                        '• Lucro Líquido: R$ 8,2 milhões',
+                        '',
+                        'INDICADORES OPERACIONAIS',
+                        '',
+                        '• GMV (Volume Bruto de Mercadorias): R$ 95 milhões',
+                        '• Pedidos Processados: 280 mil',
+                        '• Ticket Médio: R$ 339',
+                        '• Taxa de Conversão: 3.8%',
+                        '• NPS (Net Promoter Score): 72',
+                        '',
+                        'INVESTIMENTOS',
+                        '',
+                        '• CAPEX: R$ 12 milhões',
+                        '• Tecnologia e Infraestrutura: R$ 7 milhões',
+                        '• Marketing e Aquisição: R$ 5 milhões',
+                        '',
+                        'GUIDANCE 2025',
+                        '',
+                        '• Receita: R$ 350-380 milhões',
+                        '• Margem EBITDA: 19-21%',
+                        '• CAPEX: R$ 50-60 milhões'
+                    ]
+                },
+                'apresentacao': {
+                    title: 'Apresentação Institucional',
+                    date: '05 de Janeiro de 2025',
+                    content: [
+                        'SOBRE A BOSS SHOPP',
+                        '',
+                        'Fundada em 2020, a BOSS SHOPP é uma plataforma de e-commerce que oferece',
+                        'uma ampla variedade de produtos com foco em qualidade, preço competitivo',
+                        'e excelência no atendimento.',
+                        '',
+                        'NOSSA MISSÃO',
+                        '',
+                        'Proporcionar a melhor experiência de compra online, oferecendo produtos',
+                        'de qualidade, preços justos e atendimento que supere expectativas.',
+                        '',
+                        'MODELO DE NEGÓCIO',
+                        '',
+                        '• E-commerce próprio com catálogo de 100.000+ produtos',
+                        '• Marketplace com 1.000+ vendedores parceiros',
+                        '• Logística integrada com 4 centros de distribuição',
+                        '• Tecnologia proprietária de recomendação',
+                        '',
+                        'VANTAGENS COMPETITIVAS',
+                        '',
+                        '• Plataforma tecnológica robusta e escalável',
+                        '• Rede logística estrategicamente posicionada',
+                        '• Base de 50.000+ clientes ativos e engajados',
+                        '• Equipe experiente e qualificada',
+                        '• Forte cultura de inovação',
+                        '',
+                        'MERCADO ENDEREÇÁVEL',
+                        '',
+                        'O e-commerce brasileiro movimentou R$ 185 bilhões em 2024,',
+                        'com crescimento projetado de 15% ao ano até 2028.'
+                    ]
+                },
+                'demonstracoes': {
+                    title: 'Demonstrações Financeiras 2024',
+                    date: '20 de Dezembro de 2024',
+                    content: [
+                        'BALANÇO PATRIMONIAL (em milhões de R$)',
+                        '',
+                        'ATIVO',
+                        '• Circulante: 85',
+                        '  - Caixa e Equivalentes: 35',
+                        '  - Contas a Receber: 28',
+                        '  - Estoques: 22',
+                        '• Não Circulante: 95',
+                        '  - Imobilizado: 45',
+                        '  - Intangível: 50',
+                        'TOTAL DO ATIVO: 180',
+                        '',
+                        'PASSIVO',
+                        '• Circulante: 45',
+                        '  - Fornecedores: 25',
+                        '  - Obrigações Fiscais: 12',
+                        '  - Outras Obrigações: 8',
+                        '• Não Circulante: 35',
+                        '  - Empréstimos: 35',
+                        '• Patrimônio Líquido: 100',
+                        'TOTAL DO PASSIVO: 180',
+                        '',
+                        'DEMONSTRAÇÃO DO RESULTADO (em milhões de R$)',
+                        '',
+                        '• Receita Bruta: 250',
+                        '• (-) Deduções: (25)',
+                        '• Receita Líquida: 225',
+                        '• (-) CMV: (135)',
+                        '• Lucro Bruto: 90',
+                        '• (-) Despesas Operacionais: (45)',
+                        '• EBITDA: 45',
+                        '• (-) Depreciação: (8)',
+                        '• EBIT: 37',
+                        '• (-) Resultado Financeiro: (5)',
+                        '• Lucro Antes dos Impostos: 32',
+                        '• (-) IR/CSLL: (10)',
+                        '• Lucro Líquido: 22'
+                    ]
+                },
+                'calendario': {
+                    title: 'Calendário de Eventos 2025',
+                    date: '01 de Janeiro de 2025',
+                    content: [
+                        'EVENTOS CORPORATIVOS 2025',
+                        '',
+                        'PRIMEIRO TRIMESTRE',
+                        '',
+                        '• 15/01 - Divulgação Relatório Anual 2024',
+                        '• 10/02 - Conference Call - Resultados 4T24',
+                        '• 15/03 - Assembleia Geral Ordinária',
+                        '• 20/03 - Pagamento de Dividendos',
+                        '',
+                        'SEGUNDO TRIMESTRE',
+                        '',
+                        '• 15/04 - Divulgação Resultados 1T25',
+                        '• 20/04 - Conference Call - Resultados 1T25',
+                        '• 15/05 - Reunião com Analistas',
+                        '• 10/06 - Participação em Conferência de Investidores',
+                        '',
+                        'TERCEIRO TRIMESTRE',
+                        '',
+                        '• 15/07 - Divulgação Resultados 2T25',
+                        '• 20/07 - Conference Call - Resultados 2T25',
+                        '• 15/08 - Investor Day',
+                        '• 20/09 - Pagamento de Dividendos',
+                        '',
+                        'QUARTO TRIMESTRE',
+                        '',
+                        '• 15/10 - Divulgação Resultados 3T25',
+                        '• 20/10 - Conference Call - Resultados 3T25',
+                        '• 15/11 - Reunião com Investidores',
+                        '• 15/12 - Guidance 2026',
+                        '',
+                        'INFORMAÇÕES',
+                        '',
+                        'Todas as divulgações serão realizadas após o fechamento do mercado.',
+                        'Conference calls serão transmitidas ao vivo pelo site de RI.',
+                        'Materiais estarão disponíveis em www.bossshopp.com.br/ri'
+                    ]
+                },
+                'estatuto': {
+                    title: 'Estatuto Social',
+                    date: '15 de Dezembro de 2024',
+                    content: [
+                        'ESTATUTO SOCIAL DA BOSS SHOPP S.A.',
+                        '',
+                        'CAPÍTULO I - DENOMINAÇÃO, SEDE, OBJETO E DURAÇÃO',
+                        '',
+                        'Artigo 1º - A BOSS SHOPP S.A. é uma sociedade anônima que se rege',
+                        'pelo presente Estatuto Social e pelas disposições legais aplicáveis.',
+                        '',
+                        'Artigo 2º - A Companhia tem sede e foro na cidade de São Paulo,',
+                        'Estado de São Paulo, podendo abrir filiais em qualquer parte do território nacional.',
+                        '',
+                        'Artigo 3º - A Companhia tem por objeto social:',
+                        '• Comércio varejista de produtos diversos através de plataforma digital',
+                        '• Prestação de serviços de marketplace',
+                        '• Logística e distribuição de mercadorias',
+                        '',
+                        'Artigo 4º - O prazo de duração da Companhia é indeterminado.',
+                        '',
+                        'CAPÍTULO II - CAPITAL SOCIAL',
+                        '',
+                        'Artigo 5º - O capital social é de R$ 100.000.000,00 (cem milhões de reais),',
+                        'dividido em 100.000.000 (cem milhões) de ações ordinárias nominativas,',
+                        'sem valor nominal.',
+                        '',
+                        'CAPÍTULO III - ADMINISTRAÇÃO',
+                        '',
+                        'Artigo 6º - A Companhia será administrada por um Conselho de',
+                        'Administração e uma Diretoria.',
+                        '',
+                        'Artigo 7º - O Conselho de Administração será composto por no mínimo',
+                        '3 (três) e no máximo 7 (sete) membros, eleitos pela Assembleia Geral.',
+                        '',
+                        'Artigo 8º - A Diretoria será composta por no mínimo 2 (dois) e no',
+                        'máximo 5 (cinco) membros, sendo um Diretor Presidente e os demais',
+                        'Diretores sem designação específica.',
+                        '',
+                        'CAPÍTULO IV - CONSELHO FISCAL',
+                        '',
+                        'Artigo 9º - A Companhia terá um Conselho Fiscal de funcionamento',
+                        'não permanente, composto por 3 (três) membros efetivos e igual número',
+                        'de suplentes.'
+                    ]
+                }
+            };
+            
+            const report = reports[reportType];
+            
+            if (!report) {
+                alert('Relatório não encontrado!');
+                return;
+            }
+            
+            // Título do relatório
+            doc.setFontSize(18);
+            doc.setFont(undefined, 'bold');
+            doc.text(report.title, margin, yPosition);
+            yPosition += 10;
+            
+            // Data
+            doc.setFontSize(10);
+            doc.setFont(undefined, 'normal');
+            doc.setTextColor(100, 100, 100);
+            doc.text(report.date, margin, yPosition);
+            yPosition += 15;
+            
+            // Linha separadora
+            doc.setDrawColor(255, 107, 53);
+            doc.setLineWidth(0.5);
+            doc.line(margin, yPosition, pageWidth - margin, yPosition);
+            yPosition += 10;
+            
+            // Conteúdo
+            doc.setTextColor(0, 0, 0);
+            doc.setFontSize(10);
+            
+            report.content.forEach(line => {
+                if (yPosition > pageHeight - 30) {
+                    doc.addPage();
+                    yPosition = margin;
+                }
+                
+                if (line === '') {
+                    yPosition += 5;
+                } else if (line.startsWith('•')) {
+                    doc.setFont(undefined, 'normal');
+                    doc.text(line, margin + 5, yPosition);
+                    yPosition += 6;
+                } else if (line === line.toUpperCase() && line.length > 0) {
+                    doc.setFont(undefined, 'bold');
+                    doc.setFontSize(12);
+                    doc.text(line, margin, yPosition);
+                    doc.setFontSize(10);
+                    yPosition += 8;
+                } else {
+                    doc.setFont(undefined, 'normal');
+                    doc.text(line, margin, yPosition);
+                    yPosition += 6;
+                }
+            });
+            
+            // Rodapé
+            const totalPages = doc.internal.pages.length - 1;
+            for (let i = 1; i <= totalPages; i++) {
+                doc.setPage(i);
+                doc.setFontSize(8);
+                doc.setTextColor(150, 150, 150);
+                doc.text(
+                    `BOSS SHOPP - Relações com Investidores | Página ${i} de ${totalPages}`,
+                    pageWidth / 2,
+                    pageHeight - 10,
+                    { align: 'center' }
+                );
+            }
+            
+                // Download
+                const fileName = `BOSS_SHOPP_${reportType}_${new Date().getTime()}.pdf`;
+                doc.save(fileName);
+            } catch (error) {
+                console.error('Erro ao gerar PDF com jsPDF:', error);
+                downloadPDFFallback(reportType);
+                return;
+            }
+            
+            // Feedback visual
+            try {
+                const button = event.target.closest('.download-report-btn');
+                const originalHTML = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i> Download Concluído!';
+                button.style.background = '#28a745';
+                
+                setTimeout(() => {
+                    button.innerHTML = originalHTML;
+                    button.style.background = '';
+                }, 2000);
+            } catch (error) {
+                console.error('Erro ao gerar PDF:', error);
+                alert('Erro ao gerar PDF. Por favor, tente novamente.');
+            }
+        }
+        
+        // Função de fallback - gera um documento HTML que pode ser salvo como PDF
+        function downloadPDFFallback(reportType) {
+            const reports = {
+                'relatorio-anual': {
+                    title: 'Relatório Anual 2024',
+                    date: '15 de Janeiro de 2025',
+                    content: `
+                        <h2>RESUMO EXECUTIVO</h2>
+                        <p>A BOSS SHOPP encerrou o ano de 2024 com resultados excepcionais, consolidando sua posição como uma das principais plataformas de e-commerce do Brasil.</p>
+                        
+                        <h2>DESTAQUES FINANCEIROS</h2>
+                        <ul>
+                            <li>Receita Bruta: R$ 250 milhões (+35% vs 2023)</li>
+                            <li>EBITDA: R$ 45 milhões (+42% vs 2023)</li>
+                            <li>Margem EBITDA: 18% (+2.5 p.p.)</li>
+                            <li>Novos Clientes: 150 mil (+28% vs trimestre anterior)</li>
+                        </ul>
+                        
+                        <h2>PRINCIPAIS CONQUISTAS</h2>
+                        <ul>
+                            <li>Expansão para 3 novos centros de distribuição</li>
+                            <li>Lançamento do marketplace com 1.000+ vendedores parceiros</li>
+                            <li>Certificação de sustentabilidade internacional</li>
+                            <li>Implementação de IA para recomendações personalizadas</li>
+                        </ul>
+                        
+                        <h2>PERSPECTIVAS 2025</h2>
+                        <p>Para 2025, projetamos crescimento de 40% na receita, com foco em:</p>
+                        <ul>
+                            <li>Expansão geográfica para regiões Norte e Nordeste</li>
+                            <li>Investimento em tecnologia e inovação</li>
+                            <li>Ampliação do catálogo de produtos</li>
+                            <li>Fortalecimento da marca e experiência do cliente</li>
+                        </ul>
+                    `
+                },
+                'resultados-4t24': {
+                    title: 'Resultados do 4º Trimestre de 2024',
+                    date: '10 de Janeiro de 2025',
+                    content: `
+                        <h2>DESEMPENHO OPERACIONAL - 4T24</h2>
+                        
+                        <h3>RECEITA E RENTABILIDADE</h3>
+                        <ul>
+                            <li>Receita Líquida: R$ 75 milhões</li>
+                            <li>Crescimento: +38% vs 4T23</li>
+                            <li>EBITDA: R$ 13,5 milhões</li>
+                            <li>Margem EBITDA: 18%</li>
+                            <li>Lucro Líquido: R$ 8,2 milhões</li>
+                        </ul>
+                        
+                        <h3>INDICADORES OPERACIONAIS</h3>
+                        <ul>
+                            <li>GMV (Volume Bruto de Mercadorias): R$ 95 milhões</li>
+                            <li>Pedidos Processados: 280 mil</li>
+                            <li>Ticket Médio: R$ 339</li>
+                            <li>Taxa de Conversão: 3.8%</li>
+                            <li>NPS (Net Promoter Score): 72</li>
+                        </ul>
+                        
+                        <h3>INVESTIMENTOS</h3>
+                        <ul>
+                            <li>CAPEX: R$ 12 milhões</li>
+                            <li>Tecnologia e Infraestrutura: R$ 7 milhões</li>
+                            <li>Marketing e Aquisição: R$ 5 milhões</li>
+                        </ul>
+                        
+                        <h3>GUIDANCE 2025</h3>
+                        <ul>
+                            <li>Receita: R$ 350-380 milhões</li>
+                            <li>Margem EBITDA: 19-21%</li>
+                            <li>CAPEX: R$ 50-60 milhões</li>
+                        </ul>
+                    `
+                },
+                'apresentacao': {
+                    title: 'Apresentação Institucional',
+                    date: '05 de Janeiro de 2025',
+                    content: `
+                        <h2>SOBRE A BOSS SHOPP</h2>
+                        <p>Fundada em 2020, a BOSS SHOPP é uma plataforma de e-commerce que oferece uma ampla variedade de produtos com foco em qualidade, preço competitivo e excelência no atendimento.</p>
+                        
+                        <h2>NOSSA MISSÃO</h2>
+                        <p>Proporcionar a melhor experiência de compra online, oferecendo produtos de qualidade, preços justos e atendimento que supere expectativas.</p>
+                        
+                        <h2>MODELO DE NEGÓCIO</h2>
+                        <ul>
+                            <li>E-commerce próprio com catálogo de 100.000+ produtos</li>
+                            <li>Marketplace com 1.000+ vendedores parceiros</li>
+                            <li>Logística integrada com 4 centros de distribuição</li>
+                            <li>Tecnologia proprietária de recomendação</li>
+                        </ul>
+                        
+                        <h2>VANTAGENS COMPETITIVAS</h2>
+                        <ul>
+                            <li>Plataforma tecnológica robusta e escalável</li>
+                            <li>Rede logística estrategicamente posicionada</li>
+                            <li>Base de 50.000+ clientes ativos e engajados</li>
+                            <li>Equipe experiente e qualificada</li>
+                            <li>Forte cultura de inovação</li>
+                        </ul>
+                        
+                        <h2>MERCADO ENDEREÇÁVEL</h2>
+                        <p>O e-commerce brasileiro movimentou R$ 185 bilhões em 2024, com crescimento projetado de 15% ao ano até 2028.</p>
+                    `
+                },
+                'demonstracoes': {
+                    title: 'Demonstrações Financeiras 2024',
+                    date: '20 de Dezembro de 2024',
+                    content: `
+                        <h2>BALANÇO PATRIMONIAL (em milhões de R$)</h2>
+                        
+                        <h3>ATIVO</h3>
+                        <ul>
+                            <li>Circulante: 85
+                                <ul>
+                                    <li>Caixa e Equivalentes: 35</li>
+                                    <li>Contas a Receber: 28</li>
+                                    <li>Estoques: 22</li>
+                                </ul>
+                            </li>
+                            <li>Não Circulante: 95
+                                <ul>
+                                    <li>Imobilizado: 45</li>
+                                    <li>Intangível: 50</li>
+                                </ul>
+                            </li>
+                            <li><strong>TOTAL DO ATIVO: 180</strong></li>
+                        </ul>
+                        
+                        <h3>PASSIVO</h3>
+                        <ul>
+                            <li>Circulante: 45
+                                <ul>
+                                    <li>Fornecedores: 25</li>
+                                    <li>Obrigações Fiscais: 12</li>
+                                    <li>Outras Obrigações: 8</li>
+                                </ul>
+                            </li>
+                            <li>Não Circulante: 35
+                                <ul>
+                                    <li>Empréstimos: 35</li>
+                                </ul>
+                            </li>
+                            <li>Patrimônio Líquido: 100</li>
+                            <li><strong>TOTAL DO PASSIVO: 180</strong></li>
+                        </ul>
+                        
+                        <h2>DEMONSTRAÇÃO DO RESULTADO (em milhões de R$)</h2>
+                        <ul>
+                            <li>Receita Bruta: 250</li>
+                            <li>(-) Deduções: (25)</li>
+                            <li>Receita Líquida: 225</li>
+                            <li>(-) CMV: (135)</li>
+                            <li>Lucro Bruto: 90</li>
+                            <li>(-) Despesas Operacionais: (45)</li>
+                            <li>EBITDA: 45</li>
+                            <li>(-) Depreciação: (8)</li>
+                            <li>EBIT: 37</li>
+                            <li>(-) Resultado Financeiro: (5)</li>
+                            <li>Lucro Antes dos Impostos: 32</li>
+                            <li>(-) IR/CSLL: (10)</li>
+                            <li><strong>Lucro Líquido: 22</strong></li>
+                        </ul>
+                    `
+                },
+                'calendario': {
+                    title: 'Calendário de Eventos 2025',
+                    date: '01 de Janeiro de 2025',
+                    content: `
+                        <h2>EVENTOS CORPORATIVOS 2025</h2>
+                        
+                        <h3>PRIMEIRO TRIMESTRE</h3>
+                        <ul>
+                            <li>15/01 - Divulgação Relatório Anual 2024</li>
+                            <li>10/02 - Conference Call - Resultados 4T24</li>
+                            <li>15/03 - Assembleia Geral Ordinária</li>
+                            <li>20/03 - Pagamento de Dividendos</li>
+                        </ul>
+                        
+                        <h3>SEGUNDO TRIMESTRE</h3>
+                        <ul>
+                            <li>15/04 - Divulgação Resultados 1T25</li>
+                            <li>20/04 - Conference Call - Resultados 1T25</li>
+                            <li>15/05 - Reunião com Analistas</li>
+                            <li>10/06 - Participação em Conferência de Investidores</li>
+                        </ul>
+                        
+                        <h3>TERCEIRO TRIMESTRE</h3>
+                        <ul>
+                            <li>15/07 - Divulgação Resultados 2T25</li>
+                            <li>20/07 - Conference Call - Resultados 2T25</li>
+                            <li>15/08 - Investor Day</li>
+                            <li>20/09 - Pagamento de Dividendos</li>
+                        </ul>
+                        
+                        <h3>QUARTO TRIMESTRE</h3>
+                        <ul>
+                            <li>15/10 - Divulgação Resultados 3T25</li>
+                            <li>20/10 - Conference Call - Resultados 3T25</li>
+                            <li>15/11 - Reunião com Investidores</li>
+                            <li>15/12 - Guidance 2026</li>
+                        </ul>
+                        
+                        <h3>INFORMAÇÕES</h3>
+                        <p>Todas as divulgações serão realizadas após o fechamento do mercado. Conference calls serão transmitidas ao vivo pelo site de RI. Materiais estarão disponíveis em www.bossshopp.com.br/ri</p>
+                    `
+                },
+                'estatuto': {
+                    title: 'Estatuto Social',
+                    date: '15 de Dezembro de 2024',
+                    content: `
+                        <h2>ESTATUTO SOCIAL DA BOSS SHOPP S.A.</h2>
+                        
+                        <h3>CAPÍTULO I - DENOMINAÇÃO, SEDE, OBJETO E DURAÇÃO</h3>
+                        <p><strong>Artigo 1º</strong> - A BOSS SHOPP S.A. é uma sociedade anônima que se rege pelo presente Estatuto Social e pelas disposições legais aplicáveis.</p>
+                        <p><strong>Artigo 2º</strong> - A Companhia tem sede e foro na cidade de São Paulo, Estado de São Paulo, podendo abrir filiais em qualquer parte do território nacional.</p>
+                        <p><strong>Artigo 3º</strong> - A Companhia tem por objeto social:</p>
+                        <ul>
+                            <li>Comércio varejista de produtos diversos através de plataforma digital</li>
+                            <li>Prestação de serviços de marketplace</li>
+                            <li>Logística e distribuição de mercadorias</li>
+                        </ul>
+                        <p><strong>Artigo 4º</strong> - O prazo de duração da Companhia é indeterminado.</p>
+                        
+                        <h3>CAPÍTULO II - CAPITAL SOCIAL</h3>
+                        <p><strong>Artigo 5º</strong> - O capital social é de R$ 100.000.000,00 (cem milhões de reais), dividido em 100.000.000 (cem milhões) de ações ordinárias nominativas, sem valor nominal.</p>
+                        
+                        <h3>CAPÍTULO III - ADMINISTRAÇÃO</h3>
+                        <p><strong>Artigo 6º</strong> - A Companhia será administrada por um Conselho de Administração e uma Diretoria.</p>
+                        <p><strong>Artigo 7º</strong> - O Conselho de Administração será composto por no mínimo 3 (três) e no máximo 7 (sete) membros, eleitos pela Assembleia Geral.</p>
+                        <p><strong>Artigo 8º</strong> - A Diretoria será composta por no mínimo 2 (dois) e no máximo 5 (cinco) membros, sendo um Diretor Presidente e os demais Diretores sem designação específica.</p>
+                        
+                        <h3>CAPÍTULO IV - CONSELHO FISCAL</h3>
+                        <p><strong>Artigo 9º</strong> - A Companhia terá um Conselho Fiscal de funcionamento não permanente, composto por 3 (três) membros efetivos e igual número de suplentes.</p>
+                    `
+                }
+            };
+            
+            const report = reports[reportType];
+            if (!report) {
+                alert('Relatório não encontrado!');
+                return;
+            }
+            
+            // Criar HTML do documento
+            const htmlContent = `
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${report.title}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            line-height: 1.6;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 30px;
+            margin: -40px -40px 40px -40px;
+        }
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 28px;
+        }
+        .header .subtitle {
+            margin: 0;
+            opacity: 0.9;
+        }
+        .date {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #ff6b35;
+            border-bottom: 2px solid #ff6b35;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #333;
+            margin-top: 20px;
+        }
+        ul {
+            margin: 15px 0;
+        }
+        li {
+            margin: 8px 0;
+        }
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+        }
+        @media print {
+            body { padding: 20px; }
+            .header { margin: -20px -20px 20px -20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>BOSS SHOPP</h1>
+        <p class="subtitle">Relações com Investidores</p>
+    </div>
+    
+    <h1>${report.title}</h1>
+    <p class="date">${report.date}</p>
+    
+    ${report.content}
+    
+    <div class="footer">
+        <p>BOSS SHOPP S.A. - Relações com Investidores</p>
+        <p>ri@bossshopp.com.br | (11) 3000-1000</p>
+        <p>Documento gerado em ${new Date().toLocaleDateString('pt-BR')}</p>
+    </div>
+</body>
+</html>
+            `;
+            
+            // Criar blob e fazer download
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `BOSS_SHOPP_${reportType}_${new Date().getTime()}.html`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            // Feedback visual
+            const button = event.target.closest('.download-report-btn');
+            const originalHTML = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-check"></i> Download Concluído!';
+            button.style.background = '#28a745';
+            
+            setTimeout(() => {
+                button.innerHTML = originalHTML;
+                button.style.background = '';
+            }, 2000);
+            
+            // Mostrar mensagem informativa
+            setTimeout(() => {
+                alert('📄 Documento baixado!\n\nO arquivo HTML pode ser aberto no navegador e salvo como PDF usando:\nArquivo → Imprimir → Salvar como PDF');
+            }, 500);
+        }
+        
+        // Verificar se a biblioteca jsPDF carregou
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                if (typeof window.jspdf === 'undefined') {
+                    console.warn('jsPDF não carregou. Usando método alternativo de download.');
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

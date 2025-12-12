@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Autenticação - BOSS SHOPP</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container" style="padding: 50px 20px;">
+        <h1>Teste de Autenticação</h1>
+        
+        <div style="margin-bottom: 30px;">
+            <h2>Status de Autenticação</h2>
+            <p id="authStatus">Verificando...</p>
+        </div>
+        
+        <div style="margin-bottom: 30px;">
+            <h2>Teste de Login</h2>
+            <form id="loginForm">
+                <div style="margin-bottom: 15px;">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required style="width: 100%; padding: 10px; margin-top: 5px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" required style="width: 100%; padding: 10px; margin-top: 5px;">
+                </div>
+                <button type="submit" style="padding: 10px 20px; background: #000; color: #fff; border: none; cursor: pointer;">
+                    Login
+                </button>
+            </form>
+            <div id="loginResult" style="margin-top: 15px;"></div>
+        </div>
+        
+        <div style="margin-bottom: 30px;">
+            <h2>Dados do Usuário</h2>
+            <pre id="userData" style="background: #f5f5f5; padding: 15px; overflow: auto;"></pre>
+        </div>
+        
+        <button id="clearAuth" style="padding: 10px 20px; background: #ff4444; color: #fff; border: none; cursor: pointer;">
+            Limpar Dados de Autenticação
+        </button>
+        
+        <button onclick="window.location.href='index.html'" style="padding: 10px 20px; background: #000; color: #fff; border: none; cursor: pointer; margin-left: 10px;">
+            Voltar para Home
+        </button>
+    </div>
+
+    <script>
+        // Check authentication status
+        function checkAuthStatus() {
+            const authToken = localStorage.getItem('authToken');
+            const user = localStorage.getItem('user');
+            const statusElement = document.getElementById('authStatus');
+            
+            if (authToken && user) {
+                statusElement.innerHTML = `<span style="color: green;">Autenticado</span> - Token: ${authToken.substring(0, 10)}...`;
+                try {
+                    const userData = JSON.parse(user);
+                    document.getElementById('userData').textContent = JSON.stringify(userData, null, 2);
+                } catch (e) {
+                    document.getElementById('userData').textContent = 'Erro ao parsear dados do usuário';
+                }
+            } else {
+                statusElement.innerHTML = '<span style="color: red;">Não autenticado</span>';
+                document.getElementById('userData').textContent = 'Nenhum dado de usuário encontrado';
+            }
+        }
+        
+        // Login function
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const resultElement = document.getElementById('loginResult');
+            
+            resultElement.innerHTML = 'Autenticando...';
+            
+            try {
+                const response = await fetch('http://127.0.0.1:8000/api/login/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    localStorage.setItem('authToken', data.token);
+                    localStorage.setItem('user', JSON.stringify(data.user));
+                    resultElement.innerHTML = '<span style="color: green;">Login realizado com sucesso!</span>';
+                    checkAuthStatus();
+                } else {
+                    resultElement.innerHTML = `<span style="color: red;">Erro: ${data.error}</span>`;
+                }
+            } catch (error) {
+                resultElement.innerHTML = `<span style="color: red;">Erro de conexão: ${error.message}</span>`;
+            }
+        });
+        
+        // Clear authentication
+        document.getElementById('clearAuth').addEventListener('click', function() {
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('user');
+            checkAuthStatus();
+            document.getElementById('loginResult').innerHTML = '<span style="color: blue;">Dados de autenticação limpos</span>';
+        });
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            checkAuthStatus();
+        });
+    </script>
+</body>
+</html>
